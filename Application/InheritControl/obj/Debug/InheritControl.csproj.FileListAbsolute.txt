@@ -1,0 +1,5 @@
+D:\HOC_KY_7\Phat_trien_ung_dung_thong_minh\GitHub\book-store-application\Application\InheritControl\bin\Debug\InheritControl.dll
+D:\HOC_KY_7\Phat_trien_ung_dung_thong_minh\GitHub\book-store-application\Application\InheritControl\bin\Debug\InheritControl.pdb
+D:\HOC_KY_7\Phat_trien_ung_dung_thong_minh\GitHub\book-store-application\Application\InheritControl\obj\Debug\InheritControl.csproj.CoreCompileInputs.cache
+D:\HOC_KY_7\Phat_trien_ung_dung_thong_minh\GitHub\book-store-application\Application\InheritControl\obj\Debug\InheritControl.dll
+D:\HOC_KY_7\Phat_trien_ung_dung_thong_minh\GitHub\book-store-application\Application\InheritControl\obj\Debug\InheritControl.pdb
