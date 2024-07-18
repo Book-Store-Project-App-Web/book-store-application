@@ -8,3 +8,8 @@ D:\HOC_KY_7\Phat_trien_ung_dung_thong_minh\GitHub\book-store-application\Applica
 D:\HOC_KY_7\Phat_trien_ung_dung_thong_minh\GitHub\book-store-application\Application\Main\obj\Debug\Main.csproj.CoreCompileInputs.cache
 D:\HOC_KY_7\Phat_trien_ung_dung_thong_minh\GitHub\book-store-application\Application\Main\obj\Debug\Main.exe
 D:\HOC_KY_7\Phat_trien_ung_dung_thong_minh\GitHub\book-store-application\Application\Main\obj\Debug\Main.pdb
+D:\HOC_KY_7\Phat_trien_ung_dung_thong_minh\GitHub\book-store-application\Application\Main\bin\Debug\InheritControl.dll
+D:\HOC_KY_7\Phat_trien_ung_dung_thong_minh\GitHub\book-store-application\Application\Main\bin\Debug\InheritControl.pdb
+D:\HOC_KY_7\Phat_trien_ung_dung_thong_minh\GitHub\book-store-application\Application\Main\obj\Debug\Main.csproj.CopyComplete
+D:\HOC_KY_7\Phat_trien_ung_dung_thong_minh\GitHub\book-store-application\Application\Main\bin\Debug\BCrypt.Net.dll
+D:\HOC_KY_7\Phat_trien_ung_dung_thong_minh\GitHub\book-store-application\Application\Main\bin\Debug\BCrypt.Net.xml
