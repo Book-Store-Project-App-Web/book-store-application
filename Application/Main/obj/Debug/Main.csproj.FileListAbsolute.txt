@@ -1,0 +1,10 @@
+D:\HOC_KY_7\Phat_trien_ung_dung_thong_minh\GitHub\book-store-application\Application\Main\bin\Debug\Main.exe.config
+D:\HOC_KY_7\Phat_trien_ung_dung_thong_minh\GitHub\book-store-application\Application\Main\bin\Debug\Main.exe
+D:\HOC_KY_7\Phat_trien_ung_dung_thong_minh\GitHub\book-store-application\Application\Main\bin\Debug\Main.pdb
+D:\HOC_KY_7\Phat_trien_ung_dung_thong_minh\GitHub\book-store-application\Application\Main\obj\Debug\Main.csproj.AssemblyReference.cache
+D:\HOC_KY_7\Phat_trien_ung_dung_thong_minh\GitHub\book-store-application\Application\Main\obj\Debug\Main.Form1.resources
+D:\HOC_KY_7\Phat_trien_ung_dung_thong_minh\GitHub\book-store-application\Application\Main\obj\Debug\Main.Properties.Resources.resources
+D:\HOC_KY_7\Phat_trien_ung_dung_thong_minh\GitHub\book-store-application\Application\Main\obj\Debug\Main.csproj.GenerateResource.cache
+D:\HOC_KY_7\Phat_trien_ung_dung_thong_minh\GitHub\book-store-application\Application\Main\obj\Debug\Main.csproj.CoreCompileInputs.cache
+D:\HOC_KY_7\Phat_trien_ung_dung_thong_minh\GitHub\book-store-application\Application\Main\obj\Debug\Main.exe
+D:\HOC_KY_7\Phat_trien_ung_dung_thong_minh\GitHub\book-store-application\Application\Main\obj\Debug\Main.pdb
