@@ -28,3 +28,4 @@ C:\Users\VI\OneDrive\Documents\GitHub\book-store-application\Application\Main\ob
 C:\Users\VI\OneDrive\Documents\GitHub\book-store-application\Application\Main\obj\Debug\Main.csproj.CopyComplete
 C:\Users\VI\OneDrive\Documents\GitHub\book-store-application\Application\Main\obj\Debug\Main.exe
 C:\Users\VI\OneDrive\Documents\GitHub\book-store-application\Application\Main\obj\Debug\Main.pdb
+C:\Users\VI\OneDrive\Documents\GitHub\book-store-application\Application\Main\obj\Debug\Main.frmSystem.resources
