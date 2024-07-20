@@ -11,14 +11,31 @@ using System.Windows.Forms;
 
 namespace Main
 {
-    public partial class Form1 : Form
+    public partial class frmLogin : Form
     {
         private SqlConnection connection;
 
-        public Form1()
+        public frmLogin()
         {
             InitializeComponent();
+            this.chkBoxShowpassword.CheckedChanged += ChkBoxShowpassword_CheckedChanged;
         }
+
+        private void ChkBoxShowpassword_CheckedChanged(object sender, EventArgs e)
+        {
+            if (txtPassword.Text != null)
+            {
+                if (chkBoxShowpassword.Checked)
+                {
+                    txtPassword.UseSystemPasswordChar = false;
+                }
+                else
+                {
+                    txtPassword.UseSystemPasswordChar = true;
+                }
+            }
+        }
+
         private void InitializeMySqlConnection()
         {
             string connectionString = @"Data Source=DESKTOP-8I1VIDD\SQLEXPRESS;Initial Catalog=Module_DN;Persist Security Info=True;User ID=sa;Password =123";
@@ -33,10 +50,6 @@ namespace Main
             {
                 MessageBox.Show("Kết nối thất bại" + ex.Message);
             }
-        }
-        private void button1_Click(object sender, EventArgs e)
-        {
-            InitializeMySqlConnection();
         }
     }
 }
