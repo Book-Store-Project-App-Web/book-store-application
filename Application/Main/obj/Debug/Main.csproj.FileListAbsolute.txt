@@ -13,6 +13,12 @@ D:\HOC_KY_7\Phat_trien_ung_dung_thong_minh\GitHub\book-store-application\Applica
 D:\HOC_KY_7\Phat_trien_ung_dung_thong_minh\GitHub\book-store-application\Application\Main\obj\Debug\Main.csproj.CopyComplete
 D:\HOC_KY_7\Phat_trien_ung_dung_thong_minh\GitHub\book-store-application\Application\Main\bin\Debug\BCrypt.Net.dll
 D:\HOC_KY_7\Phat_trien_ung_dung_thong_minh\GitHub\book-store-application\Application\Main\bin\Debug\BCrypt.Net.xml
+C:\Users\VI\OneDrive\Documents\GitHub\book-store-application\Application\Main\obj\Debug\Main.csprojAssemblyReference.cache
+C:\Users\VI\OneDrive\Documents\GitHub\book-store-application\Application\Main\obj\Debug\Main.frmLogin.resources
+C:\Users\VI\OneDrive\Documents\GitHub\book-store-application\Application\Main\obj\Debug\Main.frmSystem.resources
+C:\Users\VI\OneDrive\Documents\GitHub\book-store-application\Application\Main\obj\Debug\Main.Properties.Resources.resources
+C:\Users\VI\OneDrive\Documents\GitHub\book-store-application\Application\Main\obj\Debug\Main.csproj.GenerateResource.cache
+C:\Users\VI\OneDrive\Documents\GitHub\book-store-application\Application\Main\obj\Debug\Main.csproj.CoreCompileInputs.cache
 C:\Users\VI\OneDrive\Documents\GitHub\book-store-application\Application\Main\bin\Debug\Main.exe.config
 C:\Users\VI\OneDrive\Documents\GitHub\book-store-application\Application\Main\bin\Debug\Main.exe
 C:\Users\VI\OneDrive\Documents\GitHub\book-store-application\Application\Main\bin\Debug\Main.pdb
@@ -20,12 +26,6 @@ C:\Users\VI\OneDrive\Documents\GitHub\book-store-application\Application\Main\bi
 C:\Users\VI\OneDrive\Documents\GitHub\book-store-application\Application\Main\bin\Debug\InheritControl.dll
 C:\Users\VI\OneDrive\Documents\GitHub\book-store-application\Application\Main\bin\Debug\InheritControl.pdb
 C:\Users\VI\OneDrive\Documents\GitHub\book-store-application\Application\Main\bin\Debug\BCrypt.Net.xml
-C:\Users\VI\OneDrive\Documents\GitHub\book-store-application\Application\Main\obj\Debug\Main.csprojAssemblyReference.cache
-C:\Users\VI\OneDrive\Documents\GitHub\book-store-application\Application\Main\obj\Debug\Main.frmLogin.resources
-C:\Users\VI\OneDrive\Documents\GitHub\book-store-application\Application\Main\obj\Debug\Main.Properties.Resources.resources
-C:\Users\VI\OneDrive\Documents\GitHub\book-store-application\Application\Main\obj\Debug\Main.csproj.GenerateResource.cache
-C:\Users\VI\OneDrive\Documents\GitHub\book-store-application\Application\Main\obj\Debug\Main.csproj.CoreCompileInputs.cache
 C:\Users\VI\OneDrive\Documents\GitHub\book-store-application\Application\Main\obj\Debug\Main.csproj.CopyComplete
 C:\Users\VI\OneDrive\Documents\GitHub\book-store-application\Application\Main\obj\Debug\Main.exe
 C:\Users\VI\OneDrive\Documents\GitHub\book-store-application\Application\Main\obj\Debug\Main.pdb
-C:\Users\VI\OneDrive\Documents\GitHub\book-store-application\Application\Main\obj\Debug\Main.frmSystem.resources
