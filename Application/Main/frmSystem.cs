@@ -15,6 +15,12 @@ namespace Main
         public frmSystem()
         {
             InitializeComponent();
+            this.QuanLyHangMenu.Click += QuanLyHangMenu_Click;
+        }
+
+        private void QuanLyHangMenu_Click(object sender, EventArgs e)
+        {
+            Program.BookFrom.Show();
         }
     }
 }

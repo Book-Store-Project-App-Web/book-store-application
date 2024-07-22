@@ -20,9 +20,9 @@ namespace Main {
     [global::System.ComponentModel.DesignerCategoryAttribute("code")]
     [global::System.ComponentModel.ToolboxItem(true)]
     [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedDataSetSchema")]
-    [global::System.Xml.Serialization.XmlRootAttribute("bookDataSet")]
+    [global::System.Xml.Serialization.XmlRootAttribute("bookDataSet1")]
     [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.DataSet")]
-    public partial class bookDataSet : global::System.Data.DataSet {
+    public partial class bookDataSet1 : global::System.Data.DataSet {
         
         private BookDataTable tableBook;
         
@@ -42,7 +42,7 @@ namespace Main {
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        public bookDataSet() {
+        public bookDataSet1() {
             this.BeginInit();
             this.InitClass();
             global::System.ComponentModel.CollectionChangeEventHandler schemaChangedHandler = new global::System.ComponentModel.CollectionChangeEventHandler(this.SchemaChanged);
@@ -53,7 +53,7 @@ namespace Main {
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        protected bookDataSet(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
+        protected bookDataSet1(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
                 base(info, context, false) {
             if ((this.IsBinarySerialized(info, context) == true)) {
                 this.InitVars(false);
@@ -217,7 +217,7 @@ namespace Main {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         public override global::System.Data.DataSet Clone() {
-            bookDataSet cln = ((bookDataSet)(base.Clone()));
+            bookDataSet1 cln = ((bookDataSet1)(base.Clone()));
             cln.InitVars();
             cln.SchemaSerializationMode = this.SchemaSerializationMode;
             return cln;
@@ -343,9 +343,9 @@ namespace Main {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         private void InitClass() {
-            this.DataSetName = "bookDataSet";
+            this.DataSetName = "bookDataSet1";
             this.Prefix = "";
-            this.Namespace = "http://tempuri.org/bookDataSet.xsd";
+            this.Namespace = "http://tempuri.org/bookDataSet1.xsd";
             this.EnforceConstraints = true;
             this.SchemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
             this.tableBook = new BookDataTable();
@@ -417,7 +417,7 @@ namespace Main {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedDataSetSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
-            bookDataSet ds = new bookDataSet();
+            bookDataSet1 ds = new bookDataSet1();
             global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
             global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
             global::System.Xml.Schema.XmlSchemaAny any = new global::System.Xml.Schema.XmlSchemaAny();
@@ -848,7 +848,7 @@ namespace Main {
             public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
                 global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
                 global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
-                bookDataSet ds = new bookDataSet();
+                bookDataSet1 ds = new bookDataSet1();
                 global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
                 any1.Namespace = "http://www.w3.org/2001/XMLSchema";
                 any1.MinOccurs = new decimal(0);
@@ -1184,7 +1184,7 @@ namespace Main {
             public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
                 global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
                 global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
-                bookDataSet ds = new bookDataSet();
+                bookDataSet1 ds = new bookDataSet1();
                 global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
                 any1.Namespace = "http://www.w3.org/2001/XMLSchema";
                 any1.MinOccurs = new decimal(0);
@@ -1520,7 +1520,7 @@ namespace Main {
             public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
                 global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
                 global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
-                bookDataSet ds = new bookDataSet();
+                bookDataSet1 ds = new bookDataSet1();
                 global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
                 any1.Namespace = "http://www.w3.org/2001/XMLSchema";
                 any1.MinOccurs = new decimal(0);
@@ -1855,7 +1855,7 @@ namespace Main {
             public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
                 global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
                 global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
-                bookDataSet ds = new bookDataSet();
+                bookDataSet1 ds = new bookDataSet1();
                 global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
                 any1.Namespace = "http://www.w3.org/2001/XMLSchema";
                 any1.MinOccurs = new decimal(0);
@@ -2224,7 +2224,7 @@ namespace Main {
             public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
                 global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
                 global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
-                bookDataSet ds = new bookDataSet();
+                bookDataSet1 ds = new bookDataSet1();
                 global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
                 any1.Namespace = "http://www.w3.org/2001/XMLSchema";
                 any1.MinOccurs = new decimal(0);
@@ -2483,7 +2483,7 @@ namespace Main {
             public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
                 global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
                 global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
-                bookDataSet ds = new bookDataSet();
+                bookDataSet1 ds = new bookDataSet1();
                 global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
                 any1.Namespace = "http://www.w3.org/2001/XMLSchema";
                 any1.MinOccurs = new decimal(0);
@@ -2869,7 +2869,7 @@ namespace Main {
             public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
                 global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
                 global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
-                bookDataSet ds = new bookDataSet();
+                bookDataSet1 ds = new bookDataSet1();
                 global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
                 any1.Namespace = "http://www.w3.org/2001/XMLSchema";
                 any1.MinOccurs = new decimal(0);
@@ -4004,7 +4004,7 @@ namespace Main {
         }
     }
 }
-namespace Main.bookDataSetTableAdapters {
+namespace Main.bookDataSet1TableAdapters {
     
     
     /// <summary>
@@ -4218,8 +4218,7 @@ SELECT id, name, author, price, discount, stock, slug, totalRating, sold, rating
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = "Data Source=LAPTOP-3JB6IQD2;Initial Catalog=book;Persist Security Info=True;User " +
-                "ID=sa";
+            this._connection.ConnectionString = global::Main.Properties.Settings.Default.bookConnectionString;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -4237,7 +4236,7 @@ SELECT id, name, author, price, discount, stock, slug, totalRating, sold, rating
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
-        public virtual int Fill(bookDataSet.BookDataTable dataTable) {
+        public virtual int Fill(bookDataSet1.BookDataTable dataTable) {
             this.Adapter.SelectCommand = this.CommandCollection[0];
             if ((this.ClearBeforeFill == true)) {
                 dataTable.Clear();
@@ -4250,9 +4249,9 @@ SELECT id, name, author, price, discount, stock, slug, totalRating, sold, rating
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
-        public virtual bookDataSet.BookDataTable GetData() {
+        public virtual bookDataSet1.BookDataTable GetData() {
             this.Adapter.SelectCommand = this.CommandCollection[0];
-            bookDataSet.BookDataTable dataTable = new bookDataSet.BookDataTable();
+            bookDataSet1.BookDataTable dataTable = new bookDataSet1.BookDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
         }
@@ -4260,14 +4259,14 @@ SELECT id, name, author, price, discount, stock, slug, totalRating, sold, rating
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(bookDataSet.BookDataTable dataTable) {
+        public virtual int Update(bookDataSet1.BookDataTable dataTable) {
             return this.Adapter.Update(dataTable);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(bookDataSet dataSet) {
+        public virtual int Update(bookDataSet1 dataSet) {
             return this.Adapter.Update(dataSet, "Book");
         }
         
@@ -4787,8 +4786,7 @@ SELECT id, bookId, cartId, quantity, createdAt, updatedAt FROM Book_Cart WHERE (
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = "Data Source=LAPTOP-3JB6IQD2;Initial Catalog=book;Persist Security Info=True;User " +
-                "ID=sa";
+            this._connection.ConnectionString = global::Main.Properties.Settings.Default.bookConnectionString;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -4805,7 +4803,7 @@ SELECT id, bookId, cartId, quantity, createdAt, updatedAt FROM Book_Cart WHERE (
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
-        public virtual int Fill(bookDataSet.Book_CartDataTable dataTable) {
+        public virtual int Fill(bookDataSet1.Book_CartDataTable dataTable) {
             this.Adapter.SelectCommand = this.CommandCollection[0];
             if ((this.ClearBeforeFill == true)) {
                 dataTable.Clear();
@@ -4818,9 +4816,9 @@ SELECT id, bookId, cartId, quantity, createdAt, updatedAt FROM Book_Cart WHERE (
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
-        public virtual bookDataSet.Book_CartDataTable GetData() {
+        public virtual bookDataSet1.Book_CartDataTable GetData() {
             this.Adapter.SelectCommand = this.CommandCollection[0];
-            bookDataSet.Book_CartDataTable dataTable = new bookDataSet.Book_CartDataTable();
+            bookDataSet1.Book_CartDataTable dataTable = new bookDataSet1.Book_CartDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
         }
@@ -4828,14 +4826,14 @@ SELECT id, bookId, cartId, quantity, createdAt, updatedAt FROM Book_Cart WHERE (
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(bookDataSet.Book_CartDataTable dataTable) {
+        public virtual int Update(bookDataSet1.Book_CartDataTable dataTable) {
             return this.Adapter.Update(dataTable);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(bookDataSet dataSet) {
+        public virtual int Update(bookDataSet1 dataSet) {
             return this.Adapter.Update(dataSet, "Book_Cart");
         }
         
@@ -5146,8 +5144,7 @@ SELECT id, bookId, orderId, quantity, createdAt, updatedAt FROM Book_Order WHERE
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = "Data Source=LAPTOP-3JB6IQD2;Initial Catalog=book;Persist Security Info=True;User " +
-                "ID=sa";
+            this._connection.ConnectionString = global::Main.Properties.Settings.Default.bookConnectionString;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -5164,7 +5161,7 @@ SELECT id, bookId, orderId, quantity, createdAt, updatedAt FROM Book_Order WHERE
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
-        public virtual int Fill(bookDataSet.Book_OrderDataTable dataTable) {
+        public virtual int Fill(bookDataSet1.Book_OrderDataTable dataTable) {
             this.Adapter.SelectCommand = this.CommandCollection[0];
             if ((this.ClearBeforeFill == true)) {
                 dataTable.Clear();
@@ -5177,9 +5174,9 @@ SELECT id, bookId, orderId, quantity, createdAt, updatedAt FROM Book_Order WHERE
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
-        public virtual bookDataSet.Book_OrderDataTable GetData() {
+        public virtual bookDataSet1.Book_OrderDataTable GetData() {
             this.Adapter.SelectCommand = this.CommandCollection[0];
-            bookDataSet.Book_OrderDataTable dataTable = new bookDataSet.Book_OrderDataTable();
+            bookDataSet1.Book_OrderDataTable dataTable = new bookDataSet1.Book_OrderDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
         }
@@ -5187,14 +5184,14 @@ SELECT id, bookId, orderId, quantity, createdAt, updatedAt FROM Book_Order WHERE
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(bookDataSet.Book_OrderDataTable dataTable) {
+        public virtual int Update(bookDataSet1.Book_OrderDataTable dataTable) {
             return this.Adapter.Update(dataTable);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(bookDataSet dataSet) {
+        public virtual int Update(bookDataSet1 dataSet) {
             return this.Adapter.Update(dataSet, "Book_Order");
         }
         
@@ -5507,8 +5504,7 @@ SELECT id, userId, totalQuantity, totalCartPrice, createdAt, updatedAt FROM Cart
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = "Data Source=LAPTOP-3JB6IQD2;Initial Catalog=book;Persist Security Info=True;User " +
-                "ID=sa";
+            this._connection.ConnectionString = global::Main.Properties.Settings.Default.bookConnectionString;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -5526,7 +5522,7 @@ SELECT id, userId, totalQuantity, totalCartPrice, createdAt, updatedAt FROM Cart
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
-        public virtual int Fill(bookDataSet.CartDataTable dataTable) {
+        public virtual int Fill(bookDataSet1.CartDataTable dataTable) {
             this.Adapter.SelectCommand = this.CommandCollection[0];
             if ((this.ClearBeforeFill == true)) {
                 dataTable.Clear();
@@ -5539,9 +5535,9 @@ SELECT id, userId, totalQuantity, totalCartPrice, createdAt, updatedAt FROM Cart
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
-        public virtual bookDataSet.CartDataTable GetData() {
+        public virtual bookDataSet1.CartDataTable GetData() {
             this.Adapter.SelectCommand = this.CommandCollection[0];
-            bookDataSet.CartDataTable dataTable = new bookDataSet.CartDataTable();
+            bookDataSet1.CartDataTable dataTable = new bookDataSet1.CartDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
         }
@@ -5549,14 +5545,14 @@ SELECT id, userId, totalQuantity, totalCartPrice, createdAt, updatedAt FROM Cart
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(bookDataSet.CartDataTable dataTable) {
+        public virtual int Update(bookDataSet1.CartDataTable dataTable) {
             return this.Adapter.Update(dataTable);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(bookDataSet dataSet) {
+        public virtual int Update(bookDataSet1 dataSet) {
             return this.Adapter.Update(dataSet, "Cart");
         }
         
@@ -5901,8 +5897,7 @@ SELECT id, userId, fullName, phone, address, totalOrderPrice, createdAt, updated
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = "Data Source=LAPTOP-3JB6IQD2;Initial Catalog=book;Persist Security Info=True;User " +
-                "ID=sa";
+            this._connection.ConnectionString = global::Main.Properties.Settings.Default.bookConnectionString;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -5920,7 +5915,7 @@ SELECT id, userId, fullName, phone, address, totalOrderPrice, createdAt, updated
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
-        public virtual int Fill(bookDataSet.OrderDataTable dataTable) {
+        public virtual int Fill(bookDataSet1.OrderDataTable dataTable) {
             this.Adapter.SelectCommand = this.CommandCollection[0];
             if ((this.ClearBeforeFill == true)) {
                 dataTable.Clear();
@@ -5933,9 +5928,9 @@ SELECT id, userId, fullName, phone, address, totalOrderPrice, createdAt, updated
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
-        public virtual bookDataSet.OrderDataTable GetData() {
+        public virtual bookDataSet1.OrderDataTable GetData() {
             this.Adapter.SelectCommand = this.CommandCollection[0];
-            bookDataSet.OrderDataTable dataTable = new bookDataSet.OrderDataTable();
+            bookDataSet1.OrderDataTable dataTable = new bookDataSet1.OrderDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
         }
@@ -5943,14 +5938,14 @@ SELECT id, userId, fullName, phone, address, totalOrderPrice, createdAt, updated
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(bookDataSet.OrderDataTable dataTable) {
+        public virtual int Update(bookDataSet1.OrderDataTable dataTable) {
             return this.Adapter.Update(dataTable);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(bookDataSet dataSet) {
+        public virtual int Update(bookDataSet1 dataSet) {
             return this.Adapter.Update(dataSet, "Order");
         }
         
@@ -6319,8 +6314,7 @@ SELECT id, userId, fullName, phone, address, totalOrderPrice, createdAt, updated
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = "Data Source=LAPTOP-3JB6IQD2;Initial Catalog=book;Persist Security Info=True;User " +
-                "ID=sa";
+            this._connection.ConnectionString = global::Main.Properties.Settings.Default.bookConnectionString;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -6337,7 +6331,7 @@ SELECT id, userId, fullName, phone, address, totalOrderPrice, createdAt, updated
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
-        public virtual int Fill(bookDataSet.SequelizeMetaDataTable dataTable) {
+        public virtual int Fill(bookDataSet1.SequelizeMetaDataTable dataTable) {
             this.Adapter.SelectCommand = this.CommandCollection[0];
             if ((this.ClearBeforeFill == true)) {
                 dataTable.Clear();
@@ -6350,9 +6344,9 @@ SELECT id, userId, fullName, phone, address, totalOrderPrice, createdAt, updated
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
-        public virtual bookDataSet.SequelizeMetaDataTable GetData() {
+        public virtual bookDataSet1.SequelizeMetaDataTable GetData() {
             this.Adapter.SelectCommand = this.CommandCollection[0];
-            bookDataSet.SequelizeMetaDataTable dataTable = new bookDataSet.SequelizeMetaDataTable();
+            bookDataSet1.SequelizeMetaDataTable dataTable = new bookDataSet1.SequelizeMetaDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
         }
@@ -6360,14 +6354,14 @@ SELECT id, userId, fullName, phone, address, totalOrderPrice, createdAt, updated
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(bookDataSet.SequelizeMetaDataTable dataTable) {
+        public virtual int Update(bookDataSet1.SequelizeMetaDataTable dataTable) {
             return this.Adapter.Update(dataTable);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(bookDataSet dataSet) {
+        public virtual int Update(bookDataSet1 dataSet) {
             return this.Adapter.Update(dataSet, "SequelizeMeta");
         }
         
@@ -6672,8 +6666,7 @@ SELECT id, firstName, lastName, phone, email, password, sex, createdAt, updatedA
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = "Data Source=LAPTOP-3JB6IQD2;Initial Catalog=book;Persist Security Info=True;User " +
-                "ID=sa";
+            this._connection.ConnectionString = global::Main.Properties.Settings.Default.bookConnectionString;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -6691,7 +6684,7 @@ SELECT id, firstName, lastName, phone, email, password, sex, createdAt, updatedA
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
-        public virtual int Fill(bookDataSet.UserDataTable dataTable) {
+        public virtual int Fill(bookDataSet1.UserDataTable dataTable) {
             this.Adapter.SelectCommand = this.CommandCollection[0];
             if ((this.ClearBeforeFill == true)) {
                 dataTable.Clear();
@@ -6704,9 +6697,9 @@ SELECT id, firstName, lastName, phone, email, password, sex, createdAt, updatedA
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
-        public virtual bookDataSet.UserDataTable GetData() {
+        public virtual bookDataSet1.UserDataTable GetData() {
             this.Adapter.SelectCommand = this.CommandCollection[0];
-            bookDataSet.UserDataTable dataTable = new bookDataSet.UserDataTable();
+            bookDataSet1.UserDataTable dataTable = new bookDataSet1.UserDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
         }
@@ -6714,14 +6707,14 @@ SELECT id, firstName, lastName, phone, email, password, sex, createdAt, updatedA
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(bookDataSet.UserDataTable dataTable) {
+        public virtual int Update(bookDataSet1.UserDataTable dataTable) {
             return this.Adapter.Update(dataTable);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(bookDataSet dataSet) {
+        public virtual int Update(bookDataSet1 dataSet) {
             return this.Adapter.Update(dataSet, "User");
         }
         
@@ -7239,7 +7232,7 @@ SELECT id, firstName, lastName, phone, email, password, sex, createdAt, updatedA
         ///</summary>
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        private int UpdateUpdatedRows(bookDataSet dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
+        private int UpdateUpdatedRows(bookDataSet1 dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
             int result = 0;
             if ((this._bookTableAdapter != null)) {
                 global::System.Data.DataRow[] updatedRows = dataSet.Book.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
@@ -7312,7 +7305,7 @@ SELECT id, firstName, lastName, phone, email, password, sex, createdAt, updatedA
         ///</summary>
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        private int UpdateInsertedRows(bookDataSet dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
+        private int UpdateInsertedRows(bookDataSet1 dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
             int result = 0;
             if ((this._bookTableAdapter != null)) {
                 global::System.Data.DataRow[] addedRows = dataSet.Book.Select(null, null, global::System.Data.DataViewRowState.Added);
@@ -7378,7 +7371,7 @@ SELECT id, firstName, lastName, phone, email, password, sex, createdAt, updatedA
         ///</summary>
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        private int UpdateDeletedRows(bookDataSet dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows) {
+        private int UpdateDeletedRows(bookDataSet1 dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows) {
             int result = 0;
             if ((this._userTableAdapter != null)) {
                 global::System.Data.DataRow[] deletedRows = dataSet.User.Select(null, null, global::System.Data.DataViewRowState.Deleted);
@@ -7468,7 +7461,7 @@ SELECT id, firstName, lastName, phone, email, password, sex, createdAt, updatedA
         ///</summary>
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        public virtual int UpdateAll(bookDataSet dataSet) {
+        public virtual int UpdateAll(bookDataSet1 dataSet) {
             if ((dataSet == null)) {
                 throw new global::System.ArgumentNullException("dataSet");
             }

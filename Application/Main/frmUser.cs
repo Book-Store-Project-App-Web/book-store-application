@@ -17,18 +17,18 @@ namespace Main
             InitializeComponent();
         }
 
-        private void bookBindingNavigatorSaveItem_Click(object sender, EventArgs e)
+        private void userBindingNavigatorSaveItem_Click(object sender, EventArgs e)
         {
             this.Validate();
-            this.bookBindingSource.EndEdit();
-            this.tableAdapterManager.UpdateAll(this.bookDataSet);
+            this.userBindingSource.EndEdit();
+            this.tableAdapterManager.UpdateAll(this.bookDataSet1);
 
         }
 
         private void frmUser_Load(object sender, EventArgs e)
         {
-            // TODO: This line of code loads data into the 'bookDataSet.User' table. You can move, or remove it, as needed.
-            this.userTableAdapter.Fill(this.bookDataSet.User);
+            // TODO: This line of code loads data into the 'bookDataSet1.User' table. You can move, or remove it, as needed.
+            this.userTableAdapter.Fill(this.bookDataSet1.User);
 
         }
     }

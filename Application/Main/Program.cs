@@ -9,7 +9,9 @@ namespace Main
     static class Program
     {
         public static frmLogin loginForm = null;
+        public static frmSystem SystemForm = null;
         public static frmUser UserForm = null;
+        public static frmBook BookFrom = null;
         /// <summary>
         /// The main entry point for the application.
         /// </summary>
@@ -20,7 +22,9 @@ namespace Main
             Application.SetCompatibleTextRenderingDefault(false);
             loginForm = new frmLogin();
             UserForm = new frmUser();
-            Application.Run(new frmSystem());
+            SystemForm = new frmSystem();
+            BookFrom = new frmBook();
+            Application.Run(SystemForm);
         }
     }
 }
