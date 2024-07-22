@@ -18,6 +18,7 @@ namespace Main
         public frmLogin()
         {
             InitializeComponent();
+            InitializeMySqlConnection();
             this.chkBoxShowpassword.CheckedChanged += ChkBoxShowpassword_CheckedChanged;
         }
 
@@ -38,7 +39,7 @@ namespace Main
 
         private void InitializeMySqlConnection()
         {
-            string connectionString = @"Data Source=DESKTOP-8I1VIDD\SQLEXPRESS;Initial Catalog=Module_DN;Persist Security Info=True;User ID=sa;Password =123";
+            string connectionString = @"Data Source=LAPTOP-3JB6IQD2;Initial Catalog=book;Persist Security Info=True;User ID=sa;Password =sa123";
             connection = new SqlConnection(connectionString);
 
             try
