@@ -20,7 +20,7 @@ namespace Main
 
         private void QuanLyHangMenu_Click(object sender, EventArgs e)
         {
-            Program.BookFrom.Show();
+            //Program.BookFrom.Show();
         }
     }
 }
