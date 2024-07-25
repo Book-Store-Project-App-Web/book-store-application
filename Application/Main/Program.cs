@@ -10,8 +10,8 @@ namespace Main
     {
         public static frmLogin loginForm = null;
         public static frmSystem SystemForm = null;
-        public static frmUser UserForm = null;
-        public static frmBook BookFrom = null;
+        //public static frmUser UserForm = null;
+        //public static frmBook BookFrom = null;
         /// <summary>
         /// The main entry point for the application.
         /// </summary>
@@ -21,9 +21,9 @@ namespace Main
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             loginForm = new frmLogin();
-            UserForm = new frmUser();
+            //UserForm = new frmUser();
             SystemForm = new frmSystem();
-            BookFrom = new frmBook();
+            //BookFrom = new frmBook();
             Application.Run(SystemForm);
         }
     }
