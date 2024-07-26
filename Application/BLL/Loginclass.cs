@@ -12,21 +12,21 @@ namespace BLL
 {
     public class Loginclass
     {
-        private string connectString;
-        public Loginclass(string connectionString)
+        
+        public Loginclass()
         {
-            this.connectString = connectionString;
+            
         }
         
-        public int Check_config()
+        public int Check_config(string connectionString)
         {
-            if (string.IsNullOrEmpty(connectString))
+            if (string.IsNullOrEmpty(connectionString))
                 return 1;
-            SqlConnection connect = new SqlConnection(connectString);
+            SqlConnection _Sqlconn = new SqlConnection(connectionString);
             try
             {
-                if (connect.State == ConnectionState.Closed)
-                    connect.Open();
+                if (_Sqlconn.State == System.Data.ConnectionState.Closed)
+                    _Sqlconn.Open();
                 return 0;
             }
             catch
@@ -37,24 +37,24 @@ namespace BLL
 
         public Utilities.LoginResult Check_User(string pUsername, string pPassword)
         {
-            using (SqlConnection con = new SqlConnection(connectString))
-            {
-                string query = "SELECT * FROM QL_NguoiDung WHERE TenDangNhap = @username AND MatKhau = @password";
-                SqlCommand cmd = new SqlCommand(query, con);
-                cmd.Parameters.AddWithValue("@username", pUsername);
-                cmd.Parameters.AddWithValue("@password", pPassword);
+            //using (SqlConnection con = new SqlConnection(connectString))
+            //{
+            //    string query = "SELECT * FROM QL_NguoiDung WHERE TenDangNhap = @username AND MatKhau = @password";
+            //    SqlCommand cmd = new SqlCommand(query, con);
+            //    cmd.Parameters.AddWithValue("@username", pUsername);
+            //    cmd.Parameters.AddWithValue("@password", pPassword);
 
-                SqlDataAdapter dataUser = new SqlDataAdapter(cmd);
-                DataTable data = new DataTable();
-                dataUser.Fill(data);
+            //    SqlDataAdapter dataUser = new SqlDataAdapter(cmd);
+            //    DataTable data = new DataTable();
+            //    dataUser.Fill(data);
 
-                if (data.Rows.Count == 0) return Utilities.LoginResult.Invalid;
-                else if (data.Rows[0][2] == null || data.Rows[0][2].ToString() == "False")
-                {
-                    return Utilities.LoginResult.Disabled;
-                }
+            //    if (data.Rows.Count == 0) return Utilities.LoginResult.Invalid;
+            //    else if (data.Rows[0][2] == null || data.Rows[0][2].ToString() == "False")
+            //    {
+            //        return Utilities.LoginResult.Disabled;
+            //    }
                 return Utilities.LoginResult.Success;
-            }
+            //}
         }
 
         public DataTable getServerName()

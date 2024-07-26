@@ -25,7 +25,8 @@ namespace Main.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=DESKTOP-8I1VIDD\\SQLEXPRESS;Initial Catalog=ModuleDN;Persist Security " +
+            "Info=True;User ID=sa;Password=123")]
         public string conn {
             get {
                 return ((string)(this["conn"]));

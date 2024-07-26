@@ -19,7 +19,6 @@ namespace Main
         {
             InitializeComponent();
             connectionString = Properties.Settings.Default.conn;
-            loginClass = new Loginclass(connectionString);
 
             this.btnSave.Click += BtnSave_Click;
             this.cboSeverName.DropDown += CboSeverName_DropDown;
