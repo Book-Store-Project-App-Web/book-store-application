@@ -32,13 +32,13 @@ namespace Main
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmLogin));
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.btnSignIn = new System.Windows.Forms.Button();
+            this.chkBoxShowpassword = new System.Windows.Forms.CheckBox();
             this.lblTitleDN = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.txtEmail = new InheritControl.EmailText();
             this.txtPassword = new InheritControl.PasswordText();
-            this.chkBoxShowpassword = new System.Windows.Forms.CheckBox();
-            this.button1 = new System.Windows.Forms.Button();
+            this.txtEmail = new InheritControl.EmailText();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -55,7 +55,7 @@ namespace Main
             // 
             // panel1
             // 
-            this.panel1.Controls.Add(this.button1);
+            this.panel1.Controls.Add(this.btnSignIn);
             this.panel1.Controls.Add(this.chkBoxShowpassword);
             this.panel1.Controls.Add(this.txtPassword);
             this.panel1.Controls.Add(this.txtEmail);
@@ -66,6 +66,29 @@ namespace Main
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(409, 376);
             this.panel1.TabIndex = 15;
+            // 
+            // btnSignIn
+            // 
+            this.btnSignIn.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSignIn.ForeColor = System.Drawing.Color.Black;
+            this.btnSignIn.Location = new System.Drawing.Point(160, 260);
+            this.btnSignIn.Name = "btnSignIn";
+            this.btnSignIn.Size = new System.Drawing.Size(135, 50);
+            this.btnSignIn.TabIndex = 21;
+            this.btnSignIn.Text = "Sign in";
+            this.btnSignIn.UseVisualStyleBackColor = true;
+            // 
+            // chkBoxShowpassword
+            // 
+            this.chkBoxShowpassword.AutoSize = true;
+            this.chkBoxShowpassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.chkBoxShowpassword.ForeColor = System.Drawing.Color.Black;
+            this.chkBoxShowpassword.Location = new System.Drawing.Point(48, 219);
+            this.chkBoxShowpassword.Name = "chkBoxShowpassword";
+            this.chkBoxShowpassword.Size = new System.Drawing.Size(149, 24);
+            this.chkBoxShowpassword.TabIndex = 20;
+            this.chkBoxShowpassword.Text = "Show password";
+            this.chkBoxShowpassword.UseVisualStyleBackColor = true;
             // 
             // lblTitleDN
             // 
@@ -100,14 +123,6 @@ namespace Main
             this.label1.TabIndex = 15;
             this.label1.Text = "Email";
             // 
-            // txtEmail
-            // 
-            this.txtEmail.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtEmail.Location = new System.Drawing.Point(143, 122);
-            this.txtEmail.Name = "txtEmail";
-            this.txtEmail.Size = new System.Drawing.Size(236, 27);
-            this.txtEmail.TabIndex = 18;
-            // 
             // txtPassword
             // 
             this.txtPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -117,28 +132,13 @@ namespace Main
             this.txtPassword.TabIndex = 19;
             this.txtPassword.UseSystemPasswordChar = true;
             // 
-            // chkBoxShowpassword
+            // txtEmail
             // 
-            this.chkBoxShowpassword.AutoSize = true;
-            this.chkBoxShowpassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.chkBoxShowpassword.ForeColor = System.Drawing.Color.Black;
-            this.chkBoxShowpassword.Location = new System.Drawing.Point(48, 219);
-            this.chkBoxShowpassword.Name = "chkBoxShowpassword";
-            this.chkBoxShowpassword.Size = new System.Drawing.Size(149, 24);
-            this.chkBoxShowpassword.TabIndex = 20;
-            this.chkBoxShowpassword.Text = "Show password";
-            this.chkBoxShowpassword.UseVisualStyleBackColor = true;
-            // 
-            // button1
-            // 
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.ForeColor = System.Drawing.Color.Black;
-            this.button1.Location = new System.Drawing.Point(160, 260);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(135, 50);
-            this.button1.TabIndex = 21;
-            this.button1.Text = "Sign in";
-            this.button1.UseVisualStyleBackColor = true;
+            this.txtEmail.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtEmail.Location = new System.Drawing.Point(143, 122);
+            this.txtEmail.Name = "txtEmail";
+            this.txtEmail.Size = new System.Drawing.Size(236, 27);
+            this.txtEmail.TabIndex = 18;
             // 
             // frmLogin
             // 
@@ -172,7 +172,7 @@ namespace Main
         private InheritControl.EmailText txtEmail;
         private InheritControl.PasswordText txtPassword;
         private System.Windows.Forms.CheckBox chkBoxShowpassword;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnSignIn;
     }
 }
 

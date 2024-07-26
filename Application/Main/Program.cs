@@ -10,6 +10,7 @@ namespace Main
     {
         public static frmLogin loginForm = null;
         public static frmSystem SystemForm = null;
+        public static frmConfig cofigFrom = null;
         //public static frmUser UserForm = null;
         //public static frmBook BookFrom = null;
         /// <summary>
@@ -24,7 +25,8 @@ namespace Main
             //UserForm = new frmUser();
             SystemForm = new frmSystem();
             //BookFrom = new frmBook();
-            Application.Run(SystemForm);
+            cofigFrom = new frmConfig();
+            Application.Run(loginForm);
         }
     }
 }

@@ -8,18 +8,76 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using BLL;
 
 namespace Main
 {
     public partial class frmLogin : Form
     {
-        private SqlConnection connection;
-
+        private Loginclass config;
         public frmLogin()
         {
             InitializeComponent();
-            InitializeMySqlConnection();
+            //InitializeMySqlConnection();
+            string connectionString = Properties.Settings.Default.conn;
+            config = new Loginclass(connectionString);
             this.chkBoxShowpassword.CheckedChanged += ChkBoxShowpassword_CheckedChanged;
+            this.btnSignIn.Click += BtnSignIn_Click;
+        }
+
+        private void BtnSignIn_Click(object sender, EventArgs e)
+        {
+            string email = txtEmail.Text;
+            string password = txtPassword.Text;
+            int resultConfig = config.Check_config();
+
+            if (string.IsNullOrEmpty(email.Trim()))
+            {
+                MessageBox.Show("");
+                this.txtEmail.Focus();
+                return;
+            }
+            if (string.IsNullOrEmpty(password.Trim()))
+            {
+                MessageBox.Show("");
+                this.txtPassword.Focus();
+                return;
+            }
+
+            if (resultConfig == 0)
+            {
+                MessageBox.Show("Chuỗi cấu hình tồn tại");// Xử lý cấu hình
+                //ProcessLogin();// Cấu hình phù hợp xử lý đăng nhập
+            }
+            if (resultConfig == 1)
+            {
+                MessageBox.Show("Chuỗi cấu hình không tồn tại");// Xử lý cấu hình
+                ProcessConfig();
+            }
+            if (resultConfig == 2)
+            {
+                MessageBox.Show("Chuỗi cấu hình không phù hợp");// Xử lý cấu hình
+                ProcessConfig();
+            }
+        }
+        public void ProcessLogin()
+        {
+            Utilities.LoginResult result;
+            result = config.Check_User(txtEmail.Text, txtPassword.Text);
+            // Wrong username or pass
+            if (result == Utilities.LoginResult.Invalid)
+            {
+                MessageBox.Show("Sai " + label1.Text + " Hoặc " +
+                label2.Text);
+                return;
+            }
+            // Account had been disabled
+            else if (result == Utilities.LoginResult.Disabled)
+            {
+                MessageBox.Show("Tài khoản bị khóa");
+                return;
+            }
+            this.Visible = false;       
         }
 
         private void ChkBoxShowpassword_CheckedChanged(object sender, EventArgs e)
@@ -37,20 +95,25 @@ namespace Main
             }
         }
 
-        private void InitializeMySqlConnection()
+        public void ProcessConfig()
         {
-            string connectionString = @"Data Source=LAPTOP-3JB6IQD2;Initial Catalog=book;Persist Security Info=True;User ID=sa;Password =sa123";
-            connection = new SqlConnection(connectionString);
-
-            try
-            {
-                connection.Open();
-                MessageBox.Show("Kết nối thành công!");
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Kết nối thất bại" + ex.Message);
-            }
+            Program.cofigFrom.Show();
         }
+
+        //private void InitializeMySqlConnection()
+        //{
+        //    string connectionString = @"Data Source=LAPTOP-3JB6IQD2;Initial Catalog=book;Persist Security Info=True;User ID=sa;Password =sa123";
+        //    connection = new SqlConnection(connectionString);
+
+        //    try
+        //    {
+        //        connection.Open();
+        //        MessageBox.Show("Kết nối thành công!");
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        MessageBox.Show("Kết nối thất bại" + ex.Message);
+        //    }
+        //}
     }
 }

@@ -6,7 +6,13 @@ using System.Threading.Tasks;
 
 namespace BLL
 {
-    public class Class1
+    public static class Utilities
     {
+        public enum LoginResult
+        {
+            Invalid,
+            Disabled,
+            Success
+        }
     }
 }
