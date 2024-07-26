@@ -14,35 +14,36 @@ namespace Main
 {
     public partial class frmLogin : Form
     {
-        private Loginclass config;
+        Loginclass config = new Loginclass();
+        //private SqlConnection connection;
+
         public frmLogin()
         {
             InitializeComponent();
             //InitializeMySqlConnection();
-            string connectionString = Properties.Settings.Default.conn;
-            config = new Loginclass(connectionString);
+            string connect = Properties.Settings.Default.conn;
+            connect = new Loginclass();
             this.chkBoxShowpassword.CheckedChanged += ChkBoxShowpassword_CheckedChanged;
             this.btnSignIn.Click += BtnSignIn_Click;
+            this.Load += FrmLogin_Load;
         }
 
-        private void BtnSignIn_Click(object sender, EventArgs e)
+        private void FrmLogin_Load(object sender, EventArgs e)
         {
-            string email = txtEmail.Text;
-            string password = txtPassword.Text;
-            int resultConfig = config.Check_config();
+            int resultConfig = config.Check_config(connect);
 
-            if (string.IsNullOrEmpty(email.Trim()))
-            {
-                MessageBox.Show("");
-                this.txtEmail.Focus();
-                return;
-            }
-            if (string.IsNullOrEmpty(password.Trim()))
-            {
-                MessageBox.Show("");
-                this.txtPassword.Focus();
-                return;
-            }
+            //if (string.IsNullOrEmpty(email.Trim()))
+            //{
+            //    MessageBox.Show("");
+            //    this.txtEmail.Focus();
+            //    return;
+            //}
+            //if (string.IsNullOrEmpty(password.Trim()))
+            //{
+            //    MessageBox.Show("");
+            //    this.txtPassword.Focus();
+            //    return;
+            //}
 
             if (resultConfig == 0)
             {
@@ -59,6 +60,13 @@ namespace Main
                 MessageBox.Show("Chuỗi cấu hình không phù hợp");// Xử lý cấu hình
                 ProcessConfig();
             }
+        }
+
+        private void BtnSignIn_Click(object sender, EventArgs e)
+        {
+            string email = txtEmail.Text;
+            string password = txtPassword.Text;
+            
         }
         public void ProcessLogin()
         {
@@ -102,7 +110,8 @@ namespace Main
 
         //private void InitializeMySqlConnection()
         //{
-        //    string connectionString = @"Data Source=LAPTOP-3JB6IQD2;Initial Catalog=book;Persist Security Info=True;User ID=sa;Password =sa123";
+
+        //    string connectionString = @"Data Source=LAPTOP-3JB6IQD2;Initial Catalog=dsdsdsd;Persist Security Info=True;User ID=sa;Password =sa123";
         //    connection = new SqlConnection(connectionString);
 
         //    try
