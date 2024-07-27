@@ -20,15 +20,6 @@ namespace Main
             InitializeComponent();
             bll_login = new BLL_Login();
             this.btnSignIn.Click += BtnSignIn_Click;
-            //    this.txtEmail.Focus();
-            //    return;
-            //}
-            //if (string.IsNullOrEmpty(password.Trim()))
-            //{
-            //    MessageBox.Show("");
-            //    this.txtPassword.Focus();
-            //    return;
-            //}
         }
 
         private void BtnSignIn_Click(object sender, EventArgs e)
