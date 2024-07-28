@@ -22,5 +22,18 @@ namespace Main.Properties {
                 return defaultInstance;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=LAPTOP-3JB6IQD2;Initial Catalog=Book_Store;Persist Security Info=True" +
+            ";User ID=sa;Password =sa123")]
+        public string conn {
+            get {
+                return ((string)(this["conn"]));
+            }
+            set {
+                this["conn"] = value;
+            }
+        }
     }
 }

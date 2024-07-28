@@ -22,7 +22,7 @@ namespace DTO
 	using System;
 	
 	
-	[global::System.Data.Linq.Mapping.DatabaseAttribute(Name="book_store")]
+	[global::System.Data.Linq.Mapping.DatabaseAttribute(Name="Book_Store")]
 	public partial class BookStoreDataContext : System.Data.Linq.DataContext
 	{
 		
@@ -33,10 +33,22 @@ namespace DTO
     partial void InsertUser(User instance);
     partial void UpdateUser(User instance);
     partial void DeleteUser(User instance);
+    partial void InsertGroup(Group instance);
+    partial void UpdateGroup(Group instance);
+    partial void DeleteGroup(Group instance);
+    partial void InsertGroup_User(Group_User instance);
+    partial void UpdateGroup_User(Group_User instance);
+    partial void DeleteGroup_User(Group_User instance);
+    partial void InsertGroup_Screen(Group_Screen instance);
+    partial void UpdateGroup_Screen(Group_Screen instance);
+    partial void DeleteGroup_Screen(Group_Screen instance);
+    partial void InsertScreen(Screen instance);
+    partial void UpdateScreen(Screen instance);
+    partial void DeleteScreen(Screen instance);
     #endregion
 		
 		public BookStoreDataContext() : 
-				base(global::DTO.Properties.Settings.Default.Book_StoreConnectionString, mappingSource)
+				base(global::DTO.Properties.Settings.Default.Book_StoreConnectionString2, mappingSource)
 		{
 			OnCreated();
 		}
@@ -72,6 +84,38 @@ namespace DTO
 				return this.GetTable<User>();
 			}
 		}
+		
+		public System.Data.Linq.Table<Group> Groups
+		{
+			get
+			{
+				return this.GetTable<Group>();
+			}
+		}
+		
+		public System.Data.Linq.Table<Group_User> Group_Users
+		{
+			get
+			{
+				return this.GetTable<Group_User>();
+			}
+		}
+		
+		public System.Data.Linq.Table<Group_Screen> Group_Screens
+		{
+			get
+			{
+				return this.GetTable<Group_Screen>();
+			}
+		}
+		
+		public System.Data.Linq.Table<Screen> Screens
+		{
+			get
+			{
+				return this.GetTable<Screen>();
+			}
+		}
 	}
 	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Users")]
@@ -97,6 +141,8 @@ namespace DTO
 		private System.DateTimeOffset _createdAt;
 		
 		private System.DateTimeOffset _updatedAt;
+		
+		private EntitySet<Group_User> _Group_Users;
 		
     #region Extensibility Method Definitions
     partial void OnLoaded();
@@ -124,6 +170,7 @@ namespace DTO
 		
 		public User()
 		{
+			this._Group_Users = new EntitySet<Group_User>(new Action<Group_User>(this.attach_Group_Users), new Action<Group_User>(this.detach_Group_Users));
 			OnCreated();
 		}
 		
@@ -307,6 +354,19 @@ namespace DTO
 			}
 		}
 		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="User_Group_User", Storage="_Group_Users", ThisKey="id", OtherKey="userId")]
+		public EntitySet<Group_User> Group_Users
+		{
+			get
+			{
+				return this._Group_Users;
+			}
+			set
+			{
+				this._Group_Users.Assign(value);
+			}
+		}
+		
 		public event PropertyChangingEventHandler PropertyChanging;
 		
 		public event PropertyChangedEventHandler PropertyChanged;
@@ -325,6 +385,922 @@ namespace DTO
 			{
 				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
 			}
+		}
+		
+		private void attach_Group_Users(Group_User entity)
+		{
+			this.SendPropertyChanging();
+			entity.User = this;
+		}
+		
+		private void detach_Group_Users(Group_User entity)
+		{
+			this.SendPropertyChanging();
+			entity.User = null;
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Groups")]
+	public partial class Group : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _id;
+		
+		private string _groupName;
+		
+		private string _description;
+		
+		private System.DateTimeOffset _createdAt;
+		
+		private System.DateTimeOffset _updatedAt;
+		
+		private EntitySet<Group_User> _Group_Users;
+		
+		private EntitySet<Group_Screen> _Group_Screens;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnidChanging(int value);
+    partial void OnidChanged();
+    partial void OngroupNameChanging(string value);
+    partial void OngroupNameChanged();
+    partial void OndescriptionChanging(string value);
+    partial void OndescriptionChanged();
+    partial void OncreatedAtChanging(System.DateTimeOffset value);
+    partial void OncreatedAtChanged();
+    partial void OnupdatedAtChanging(System.DateTimeOffset value);
+    partial void OnupdatedAtChanged();
+    #endregion
+		
+		public Group()
+		{
+			this._Group_Users = new EntitySet<Group_User>(new Action<Group_User>(this.attach_Group_Users), new Action<Group_User>(this.detach_Group_Users));
+			this._Group_Screens = new EntitySet<Group_Screen>(new Action<Group_Screen>(this.attach_Group_Screens), new Action<Group_Screen>(this.detach_Group_Screens));
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_id", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int id
+		{
+			get
+			{
+				return this._id;
+			}
+			set
+			{
+				if ((this._id != value))
+				{
+					this.OnidChanging(value);
+					this.SendPropertyChanging();
+					this._id = value;
+					this.SendPropertyChanged("id");
+					this.OnidChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_groupName", DbType="NVarChar(255) NOT NULL", CanBeNull=false)]
+		public string groupName
+		{
+			get
+			{
+				return this._groupName;
+			}
+			set
+			{
+				if ((this._groupName != value))
+				{
+					this.OngroupNameChanging(value);
+					this.SendPropertyChanging();
+					this._groupName = value;
+					this.SendPropertyChanged("groupName");
+					this.OngroupNameChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_description", DbType="NVarChar(255)")]
+		public string description
+		{
+			get
+			{
+				return this._description;
+			}
+			set
+			{
+				if ((this._description != value))
+				{
+					this.OndescriptionChanging(value);
+					this.SendPropertyChanging();
+					this._description = value;
+					this.SendPropertyChanged("description");
+					this.OndescriptionChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_createdAt", DbType="DateTimeOffset NOT NULL")]
+		public System.DateTimeOffset createdAt
+		{
+			get
+			{
+				return this._createdAt;
+			}
+			set
+			{
+				if ((this._createdAt != value))
+				{
+					this.OncreatedAtChanging(value);
+					this.SendPropertyChanging();
+					this._createdAt = value;
+					this.SendPropertyChanged("createdAt");
+					this.OncreatedAtChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_updatedAt", DbType="DateTimeOffset NOT NULL")]
+		public System.DateTimeOffset updatedAt
+		{
+			get
+			{
+				return this._updatedAt;
+			}
+			set
+			{
+				if ((this._updatedAt != value))
+				{
+					this.OnupdatedAtChanging(value);
+					this.SendPropertyChanging();
+					this._updatedAt = value;
+					this.SendPropertyChanged("updatedAt");
+					this.OnupdatedAtChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Group_Group_User", Storage="_Group_Users", ThisKey="id", OtherKey="groupId")]
+		public EntitySet<Group_User> Group_Users
+		{
+			get
+			{
+				return this._Group_Users;
+			}
+			set
+			{
+				this._Group_Users.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Group_Group_Screen", Storage="_Group_Screens", ThisKey="id", OtherKey="groupId")]
+		public EntitySet<Group_Screen> Group_Screens
+		{
+			get
+			{
+				return this._Group_Screens;
+			}
+			set
+			{
+				this._Group_Screens.Assign(value);
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+		
+		private void attach_Group_Users(Group_User entity)
+		{
+			this.SendPropertyChanging();
+			entity.Group = this;
+		}
+		
+		private void detach_Group_Users(Group_User entity)
+		{
+			this.SendPropertyChanging();
+			entity.Group = null;
+		}
+		
+		private void attach_Group_Screens(Group_Screen entity)
+		{
+			this.SendPropertyChanging();
+			entity.Group = this;
+		}
+		
+		private void detach_Group_Screens(Group_Screen entity)
+		{
+			this.SendPropertyChanging();
+			entity.Group = null;
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Group_Users")]
+	public partial class Group_User : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _id;
+		
+		private int _groupId;
+		
+		private int _userId;
+		
+		private System.DateTimeOffset _createdAt;
+		
+		private System.DateTimeOffset _updatedAt;
+		
+		private EntityRef<Group> _Group;
+		
+		private EntityRef<User> _User;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnidChanging(int value);
+    partial void OnidChanged();
+    partial void OngroupIdChanging(int value);
+    partial void OngroupIdChanged();
+    partial void OnuserIdChanging(int value);
+    partial void OnuserIdChanged();
+    partial void OncreatedAtChanging(System.DateTimeOffset value);
+    partial void OncreatedAtChanged();
+    partial void OnupdatedAtChanging(System.DateTimeOffset value);
+    partial void OnupdatedAtChanged();
+    #endregion
+		
+		public Group_User()
+		{
+			this._Group = default(EntityRef<Group>);
+			this._User = default(EntityRef<User>);
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_id", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int id
+		{
+			get
+			{
+				return this._id;
+			}
+			set
+			{
+				if ((this._id != value))
+				{
+					this.OnidChanging(value);
+					this.SendPropertyChanging();
+					this._id = value;
+					this.SendPropertyChanged("id");
+					this.OnidChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_groupId", DbType="Int NOT NULL")]
+		public int groupId
+		{
+			get
+			{
+				return this._groupId;
+			}
+			set
+			{
+				if ((this._groupId != value))
+				{
+					if (this._Group.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OngroupIdChanging(value);
+					this.SendPropertyChanging();
+					this._groupId = value;
+					this.SendPropertyChanged("groupId");
+					this.OngroupIdChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_userId", DbType="Int NOT NULL")]
+		public int userId
+		{
+			get
+			{
+				return this._userId;
+			}
+			set
+			{
+				if ((this._userId != value))
+				{
+					if (this._User.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnuserIdChanging(value);
+					this.SendPropertyChanging();
+					this._userId = value;
+					this.SendPropertyChanged("userId");
+					this.OnuserIdChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_createdAt", DbType="DateTimeOffset NOT NULL")]
+		public System.DateTimeOffset createdAt
+		{
+			get
+			{
+				return this._createdAt;
+			}
+			set
+			{
+				if ((this._createdAt != value))
+				{
+					this.OncreatedAtChanging(value);
+					this.SendPropertyChanging();
+					this._createdAt = value;
+					this.SendPropertyChanged("createdAt");
+					this.OncreatedAtChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_updatedAt", DbType="DateTimeOffset NOT NULL")]
+		public System.DateTimeOffset updatedAt
+		{
+			get
+			{
+				return this._updatedAt;
+			}
+			set
+			{
+				if ((this._updatedAt != value))
+				{
+					this.OnupdatedAtChanging(value);
+					this.SendPropertyChanging();
+					this._updatedAt = value;
+					this.SendPropertyChanged("updatedAt");
+					this.OnupdatedAtChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Group_Group_User", Storage="_Group", ThisKey="groupId", OtherKey="id", IsForeignKey=true)]
+		public Group Group
+		{
+			get
+			{
+				return this._Group.Entity;
+			}
+			set
+			{
+				Group previousValue = this._Group.Entity;
+				if (((previousValue != value) 
+							|| (this._Group.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Group.Entity = null;
+						previousValue.Group_Users.Remove(this);
+					}
+					this._Group.Entity = value;
+					if ((value != null))
+					{
+						value.Group_Users.Add(this);
+						this._groupId = value.id;
+					}
+					else
+					{
+						this._groupId = default(int);
+					}
+					this.SendPropertyChanged("Group");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="User_Group_User", Storage="_User", ThisKey="userId", OtherKey="id", IsForeignKey=true)]
+		public User User
+		{
+			get
+			{
+				return this._User.Entity;
+			}
+			set
+			{
+				User previousValue = this._User.Entity;
+				if (((previousValue != value) 
+							|| (this._User.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._User.Entity = null;
+						previousValue.Group_Users.Remove(this);
+					}
+					this._User.Entity = value;
+					if ((value != null))
+					{
+						value.Group_Users.Add(this);
+						this._userId = value.id;
+					}
+					else
+					{
+						this._userId = default(int);
+					}
+					this.SendPropertyChanged("User");
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Group_Screens")]
+	public partial class Group_Screen : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _id;
+		
+		private int _groupId;
+		
+		private int _screenId;
+		
+		private System.Nullable<bool> _isRole;
+		
+		private System.DateTimeOffset _createdAt;
+		
+		private System.DateTimeOffset _updatedAt;
+		
+		private EntityRef<Group> _Group;
+		
+		private EntityRef<Screen> _Screen;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnidChanging(int value);
+    partial void OnidChanged();
+    partial void OngroupIdChanging(int value);
+    partial void OngroupIdChanged();
+    partial void OnscreenIdChanging(int value);
+    partial void OnscreenIdChanged();
+    partial void OnisRoleChanging(System.Nullable<bool> value);
+    partial void OnisRoleChanged();
+    partial void OncreatedAtChanging(System.DateTimeOffset value);
+    partial void OncreatedAtChanged();
+    partial void OnupdatedAtChanging(System.DateTimeOffset value);
+    partial void OnupdatedAtChanged();
+    #endregion
+		
+		public Group_Screen()
+		{
+			this._Group = default(EntityRef<Group>);
+			this._Screen = default(EntityRef<Screen>);
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_id", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int id
+		{
+			get
+			{
+				return this._id;
+			}
+			set
+			{
+				if ((this._id != value))
+				{
+					this.OnidChanging(value);
+					this.SendPropertyChanging();
+					this._id = value;
+					this.SendPropertyChanged("id");
+					this.OnidChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_groupId", DbType="Int NOT NULL")]
+		public int groupId
+		{
+			get
+			{
+				return this._groupId;
+			}
+			set
+			{
+				if ((this._groupId != value))
+				{
+					if (this._Group.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OngroupIdChanging(value);
+					this.SendPropertyChanging();
+					this._groupId = value;
+					this.SendPropertyChanged("groupId");
+					this.OngroupIdChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_screenId", DbType="Int NOT NULL")]
+		public int screenId
+		{
+			get
+			{
+				return this._screenId;
+			}
+			set
+			{
+				if ((this._screenId != value))
+				{
+					if (this._Screen.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnscreenIdChanging(value);
+					this.SendPropertyChanging();
+					this._screenId = value;
+					this.SendPropertyChanged("screenId");
+					this.OnscreenIdChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_isRole", DbType="Bit")]
+		public System.Nullable<bool> isRole
+		{
+			get
+			{
+				return this._isRole;
+			}
+			set
+			{
+				if ((this._isRole != value))
+				{
+					this.OnisRoleChanging(value);
+					this.SendPropertyChanging();
+					this._isRole = value;
+					this.SendPropertyChanged("isRole");
+					this.OnisRoleChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_createdAt", DbType="DateTimeOffset NOT NULL")]
+		public System.DateTimeOffset createdAt
+		{
+			get
+			{
+				return this._createdAt;
+			}
+			set
+			{
+				if ((this._createdAt != value))
+				{
+					this.OncreatedAtChanging(value);
+					this.SendPropertyChanging();
+					this._createdAt = value;
+					this.SendPropertyChanged("createdAt");
+					this.OncreatedAtChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_updatedAt", DbType="DateTimeOffset NOT NULL")]
+		public System.DateTimeOffset updatedAt
+		{
+			get
+			{
+				return this._updatedAt;
+			}
+			set
+			{
+				if ((this._updatedAt != value))
+				{
+					this.OnupdatedAtChanging(value);
+					this.SendPropertyChanging();
+					this._updatedAt = value;
+					this.SendPropertyChanged("updatedAt");
+					this.OnupdatedAtChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Group_Group_Screen", Storage="_Group", ThisKey="groupId", OtherKey="id", IsForeignKey=true)]
+		public Group Group
+		{
+			get
+			{
+				return this._Group.Entity;
+			}
+			set
+			{
+				Group previousValue = this._Group.Entity;
+				if (((previousValue != value) 
+							|| (this._Group.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Group.Entity = null;
+						previousValue.Group_Screens.Remove(this);
+					}
+					this._Group.Entity = value;
+					if ((value != null))
+					{
+						value.Group_Screens.Add(this);
+						this._groupId = value.id;
+					}
+					else
+					{
+						this._groupId = default(int);
+					}
+					this.SendPropertyChanged("Group");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Screen_Group_Screen", Storage="_Screen", ThisKey="screenId", OtherKey="id", IsForeignKey=true)]
+		public Screen Screen
+		{
+			get
+			{
+				return this._Screen.Entity;
+			}
+			set
+			{
+				Screen previousValue = this._Screen.Entity;
+				if (((previousValue != value) 
+							|| (this._Screen.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Screen.Entity = null;
+						previousValue.Group_Screens.Remove(this);
+					}
+					this._Screen.Entity = value;
+					if ((value != null))
+					{
+						value.Group_Screens.Add(this);
+						this._screenId = value.id;
+					}
+					else
+					{
+						this._screenId = default(int);
+					}
+					this.SendPropertyChanged("Screen");
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Screens")]
+	public partial class Screen : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _id;
+		
+		private string _screenName;
+		
+		private string _description;
+		
+		private System.DateTimeOffset _createdAt;
+		
+		private System.DateTimeOffset _updatedAt;
+		
+		private EntitySet<Group_Screen> _Group_Screens;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnidChanging(int value);
+    partial void OnidChanged();
+    partial void OnscreenNameChanging(string value);
+    partial void OnscreenNameChanged();
+    partial void OndescriptionChanging(string value);
+    partial void OndescriptionChanged();
+    partial void OncreatedAtChanging(System.DateTimeOffset value);
+    partial void OncreatedAtChanged();
+    partial void OnupdatedAtChanging(System.DateTimeOffset value);
+    partial void OnupdatedAtChanged();
+    #endregion
+		
+		public Screen()
+		{
+			this._Group_Screens = new EntitySet<Group_Screen>(new Action<Group_Screen>(this.attach_Group_Screens), new Action<Group_Screen>(this.detach_Group_Screens));
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_id", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int id
+		{
+			get
+			{
+				return this._id;
+			}
+			set
+			{
+				if ((this._id != value))
+				{
+					this.OnidChanging(value);
+					this.SendPropertyChanging();
+					this._id = value;
+					this.SendPropertyChanged("id");
+					this.OnidChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_screenName", DbType="NVarChar(255) NOT NULL", CanBeNull=false)]
+		public string screenName
+		{
+			get
+			{
+				return this._screenName;
+			}
+			set
+			{
+				if ((this._screenName != value))
+				{
+					this.OnscreenNameChanging(value);
+					this.SendPropertyChanging();
+					this._screenName = value;
+					this.SendPropertyChanged("screenName");
+					this.OnscreenNameChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_description", DbType="NVarChar(255)")]
+		public string description
+		{
+			get
+			{
+				return this._description;
+			}
+			set
+			{
+				if ((this._description != value))
+				{
+					this.OndescriptionChanging(value);
+					this.SendPropertyChanging();
+					this._description = value;
+					this.SendPropertyChanged("description");
+					this.OndescriptionChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_createdAt", DbType="DateTimeOffset NOT NULL")]
+		public System.DateTimeOffset createdAt
+		{
+			get
+			{
+				return this._createdAt;
+			}
+			set
+			{
+				if ((this._createdAt != value))
+				{
+					this.OncreatedAtChanging(value);
+					this.SendPropertyChanging();
+					this._createdAt = value;
+					this.SendPropertyChanged("createdAt");
+					this.OncreatedAtChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_updatedAt", DbType="DateTimeOffset NOT NULL")]
+		public System.DateTimeOffset updatedAt
+		{
+			get
+			{
+				return this._updatedAt;
+			}
+			set
+			{
+				if ((this._updatedAt != value))
+				{
+					this.OnupdatedAtChanging(value);
+					this.SendPropertyChanging();
+					this._updatedAt = value;
+					this.SendPropertyChanged("updatedAt");
+					this.OnupdatedAtChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Screen_Group_Screen", Storage="_Group_Screens", ThisKey="id", OtherKey="screenId")]
+		public EntitySet<Group_Screen> Group_Screens
+		{
+			get
+			{
+				return this._Group_Screens;
+			}
+			set
+			{
+				this._Group_Screens.Assign(value);
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+		
+		private void attach_Group_Screens(Group_Screen entity)
+		{
+			this.SendPropertyChanging();
+			entity.Screen = this;
+		}
+		
+		private void detach_Group_Screens(Group_Screen entity)
+		{
+			this.SendPropertyChanging();
+			entity.Screen = null;
 		}
 	}
 }

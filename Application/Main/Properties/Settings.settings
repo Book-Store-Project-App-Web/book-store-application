@@ -1,5 +1,9 @@
 ﻿<?xml version='1.0' encoding='utf-8'?>
-<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)">
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="Main.Properties" GeneratedClassName="Settings">
   <Profiles />
-  <Settings />
+  <Settings>
+    <Setting Name="conn" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Data Source=LAPTOP-3JB6IQD2;Initial Catalog=Book_Store;Persist Security Info=True;User ID=sa;Password =sa123</Value>
+    </Setting>
+  </Settings>
 </SettingsFile>

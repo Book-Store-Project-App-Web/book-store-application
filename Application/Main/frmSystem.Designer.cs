@@ -52,6 +52,7 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.DecentralizationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -83,6 +84,8 @@
             // 
             // quảnLýNhânViênToolStripMenuItem
             // 
+            this.quảnLýNhânViênToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.DecentralizationToolStripMenuItem});
             this.quảnLýNhânViênToolStripMenuItem.Name = "quảnLýNhânViênToolStripMenuItem";
             this.quảnLýNhânViênToolStripMenuItem.Size = new System.Drawing.Size(216, 26);
             this.quảnLýNhânViênToolStripMenuItem.Text = "Quản lý nhân viên";
@@ -105,13 +108,13 @@
             // QuanLyHangMenu
             // 
             this.QuanLyHangMenu.Name = "QuanLyHangMenu";
-            this.QuanLyHangMenu.Size = new System.Drawing.Size(216, 26);
+            this.QuanLyHangMenu.Size = new System.Drawing.Size(208, 26);
             this.QuanLyHangMenu.Text = "Quản lý hàng";
             // 
             // quảnLýNhậpHàngToolStripMenuItem
             // 
             this.quảnLýNhậpHàngToolStripMenuItem.Name = "quảnLýNhậpHàngToolStripMenuItem";
-            this.quảnLýNhậpHàngToolStripMenuItem.Size = new System.Drawing.Size(216, 26);
+            this.quảnLýNhậpHàngToolStripMenuItem.Size = new System.Drawing.Size(208, 26);
             this.quảnLýNhậpHàngToolStripMenuItem.Text = "Quản lý nhập hàng";
             // 
             // quảnLýBánHàngToolStripMenuItem
@@ -243,6 +246,12 @@
             this.pictureBox1.TabIndex = 12;
             this.pictureBox1.TabStop = false;
             // 
+            // DecentralizationToolStripMenuItem
+            // 
+            this.DecentralizationToolStripMenuItem.Name = "DecentralizationToolStripMenuItem";
+            this.DecentralizationToolStripMenuItem.Size = new System.Drawing.Size(216, 26);
+            this.DecentralizationToolStripMenuItem.Text = "Phân quyền";
+            // 
             // frmSystem
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -293,5 +302,6 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.ToolStripMenuItem DecentralizationToolStripMenuItem;
     }
 }

@@ -16,30 +16,47 @@ namespace BLL
         public BLLUser()
         {
         }
-        public void logInUser(string pMail, string pPass)
+        public string logInUser(string pMail, string pPass)
         {
-            if(string.IsNullOrEmpty(pMail) && string.IsNullOrEmpty(pPass))
+            if (string.IsNullOrEmpty(pMail))
             {
-                MessageBox.Show("Email và mật khẩu không được trống !");
-                return;
+                return "Email không được trống!";
             }
-            var user = dalUser.logInUser(pMail, pPass);
-            if (user != null)
+
+            if (string.IsNullOrEmpty(pPass))
             {
-                if (dalUser.checkPassUser(user.email, pPass) == true)
+                return "Mật khẩu không được trống!";
+            }
+            try
+            {
+                var user = dalUser.logInUser(pMail,pPass);
+                if (user != null)
                 {
-                    MessageBox.Show("Đăng nhập thành công");
+                    if (dalUser.checkPassUser(user.email, pPass) == true)
+                    {
+                        return "Đăng nhập thành công";
+                    }
+                    else
+                    {
+                        return "Sai mật khẩu";
+                    }
                 }
                 else
                 {
-                    MessageBox.Show("Sai mật khẩu");
-
+                    return "Sai tài khoản";
                 }
             }
-            else
+            catch (Exception ex)
             {
-                MessageBox.Show("Sai tài khoản");
+                // Log exception
+                throw new Exception("Có lỗi xảy ra trong quá trình đăng nhập", ex);
             }
+
         }
+        public List<User> LoadUser()
+        {
+            return dalUser.LoadUser();
+        }
+
     }
 }

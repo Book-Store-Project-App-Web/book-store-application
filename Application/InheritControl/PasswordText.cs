@@ -22,15 +22,15 @@ namespace InheritControl
 
         private void PasswordText_KeyPress(object sender, KeyPressEventArgs e)
         {
-            string pattern = @"^(?=.*[A-Z])(?=.*\W).{6,}$";
-            if (Regex.IsMatch(this.Text, pattern))
-            {
-                errorProvider.Clear();
-            }
-            else
-            {
-                errorProvider.SetError(this, "Password must be 6 characters or more, including 1 uppercase letter and 1 special character");
-            }
+            //string pattern = @"^(?=.*[A-Z])(?=.*\W).{6,}$";
+            //if (Regex.IsMatch(this.Text, pattern))
+            //{
+            //    errorProvider.Clear();
+            //}
+            //else
+            //{
+            //    errorProvider.SetError(this, "Password must be 6 characters or more, including 1 uppercase letter and 1 special character");
+            //}
         }
 
     }

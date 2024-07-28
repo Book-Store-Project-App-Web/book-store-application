@@ -16,6 +16,12 @@ namespace Main
         {
             InitializeComponent();
             this.QuanLyHangMenu.Click += QuanLyHangMenu_Click;
+            this.DecentralizationToolStripMenuItem.Click += DecentralizationToolStripMenuItem_Click;
+        }
+
+        private void DecentralizationToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Program.DecentralizationForm.Show();
         }
 
         private void QuanLyHangMenu_Click(object sender, EventArgs e)

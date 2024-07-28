@@ -14,12 +14,10 @@ namespace Main
 {
     public partial class frmLogin : Form
     {
-        private BLL_Login bll_login;
         BLLUser bllUser = new BLLUser();
         public frmLogin()
         {
             InitializeComponent();
-            bll_login = new BLL_Login();
             this.btnSignIn.Click += BtnSignIn_Click;
         }
 
@@ -28,16 +26,23 @@ namespace Main
             string email = txtEmail.Text;
             string password = txtPassword.Text;
 
-            bllUser.logInUser(email, password);
-            //if (bll_login.ValidateUser(email, password))
-            //{
-            //    MessageBox.Show("Đăng nhập thành công!");
-            //    Program.SystemForm.Show();
-            //}
-            //else
-            //{
-            //    MessageBox.Show("Email hoặc mật khẩu không đúng.");
-            //}
+            //bllUser.logInUser(email, password);
+
+            try
+            {
+                string loginResult = bllUser.logInUser(email, password);
+                MessageBox.Show(loginResult);
+
+                if (loginResult == "Đăng nhập thành công")
+                {
+                    Program.SystemForm.Show();
+                    this.Hide();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Đã xảy ra lỗi: " + ex.Message);
+            }
         }
 
     }
