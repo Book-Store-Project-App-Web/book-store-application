@@ -15,6 +15,7 @@ namespace Main
     public partial class frmLogin : Form
     {
         private BLL_Login bll_login;
+        BLLUser bllUser = new BLLUser();
         public frmLogin()
         {
             InitializeComponent();
@@ -27,15 +28,16 @@ namespace Main
             string email = txtEmail.Text;
             string password = txtPassword.Text;
 
-            if (bll_login.ValidateUser(email, password))
-            {
-                MessageBox.Show("Đăng nhập thành công!");
-                Program.SystemForm.Show();
-            }
-            else
-            {
-                MessageBox.Show("Email hoặc mật khẩu không đúng.");
-            }
+            bllUser.logInUser(email, password);
+            //if (bll_login.ValidateUser(email, password))
+            //{
+            //    MessageBox.Show("Đăng nhập thành công!");
+            //    Program.SystemForm.Show();
+            //}
+            //else
+            //{
+            //    MessageBox.Show("Email hoặc mật khẩu không đúng.");
+            //}
         }
 
     }

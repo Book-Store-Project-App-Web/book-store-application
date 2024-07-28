@@ -14,23 +14,23 @@ namespace InheritControl
         public EmailText()
         {
             this.KeyPress += EmailText_KeyPress;
-            this.errorProvider = new ErrorProvider();
+            //this.errorProvider = new ErrorProvider();
         }
 
         private void EmailText_KeyPress(object sender, KeyPressEventArgs e)
         {
-            Regex regex = new Regex(@"^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$");
-            String email = this.Text;
-            Match match = regex.Match(email);
+            //Regex regex = new Regex(@"^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$");
+            //String email = this.Text;
+            //Match match = regex.Match(email);
 
-            if (match.Success)
-            {
-                errorProvider.Clear();
-            }
-            else
-            {
-                errorProvider.SetError(this, "Ivalid Email");
-            }
+            //if (match.Success)
+            //{
+            //    errorProvider.Clear();
+            //}
+            //else
+            //{
+            //    errorProvider.SetError(this, "Ivalid Email");
+            //}
         }
     }
 }

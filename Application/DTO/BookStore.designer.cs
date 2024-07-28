@@ -22,8 +22,8 @@ namespace DTO
 	using System;
 	
 	
-	[global::System.Data.Linq.Mapping.DatabaseAttribute(Name="Book_Store")]
-	public partial class StoreBookDataContext : System.Data.Linq.DataContext
+	[global::System.Data.Linq.Mapping.DatabaseAttribute(Name="book_store")]
+	public partial class BookStoreDataContext : System.Data.Linq.DataContext
 	{
 		
 		private static System.Data.Linq.Mapping.MappingSource mappingSource = new AttributeMappingSource();
@@ -35,31 +35,31 @@ namespace DTO
     partial void DeleteUser(User instance);
     #endregion
 		
-		public StoreBookDataContext() : 
-				base(global::DTO.Properties.Settings.Default.Book_StoreConnectionString1, mappingSource)
+		public BookStoreDataContext() : 
+				base(global::DTO.Properties.Settings.Default.Book_StoreConnectionString, mappingSource)
 		{
 			OnCreated();
 		}
 		
-		public StoreBookDataContext(string connection) : 
+		public BookStoreDataContext(string connection) : 
 				base(connection, mappingSource)
 		{
 			OnCreated();
 		}
 		
-		public StoreBookDataContext(System.Data.IDbConnection connection) : 
+		public BookStoreDataContext(System.Data.IDbConnection connection) : 
 				base(connection, mappingSource)
 		{
 			OnCreated();
 		}
 		
-		public StoreBookDataContext(string connection, System.Data.Linq.Mapping.MappingSource mappingSource) : 
+		public BookStoreDataContext(string connection, System.Data.Linq.Mapping.MappingSource mappingSource) : 
 				base(connection, mappingSource)
 		{
 			OnCreated();
 		}
 		
-		public StoreBookDataContext(System.Data.IDbConnection connection, System.Data.Linq.Mapping.MappingSource mappingSource) : 
+		public BookStoreDataContext(System.Data.IDbConnection connection, System.Data.Linq.Mapping.MappingSource mappingSource) : 
 				base(connection, mappingSource)
 		{
 			OnCreated();
