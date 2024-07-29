@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?><Database Name="Book_Store" Class="BookStoreDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
-  <Connection Mode="AppSettings" ConnectionString="Data Source=LAPTOP-3JB6IQD2;Initial Catalog=Book_Store;Persist Security Info=True;User ID=sa" SettingsObjectName="DTO.Properties.Settings" SettingsPropertyName="Book_StoreConnectionString2" Provider="System.Data.SqlClient" />
+  <Connection Mode="AppSettings" ConnectionString="Data Source=DESKTOP-8I1VIDD\SQLEXPRESS;Initial Catalog=Book_Store;Persist Security Info=True;User ID=sa" SettingsObjectName="DTO.Properties.Settings" SettingsPropertyName="Book_StoreConnectionString2" Provider="System.Data.SqlClient" />
   <Table Name="dbo.Users" Member="Users">
     <Type Name="User">
       <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
@@ -56,6 +56,15 @@
       <Column Name="createdAt" Type="System.DateTimeOffset" DbType="DateTimeOffset NOT NULL" CanBeNull="false" />
       <Column Name="updatedAt" Type="System.DateTimeOffset" DbType="DateTimeOffset NOT NULL" CanBeNull="false" />
       <Association Name="Screen_Group_Screen" Member="Group_Screens" ThisKey="id" OtherKey="screenId" Type="Group_Screen" />
+    </Type>
+  </Table>
+  <Table Name="" Member="UserDKs">
+    <Type Name="UserDK">
+      <Column Member="firstName" Type="System.String" CanBeNull="false" />
+      <Column Member="lastName" Type="System.String" CanBeNull="false" />
+      <Column Member="phone" Type="System.String" CanBeNull="false" />
+      <Column Member="email" Type="System.String" CanBeNull="false" />
+      <Column Member="sex" Type="System.String" CanBeNull="false" />
     </Type>
   </Table>
 </Database>

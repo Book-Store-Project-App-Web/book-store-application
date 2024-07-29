@@ -25,16 +25,13 @@ namespace Main
         {
             string email = txtEmail.Text;
             string password = txtPassword.Text;
-
-            //bllUser.logInUser(email, password);
-
             try
             {
-                string loginResult = bllUser.logInUser(email, password);
-                MessageBox.Show(loginResult);
+                var loginResult = bllUser.logInUser(email, password);
 
-                if (loginResult == "Đăng nhập thành công")
+                if (loginResult != null)
                 {
+                    MessageBox.Show("Đăng nhập thành công");
                     Program.SystemForm.Show();
                     this.Hide();
                 }

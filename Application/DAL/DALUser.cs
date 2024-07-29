@@ -14,19 +14,12 @@ namespace DAL
         BookStoreDataContext bt = new BookStoreDataContext();
         public DALUser() { }
 
-        public User logInUser(string pMail,string pPass)
+        public User logInUser(string pMail)
         {
-            //return bt.Users.Where(u => u.email == pMail).FirstOrDefault();
             return bt.Users.SingleOrDefault(u => u.email == pMail);
         }
         public bool checkPassUser(string pMail, string pPass)
         {
-            //var passuser = bt.Users.Where(u => u.email == pMail).Select(u => new { u.password }).FirstOrDefault();
-            //if(passuser != null && Convert.ToString(passuser) == pPass)
-            //{
-            //    return true;
-            //}
-            //return false;
             var user = bt.Users.Where(u => u.email == pMail).Select(u => new { u.password }).FirstOrDefault();
             if (user != null && user.password == pPass)
             {
@@ -36,9 +29,9 @@ namespace DAL
 
         }
 
-        public List<User> LoadUser()
+        public List<UserDK> LoadUser()
         {
-            return bt.Users.Select(id => id).ToList<User>();
+            return bt.Users.Select(u => new UserDK { firstName = u.firstName, lastName = u.lastName, phone = u.phone, email = u.email, sex = u.sex }).ToList();
         }
     }
 }
