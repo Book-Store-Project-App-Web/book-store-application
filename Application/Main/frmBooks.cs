@@ -1,0 +1,218 @@
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+using CloudinaryDotNet;
+using CloudinaryDotNet.Actions;
+using BLL;
+using DTO;
+
+namespace Main
+{
+    public partial class frmBooks : Form
+    {
+        BLLBook bllBook = new BLLBook();
+        private Cloudinary _cloudinary;
+
+        private ErrorProvider errorProvider;
+        public frmBooks()
+        {
+            InitializeComponent();
+            InitializeCloudinary();
+            this.Load += FrmBooks_Load;
+            this.btnSelectImage.Click += BtnSelectImage_Click;
+            this.btnAddBook.Click += BtnAddBook_Click;
+            this.btnSave.Click += BtnSave_Click;
+            this.dataGridViewBook.CellClick += DataGridViewBook_CellClick;
+            errorProvider = new ErrorProvider();
+        }
+        void LoadGridView()
+        {
+            SetControlsEnabled(false);
+            var books = bllBook.ListBooks();
+            dataGridViewBook.DataSource = books;
+            dataGridViewBook.Columns["Image"].Visible = false;
+
+            if (dataGridViewBook.Columns["ImageColumn"] == null)
+            {
+                DataGridViewImageColumn imageColumn = new DataGridViewImageColumn
+                {
+                    HeaderText = "Image",
+                    Name = "ImageColumn",
+                    ImageLayout = DataGridViewImageCellLayout.Zoom
+                };
+
+                dataGridViewBook.Columns.Insert(0, imageColumn);
+            }
+
+
+            //dataGridViewBook.RowTemplate.Height = 100;
+
+            foreach (DataGridViewRow row in dataGridViewBook.Rows)
+            {
+                if (row.Cells["Image"] != null && row.Cells["Image"].Value != null)
+                {
+                    row.Cells["ImageColumn"].Value = Image.FromStream(new System.Net.WebClient().OpenRead(row.Cells["Image"].Value.ToString()));
+                }
+            }
+
+            cboCate.DataSource = bllBook.ListCateBook();
+            cboSupplier.DataSource = bllBook.ListSupBook();
+        }
+        void ClearTextBox()
+        {
+            foreach (Control control in this.Controls)
+            {
+                if (control is TextBox textBox)
+                {
+                    textBox.Text = string.Empty;
+                }
+            }
+        }
+        private void DataGridViewBook_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            DataGridViewRow selectedRow = dataGridViewBook.CurrentRow;
+            txtName.Text = selectedRow.Cells["name"].Value?.ToString();
+            txtPrice.Text = selectedRow.Cells["price"].Value?.ToString();
+            txtPageNumber.Text = selectedRow.Cells["pageNumber"].Value?.ToString();
+            txtPublishingYear.Text = selectedRow.Cells["publishingYear"].Value?.ToString();
+            txtStock.Text = selectedRow.Cells["stock"].Value?.ToString();
+            txtDiscount.Text = selectedRow.Cells["discount"].Value?.ToString();
+        }
+
+        private void BtnSave_Click(object sender, EventArgs e)
+        {
+            if (AreControlsValid())
+            {
+                string name = txtName.Text;
+                int supplierId = Convert.ToInt32(cboSupplier.SelectedValue);
+                int categoryId = Convert.ToInt32(cboCate.SelectedValue);
+                double price = Convert.ToDouble(txtPrice.Text);
+                double discount = Convert.ToDouble(txtDiscount.Text);
+                int stock = Convert.ToInt32(txtStock.Text);
+                int pageNumber = Convert.ToInt32(txtPageNumber.Text);
+                int publishingYear = Convert.ToInt32(txtPublishingYear.Text);
+                var book = bllBook.CheckExistBook(name);
+                if (book != null)
+                {
+                    MessageBox.Show("Sách đã tồn tại !");
+                    return;
+                }
+
+                if (pictureBox1.Image != null && pictureBox1.Tag != null )
+                {
+                    string filePath = pictureBox1.Tag.ToString();
+                    var uploadParams = new ImageUploadParams()
+                    {
+                        File = new FileDescription(filePath)
+                    };
+
+                    var uploadResult = _cloudinary.Upload(uploadParams);
+                    string image = uploadResult.SecureUrl.ToString();
+
+                    var _book = new Book
+                    {
+                        image = image,
+                        name = name,
+                        supplierId = supplierId,
+                        categoryId = categoryId,
+                        price = price,
+                        discount = discount,
+                        stock = stock,
+                        pageNumber = pageNumber,
+                        publishingYear = publishingYear
+                    };
+
+                    var newBook = bllBook.CreatNewBook(_book);
+                    if (newBook != null)
+                    {
+                        MessageBox.Show("Thêm sách thành công");
+                        LoadGridView();
+                        ClearTextBox();
+                    }
+                } 
+                else
+                {
+                    MessageBox.Show("Vui lòng chọn hình ảnh !!! ");
+                }
+            }                    
+        }
+
+        private void FrmBooks_Load(object sender, EventArgs e)
+        {
+            LoadGridView();
+        }
+        private void SetControlsEnabled(bool enabled)
+        {
+            foreach (Control control in this.Controls)
+            {
+                if (control is TextBox || control is ComboBox || control is Button)
+                {
+                    if (control != btnAddBook)
+                    {
+                        control.Enabled = enabled;
+                    }
+                }
+            }
+        }
+        private void InitializeCloudinary()
+        {
+            var account = new Account(
+                "datdev",
+                "395219759456727",
+                "M7AuVPyhlLN7Uj23BFtVrqrppIk");
+
+            _cloudinary = new Cloudinary(account);
+        }
+
+        private void BtnAddBook_Click(object sender, EventArgs e)
+        {
+            SetControlsEnabled(true);
+            ClearTextBox();
+        }
+
+        private void BtnSelectImage_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog openFileDialog = new OpenFileDialog();
+            openFileDialog.InitialDirectory = "c:\\";
+            openFileDialog.Filter = "Image files (*.jpg, *.jpeg, *.png)|*.jpg;*.jpeg;*.png";
+            openFileDialog.FilterIndex = 2;
+            openFileDialog.RestoreDirectory = true;
+
+            if (openFileDialog.ShowDialog() == DialogResult.OK)
+            {
+                string filePath = openFileDialog.FileName;
+                pictureBox1.Image = Image.FromFile(filePath);
+                pictureBox1.Tag = filePath;
+            }
+
+        }
+
+        private bool AreControlsValid()
+        {
+            bool isValid = true;
+            errorProvider.Clear();
+
+            string[] textBoxNames = { "txtName", "txtPrice", "txtPageNumber", "txtPublishingYear", "txtStock" };
+            foreach (string name in textBoxNames)
+            {
+                Control[] controls = this.Controls.Find(name, true);
+                if (controls.Length > 0 && controls[0] is TextBox textBox)
+                {
+                    if (string.IsNullOrWhiteSpace(textBox.Text))
+                    {
+                        errorProvider.SetError(textBox, $"Vui lòng nhập {name.Replace("txt", "")}.");
+                        isValid = false;
+                    }
+                }
+            }
+
+            return isValid;
+        }
+    }
+}

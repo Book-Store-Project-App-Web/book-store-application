@@ -12,7 +12,7 @@ namespace Main
         public static frmSystem SystemForm = null;
         public static frmDecentralization DecentralizationForm = null;
         //public static frmUser UserForm = null;
-        //public static frmBook BookFrom = null;
+        public static frmBooks formBooks = null;
         /// <summary>
         /// The main entry point for the application.
         /// </summary>
@@ -26,7 +26,8 @@ namespace Main
             SystemForm = new frmSystem();
             //BookFrom = new frmBook();
             DecentralizationForm = new frmDecentralization();
-            Application.Run(DecentralizationForm);
+            formBooks = new frmBooks();
+            Application.Run(formBooks);
         }
     }
 }

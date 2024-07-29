@@ -49,6 +49,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BLLBook.cs" />
     <Compile Include="BLLUser.cs" />
     <Compile Include="DcentralizationClass .cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
