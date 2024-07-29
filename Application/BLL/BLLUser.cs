@@ -16,34 +16,33 @@ namespace BLL
         public BLLUser()
         {
         }
-        public string logInUser(string pMail, string pPass)
-        {
-            if (string.IsNullOrEmpty(pMail))
-            {
-                return "Email không được trống!";
-            }
-
-            if (string.IsNullOrEmpty(pPass))
-            {
-                return "Mật khẩu không được trống!";
-            }
+        public User logInUser(string pMail, string pPass)
+        {            
             try
             {
-                var user = dalUser.logInUser(pMail,pPass);
-                if (user != null)
+                if (string.IsNullOrEmpty(pMail))
                 {
-                    if (dalUser.checkPassUser(user.email, pPass) == true)
-                    {
-                        return "Đăng nhập thành công";
-                    }
-                    else
-                    {
-                        return "Sai mật khẩu";
-                    }
+                    MessageBox.Show("Email không được trống!");
+                }
+
+                if (string.IsNullOrEmpty(pPass))
+                {
+                    MessageBox.Show("Mật khẩu không được trống!");
+                }
+                var user = dalUser.logInUser(pMail);
+                if (user == null)
+                {
+                    MessageBox.Show("Sai tài khoản!");
+                    return null;
+                }
+                if (dalUser.checkPassUser(user.email, pPass) == true)
+                {
+                    return user;
                 }
                 else
                 {
-                    return "Sai tài khoản";
+                    MessageBox.Show("Sai mật khẩu!");
+                    return null;
                 }
             }
             catch (Exception ex)
@@ -53,7 +52,7 @@ namespace BLL
             }
 
         }
-        public List<User> LoadUser()
+        public List<UserDK> LoadUser()
         {
             return dalUser.LoadUser();
         }
