@@ -2,8 +2,8 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using System.Text.RegularExpressions;
 using System.Threading.Tasks;
+using System.Text.RegularExpressions;
 using DTO;
 
 namespace DAL
@@ -11,7 +11,7 @@ namespace DAL
     public class DALBook
     {
         BookStoreDataContext bt = new BookStoreDataContext();
-        public DALBook () { }
+        public DALBook() { }
         public string GenerateSlug(string phrase)
         {
             string str = phrase.ToLower();
@@ -33,7 +33,7 @@ namespace DAL
                 price = b.price,
                 discount = b.discount,
                 stock = b.stock,
-                author = b.author,
+                //author = b.author,
                 pageNumber = b.pageNumber,
                 publishingYear = b.publishingYear,
                 supplier = s.name,
@@ -41,9 +41,8 @@ namespace DAL
                 ratingsAverage = b.ratingsAverage,
                 id = b.id
             }).ToList();
-
         }
-     
+
         public Book CreatNewBook(Book book)
         {
             bt.Books.InsertOnSubmit(book);
@@ -69,8 +68,8 @@ namespace DAL
         }
         public bool DeleteBook(int id)
         {
-            var book =  bt.Books.Where(b => b.id == id).FirstOrDefault();
-            if(book != null)
+            var book = bt.Books.Where(b => b.id == id).FirstOrDefault();
+            if (book != null)
             {
                 bt.Books.DeleteOnSubmit(book);
                 bt.SubmitChanges();
@@ -79,7 +78,7 @@ namespace DAL
             return false;
         }
         public Book UpdateBook(int id, Book book)
-        {             
+        {
             bt.SubmitChanges();
             return book;
         }

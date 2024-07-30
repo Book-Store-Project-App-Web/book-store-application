@@ -31,7 +31,7 @@ namespace DAL
 
         public List<UserDK> LoadUser()
         {
-            return bt.Users.Select(u => new UserDK { firstName = u.firstName, lastName = u.lastName, phone = u.phone, email = u.email, sex = u.sex }).ToList();
+            return bt.Users.Select(u => new UserDK { firstname = u.firstName, lastname = u.lastName, phone = u.phone, email = u.email, sex = u.sex }).ToList();
         }
     }
 }

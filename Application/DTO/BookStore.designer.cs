@@ -30,29 +30,6 @@ namespace DTO
 		
     #region Extensibility Method Definitions
     partial void OnCreated();
-    partial void InsertGroup(Group instance);
-    partial void UpdateGroup(Group instance);
-    partial void DeleteGroup(Group instance);
-    partial void InsertGroup_User(Group_User instance);
-    partial void UpdateGroup_User(Group_User instance);
-    partial void DeleteGroup_User(Group_User instance);
-    partial void InsertGroup_Screen(Group_Screen instance);
-    partial void UpdateGroup_Screen(Group_Screen instance);
-    partial void DeleteGroup_Screen(Group_Screen instance);
-    partial void InsertScreen(Screen instance);
-    partial void UpdateScreen(Screen instance);
-    partial void DeleteScreen(Screen instance);
-    partial void InsertBook(Book instance);
-    partial void UpdateBook(Book instance);
-    partial void DeleteBook(Book instance);
-<<<<<<< HEAD
-    partial void InsertCategory(Category instance);
-    partial void UpdateCategory(Category instance);
-    partial void DeleteCategory(Category instance);
-    partial void InsertSupplier(Supplier instance);
-    partial void UpdateSupplier(Supplier instance);
-    partial void DeleteSupplier(Supplier instance);
-=======
     partial void InsertSupplier(Supplier instance);
     partial void UpdateSupplier(Supplier instance);
     partial void DeleteSupplier(Supplier instance);
@@ -65,7 +42,9 @@ namespace DTO
     partial void InsertList_Cate(List_Cate instance);
     partial void UpdateList_Cate(List_Cate instance);
     partial void DeleteList_Cate(List_Cate instance);
->>>>>>> 6aa34ccecb5f63192046902568611ab7096d6bb8
+    partial void InsertBook(Book instance);
+    partial void UpdateBook(Book instance);
+    partial void DeleteBook(Book instance);
     #endregion
 		
 		public BookStoreDataContext() : 
@@ -98,43 +77,11 @@ namespace DTO
 			OnCreated();
 		}
 		
-		public System.Data.Linq.Table<Group> Groups
+		public System.Data.Linq.Table<Supplier> Suppliers
 		{
 			get
 			{
-				return this.GetTable<Group>();
-			}
-		}
-		
-		public System.Data.Linq.Table<Group_User> Group_Users
-		{
-			get
-			{
-				return this.GetTable<Group_User>();
-			}
-		}
-		
-		public System.Data.Linq.Table<Group_Screen> Group_Screens
-		{
-			get
-			{
-				return this.GetTable<Group_Screen>();
-			}
-		}
-		
-		public System.Data.Linq.Table<Screen> Screens
-		{
-			get
-			{
-				return this.GetTable<Screen>();
-			}
-		}
-		
-		public System.Data.Linq.Table<UserDK> UserDKs
-		{
-			get
-			{
-				return this.GetTable<UserDK>();
+				return this.GetTable<Supplier>();
 			}
 		}
 		
@@ -143,14 +90,6 @@ namespace DTO
 			get
 			{
 				return this.GetTable<BookDK>();
-			}
-		}
-		
-		public System.Data.Linq.Table<Book> Books
-		{
-			get
-			{
-				return this.GetTable<Book>();
 			}
 		}
 		
@@ -169,22 +108,6 @@ namespace DTO
 				return this.GetTable<Category>();
 			}
 		}
-<<<<<<< HEAD
-		
-		public System.Data.Linq.Table<Supplier> Suppliers
-		{
-			get
-			{
-				return this.GetTable<Supplier>();
-			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Users")]
-	public partial class User : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-=======
->>>>>>> 6aa34ccecb5f63192046902568611ab7096d6bb8
 		
 		public System.Data.Linq.Table<List_Cate> List_Cates
 		{
@@ -193,1947 +116,21 @@ namespace DTO
 				return this.GetTable<List_Cate>();
 			}
 		}
-	}
-	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Groups")]
-	public partial class Group : INotifyPropertyChanging, INotifyPropertyChanged
-	{
 		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private int _id;
-		
-		private string _groupName;
-		
-		private string _description;
-		
-		private System.DateTimeOffset _createdAt;
-		
-		private System.DateTimeOffset _updatedAt;
-		
-		private EntitySet<Group_User> _Group_Users;
-		
-		private EntitySet<Group_Screen> _Group_Screens;
-		
-    #region Extensibility Method Definitions
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnidChanging(int value);
-    partial void OnidChanged();
-    partial void OngroupNameChanging(string value);
-    partial void OngroupNameChanged();
-    partial void OndescriptionChanging(string value);
-    partial void OndescriptionChanged();
-    partial void OncreatedAtChanging(System.DateTimeOffset value);
-    partial void OncreatedAtChanged();
-    partial void OnupdatedAtChanging(System.DateTimeOffset value);
-    partial void OnupdatedAtChanged();
-    #endregion
-		
-		public Group()
-		{
-			this._Group_Users = new EntitySet<Group_User>(new Action<Group_User>(this.attach_Group_Users), new Action<Group_User>(this.detach_Group_Users));
-			this._Group_Screens = new EntitySet<Group_Screen>(new Action<Group_Screen>(this.attach_Group_Screens), new Action<Group_Screen>(this.detach_Group_Screens));
-			OnCreated();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_id", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
-		public int id
-		{
-			get
-			{
-				return this._id;
-			}
-			set
-			{
-				if ((this._id != value))
-				{
-					this.OnidChanging(value);
-					this.SendPropertyChanging();
-					this._id = value;
-					this.SendPropertyChanged("id");
-					this.OnidChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_groupName", DbType="NVarChar(255) NOT NULL", CanBeNull=false)]
-		public string groupName
-		{
-			get
-			{
-				return this._groupName;
-			}
-			set
-			{
-				if ((this._groupName != value))
-				{
-					this.OngroupNameChanging(value);
-					this.SendPropertyChanging();
-					this._groupName = value;
-					this.SendPropertyChanged("groupName");
-					this.OngroupNameChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_description", DbType="NVarChar(255)")]
-		public string description
-		{
-			get
-			{
-				return this._description;
-			}
-			set
-			{
-				if ((this._description != value))
-				{
-					this.OndescriptionChanging(value);
-					this.SendPropertyChanging();
-					this._description = value;
-					this.SendPropertyChanged("description");
-					this.OndescriptionChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_createdAt", DbType="DateTimeOffset NOT NULL")]
-		public System.DateTimeOffset createdAt
-		{
-			get
-			{
-				return this._createdAt;
-			}
-			set
-			{
-				if ((this._createdAt != value))
-				{
-					this.OncreatedAtChanging(value);
-					this.SendPropertyChanging();
-					this._createdAt = value;
-					this.SendPropertyChanged("createdAt");
-					this.OncreatedAtChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_updatedAt", DbType="DateTimeOffset NOT NULL")]
-		public System.DateTimeOffset updatedAt
-		{
-			get
-			{
-				return this._updatedAt;
-			}
-			set
-			{
-				if ((this._updatedAt != value))
-				{
-					this.OnupdatedAtChanging(value);
-					this.SendPropertyChanging();
-					this._updatedAt = value;
-					this.SendPropertyChanged("updatedAt");
-					this.OnupdatedAtChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Group_Group_User", Storage="_Group_Users", ThisKey="id", OtherKey="groupId")]
-		public EntitySet<Group_User> Group_Users
-		{
-			get
-			{
-				return this._Group_Users;
-			}
-			set
-			{
-				this._Group_Users.Assign(value);
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Group_Group_Screen", Storage="_Group_Screens", ThisKey="id", OtherKey="groupId")]
-		public EntitySet<Group_Screen> Group_Screens
-		{
-			get
-			{
-				return this._Group_Screens;
-			}
-			set
-			{
-				this._Group_Screens.Assign(value);
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-		
-		private void attach_Group_Users(Group_User entity)
-		{
-			this.SendPropertyChanging();
-			entity.Group = this;
-		}
-		
-		private void detach_Group_Users(Group_User entity)
-		{
-			this.SendPropertyChanging();
-			entity.Group = null;
-		}
-		
-		private void attach_Group_Screens(Group_Screen entity)
-		{
-			this.SendPropertyChanging();
-			entity.Group = this;
-		}
-		
-		private void detach_Group_Screens(Group_Screen entity)
-		{
-			this.SendPropertyChanging();
-			entity.Group = null;
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Group_Users")]
-	public partial class Group_User : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private int _id;
-		
-		private int _groupId;
-		
-		private int _userId;
-		
-		private System.DateTimeOffset _createdAt;
-		
-		private System.DateTimeOffset _updatedAt;
-		
-		private EntityRef<Group> _Group;
-		
-		private EntityRef<User> _User;
-		
-    #region Extensibility Method Definitions
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnidChanging(int value);
-    partial void OnidChanged();
-    partial void OngroupIdChanging(int value);
-    partial void OngroupIdChanged();
-    partial void OnuserIdChanging(int value);
-    partial void OnuserIdChanged();
-    partial void OncreatedAtChanging(System.DateTimeOffset value);
-    partial void OncreatedAtChanged();
-    partial void OnupdatedAtChanging(System.DateTimeOffset value);
-    partial void OnupdatedAtChanged();
-    #endregion
-		
-		public Group_User()
-		{
-			this._Group = default(EntityRef<Group>);
-			this._User = default(EntityRef<User>);
-			OnCreated();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_id", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
-		public int id
-		{
-			get
-			{
-				return this._id;
-			}
-			set
-			{
-				if ((this._id != value))
-				{
-					this.OnidChanging(value);
-					this.SendPropertyChanging();
-					this._id = value;
-					this.SendPropertyChanged("id");
-					this.OnidChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_groupId", DbType="Int NOT NULL")]
-		public int groupId
-		{
-			get
-			{
-				return this._groupId;
-			}
-			set
-			{
-				if ((this._groupId != value))
-				{
-					if (this._Group.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.OngroupIdChanging(value);
-					this.SendPropertyChanging();
-					this._groupId = value;
-					this.SendPropertyChanged("groupId");
-					this.OngroupIdChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_userId", DbType="Int NOT NULL")]
-		public int userId
-		{
-			get
-			{
-				return this._userId;
-			}
-			set
-			{
-				if ((this._userId != value))
-				{
-					if (this._User.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.OnuserIdChanging(value);
-					this.SendPropertyChanging();
-					this._userId = value;
-					this.SendPropertyChanged("userId");
-					this.OnuserIdChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_createdAt", DbType="DateTimeOffset NOT NULL")]
-		public System.DateTimeOffset createdAt
-		{
-			get
-			{
-				return this._createdAt;
-			}
-			set
-			{
-				if ((this._createdAt != value))
-				{
-					this.OncreatedAtChanging(value);
-					this.SendPropertyChanging();
-					this._createdAt = value;
-					this.SendPropertyChanged("createdAt");
-					this.OncreatedAtChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_updatedAt", DbType="DateTimeOffset NOT NULL")]
-		public System.DateTimeOffset updatedAt
-		{
-			get
-			{
-				return this._updatedAt;
-			}
-			set
-			{
-				if ((this._updatedAt != value))
-				{
-					this.OnupdatedAtChanging(value);
-					this.SendPropertyChanging();
-					this._updatedAt = value;
-					this.SendPropertyChanged("updatedAt");
-					this.OnupdatedAtChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Group_Group_User", Storage="_Group", ThisKey="groupId", OtherKey="id", IsForeignKey=true)]
-		public Group Group
-		{
-			get
-			{
-				return this._Group.Entity;
-			}
-			set
-			{
-				Group previousValue = this._Group.Entity;
-				if (((previousValue != value) 
-							|| (this._Group.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._Group.Entity = null;
-						previousValue.Group_Users.Remove(this);
-					}
-					this._Group.Entity = value;
-					if ((value != null))
-					{
-						value.Group_Users.Add(this);
-						this._groupId = value.id;
-					}
-					else
-					{
-						this._groupId = default(int);
-					}
-					this.SendPropertyChanged("Group");
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="User_Group_User", Storage="_User", ThisKey="userId", OtherKey="id", IsForeignKey=true)]
-		public User User
-		{
-			get
-			{
-				return this._User.Entity;
-			}
-			set
-			{
-				User previousValue = this._User.Entity;
-				if (((previousValue != value) 
-							|| (this._User.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._User.Entity = null;
-						previousValue.Group_Users.Remove(this);
-					}
-					this._User.Entity = value;
-					if ((value != null))
-					{
-						value.Group_Users.Add(this);
-						this._userId = value.id;
-					}
-					else
-					{
-						this._userId = default(int);
-					}
-					this.SendPropertyChanged("User");
-				}
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Group_Screens")]
-	public partial class Group_Screen : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private int _id;
-		
-		private int _groupId;
-		
-		private int _screenId;
-		
-		private System.Nullable<bool> _isRole;
-		
-		private System.DateTimeOffset _createdAt;
-		
-		private System.DateTimeOffset _updatedAt;
-		
-		private EntityRef<Group> _Group;
-		
-		private EntityRef<Screen> _Screen;
-		
-    #region Extensibility Method Definitions
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnidChanging(int value);
-    partial void OnidChanged();
-    partial void OngroupIdChanging(int value);
-    partial void OngroupIdChanged();
-    partial void OnscreenIdChanging(int value);
-    partial void OnscreenIdChanged();
-    partial void OnisRoleChanging(System.Nullable<bool> value);
-    partial void OnisRoleChanged();
-    partial void OncreatedAtChanging(System.DateTimeOffset value);
-    partial void OncreatedAtChanged();
-    partial void OnupdatedAtChanging(System.DateTimeOffset value);
-    partial void OnupdatedAtChanged();
-    #endregion
-		
-		public Group_Screen()
-		{
-			this._Group = default(EntityRef<Group>);
-			this._Screen = default(EntityRef<Screen>);
-			OnCreated();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_id", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
-		public int id
-		{
-			get
-			{
-				return this._id;
-			}
-			set
-			{
-				if ((this._id != value))
-				{
-					this.OnidChanging(value);
-					this.SendPropertyChanging();
-					this._id = value;
-					this.SendPropertyChanged("id");
-					this.OnidChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_groupId", DbType="Int NOT NULL")]
-		public int groupId
-		{
-			get
-			{
-				return this._groupId;
-			}
-			set
-			{
-				if ((this._groupId != value))
-				{
-					if (this._Group.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.OngroupIdChanging(value);
-					this.SendPropertyChanging();
-					this._groupId = value;
-					this.SendPropertyChanged("groupId");
-					this.OngroupIdChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_screenId", DbType="Int NOT NULL")]
-		public int screenId
-		{
-			get
-			{
-				return this._screenId;
-			}
-			set
-			{
-				if ((this._screenId != value))
-				{
-					if (this._Screen.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.OnscreenIdChanging(value);
-					this.SendPropertyChanging();
-					this._screenId = value;
-					this.SendPropertyChanged("screenId");
-					this.OnscreenIdChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_isRole", DbType="Bit")]
-		public System.Nullable<bool> isRole
-		{
-			get
-			{
-				return this._isRole;
-			}
-			set
-			{
-				if ((this._isRole != value))
-				{
-					this.OnisRoleChanging(value);
-					this.SendPropertyChanging();
-					this._isRole = value;
-					this.SendPropertyChanged("isRole");
-					this.OnisRoleChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_createdAt", DbType="DateTimeOffset NOT NULL")]
-		public System.DateTimeOffset createdAt
-		{
-			get
-			{
-				return this._createdAt;
-			}
-			set
-			{
-				if ((this._createdAt != value))
-				{
-					this.OncreatedAtChanging(value);
-					this.SendPropertyChanging();
-					this._createdAt = value;
-					this.SendPropertyChanged("createdAt");
-					this.OncreatedAtChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_updatedAt", DbType="DateTimeOffset NOT NULL")]
-		public System.DateTimeOffset updatedAt
-		{
-			get
-			{
-				return this._updatedAt;
-			}
-			set
-			{
-				if ((this._updatedAt != value))
-				{
-					this.OnupdatedAtChanging(value);
-					this.SendPropertyChanging();
-					this._updatedAt = value;
-					this.SendPropertyChanged("updatedAt");
-					this.OnupdatedAtChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Group_Group_Screen", Storage="_Group", ThisKey="groupId", OtherKey="id", IsForeignKey=true)]
-		public Group Group
-		{
-			get
-			{
-				return this._Group.Entity;
-			}
-			set
-			{
-				Group previousValue = this._Group.Entity;
-				if (((previousValue != value) 
-							|| (this._Group.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._Group.Entity = null;
-						previousValue.Group_Screens.Remove(this);
-					}
-					this._Group.Entity = value;
-					if ((value != null))
-					{
-						value.Group_Screens.Add(this);
-						this._groupId = value.id;
-					}
-					else
-					{
-						this._groupId = default(int);
-					}
-					this.SendPropertyChanged("Group");
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Screen_Group_Screen", Storage="_Screen", ThisKey="screenId", OtherKey="id", IsForeignKey=true)]
-		public Screen Screen
-		{
-			get
-			{
-				return this._Screen.Entity;
-			}
-			set
-			{
-				Screen previousValue = this._Screen.Entity;
-				if (((previousValue != value) 
-							|| (this._Screen.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._Screen.Entity = null;
-						previousValue.Group_Screens.Remove(this);
-					}
-					this._Screen.Entity = value;
-					if ((value != null))
-					{
-						value.Group_Screens.Add(this);
-						this._screenId = value.id;
-					}
-					else
-					{
-						this._screenId = default(int);
-					}
-					this.SendPropertyChanged("Screen");
-				}
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Screens")]
-	public partial class Screen : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private int _id;
-		
-		private string _screenName;
-		
-		private string _description;
-		
-		private System.DateTimeOffset _createdAt;
-		
-		private System.DateTimeOffset _updatedAt;
-		
-		private EntitySet<Group_Screen> _Group_Screens;
-		
-    #region Extensibility Method Definitions
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnidChanging(int value);
-    partial void OnidChanged();
-    partial void OnscreenNameChanging(string value);
-    partial void OnscreenNameChanged();
-    partial void OndescriptionChanging(string value);
-    partial void OndescriptionChanged();
-    partial void OncreatedAtChanging(System.DateTimeOffset value);
-    partial void OncreatedAtChanged();
-    partial void OnupdatedAtChanging(System.DateTimeOffset value);
-    partial void OnupdatedAtChanged();
-    #endregion
-		
-		public Screen()
-		{
-			this._Group_Screens = new EntitySet<Group_Screen>(new Action<Group_Screen>(this.attach_Group_Screens), new Action<Group_Screen>(this.detach_Group_Screens));
-			OnCreated();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_id", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
-		public int id
-		{
-			get
-			{
-				return this._id;
-			}
-			set
-			{
-				if ((this._id != value))
-				{
-					this.OnidChanging(value);
-					this.SendPropertyChanging();
-					this._id = value;
-					this.SendPropertyChanged("id");
-					this.OnidChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_screenName", DbType="NVarChar(255) NOT NULL", CanBeNull=false)]
-		public string screenName
-		{
-			get
-			{
-				return this._screenName;
-			}
-			set
-			{
-				if ((this._screenName != value))
-				{
-					this.OnscreenNameChanging(value);
-					this.SendPropertyChanging();
-					this._screenName = value;
-					this.SendPropertyChanged("screenName");
-					this.OnscreenNameChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_description", DbType="NVarChar(255)")]
-		public string description
-		{
-			get
-			{
-				return this._description;
-			}
-			set
-			{
-				if ((this._description != value))
-				{
-					this.OndescriptionChanging(value);
-					this.SendPropertyChanging();
-					this._description = value;
-					this.SendPropertyChanged("description");
-					this.OndescriptionChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_createdAt", DbType="DateTimeOffset NOT NULL")]
-		public System.DateTimeOffset createdAt
-		{
-			get
-			{
-				return this._createdAt;
-			}
-			set
-			{
-				if ((this._createdAt != value))
-				{
-					this.OncreatedAtChanging(value);
-					this.SendPropertyChanging();
-					this._createdAt = value;
-					this.SendPropertyChanged("createdAt");
-					this.OncreatedAtChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_updatedAt", DbType="DateTimeOffset NOT NULL")]
-		public System.DateTimeOffset updatedAt
-		{
-			get
-			{
-				return this._updatedAt;
-			}
-			set
-			{
-				if ((this._updatedAt != value))
-				{
-					this.OnupdatedAtChanging(value);
-					this.SendPropertyChanging();
-					this._updatedAt = value;
-					this.SendPropertyChanged("updatedAt");
-					this.OnupdatedAtChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Screen_Group_Screen", Storage="_Group_Screens", ThisKey="id", OtherKey="screenId")]
-		public EntitySet<Group_Screen> Group_Screens
-		{
-			get
-			{
-				return this._Group_Screens;
-			}
-			set
-			{
-				this._Group_Screens.Assign(value);
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-		
-		private void attach_Group_Screens(Group_Screen entity)
-		{
-			this.SendPropertyChanging();
-			entity.Screen = this;
-		}
-		
-		private void detach_Group_Screens(Group_Screen entity)
-		{
-			this.SendPropertyChanging();
-			entity.Screen = null;
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="")]
-	public partial class UserDK
-	{
-		
-		private string _firstName;
-		
-		private string _lastName;
-		
-		private string _phone;
-		
-		private string _email;
-		
-		private string _sex;
-		
-		public UserDK()
-		{
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_firstName", CanBeNull=false)]
-		public string firstName
-		{
-			get
-			{
-				return this._firstName;
-			}
-			set
-			{
-				if ((this._firstName != value))
-				{
-					this._firstName = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_lastName", CanBeNull=false)]
-		public string lastName
-		{
-			get
-			{
-				return this._lastName;
-			}
-			set
-			{
-				if ((this._lastName != value))
-				{
-					this._lastName = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_phone", CanBeNull=false)]
-		public string phone
-		{
-			get
-			{
-				return this._phone;
-			}
-			set
-			{
-				if ((this._phone != value))
-				{
-					this._phone = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_email", CanBeNull=false)]
-		public string email
-		{
-			get
-			{
-				return this._email;
-			}
-			set
-			{
-				if ((this._email != value))
-				{
-					this._email = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_sex", CanBeNull=false)]
-		public string sex
-		{
-			get
-			{
-				return this._sex;
-			}
-			set
-			{
-				if ((this._sex != value))
-				{
-					this._sex = value;
-				}
-			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="")]
-	public partial class BookDK
-	{
-		
-		private string _image;
-		
-		private string _name;
-		
-		private double _price;
-		
-		private System.Nullable<double> _discount;
-		
-		private int _stock;
-		
-		private int _pageNumber;
-		
-		private int _publishingYear;
-		
-		private string _supplier;
-		
-		private System.Nullable<int> _totalRating;
-		
-		private System.Nullable<double> _ratingsAverage;
-		
-		private int _id;
-		
-		private string _author;
-		
-		public BookDK()
-		{
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_image", CanBeNull=false)]
-		public string image
-		{
-			get
-			{
-				return this._image;
-			}
-			set
-			{
-				if ((this._image != value))
-				{
-					this._image = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_name", CanBeNull=false)]
-		public string name
-		{
-			get
-			{
-				return this._name;
-			}
-			set
-			{
-				if ((this._name != value))
-				{
-					this._name = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_price", DbType="FLOAT Not null")]
-		public double price
-		{
-			get
-			{
-				return this._price;
-			}
-			set
-			{
-				if ((this._price != value))
-				{
-					this._price = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_discount", DbType="Float")]
-		public System.Nullable<double> discount
-		{
-			get
-			{
-				return this._discount;
-			}
-			set
-			{
-				if ((this._discount != value))
-				{
-					this._discount = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_stock", DbType="Int NOT NULL")]
-		public int stock
-		{
-			get
-			{
-				return this._stock;
-			}
-			set
-			{
-				if ((this._stock != value))
-				{
-					this._stock = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_pageNumber", DbType="Int NOT NULL")]
-		public int pageNumber
-		{
-			get
-			{
-				return this._pageNumber;
-			}
-			set
-			{
-				if ((this._pageNumber != value))
-				{
-					this._pageNumber = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_publishingYear", DbType="Int NOT NULL")]
-		public int publishingYear
-		{
-			get
-			{
-				return this._publishingYear;
-			}
-			set
-			{
-				if ((this._publishingYear != value))
-				{
-					this._publishingYear = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_supplier", CanBeNull=false)]
-		public string supplier
-		{
-			get
-			{
-				return this._supplier;
-			}
-			set
-			{
-				if ((this._supplier != value))
-				{
-					this._supplier = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_totalRating", DbType="Int")]
-		public System.Nullable<int> totalRating
-		{
-			get
-			{
-				return this._totalRating;
-			}
-			set
-			{
-				if ((this._totalRating != value))
-				{
-					this._totalRating = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ratingsAverage", DbType="Float")]
-		public System.Nullable<double> ratingsAverage
-		{
-			get
-			{
-				return this._ratingsAverage;
-			}
-			set
-			{
-				if ((this._ratingsAverage != value))
-				{
-					this._ratingsAverage = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_id")]
-		public int id
-		{
-			get
-			{
-				return this._id;
-			}
-			set
-			{
-				if ((this._id != value))
-				{
-					this._id = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_author", CanBeNull=false)]
-		public string author
-		{
-			get
-			{
-				return this._author;
-			}
-			set
-			{
-				if ((this._author != value))
-				{
-					this._author = value;
-				}
-			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Books")]
-	public partial class Book : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private int _id;
-		
-		private string _name;
-		
-		private int _supplierId;
-		
-		private int _categoryId;
-		
-		private double _price;
-		
-		private System.Nullable<double> _discount;
-		
-		private int _stock;
-		
-		private string _author;
-		
-		private int _pageNumber;
-		
-		private int _publishingYear;
-		
-		private string _slug;
-		
-		private string _image;
-		
-		private System.Nullable<int> _totalRating;
-		
-		private System.Nullable<int> _sold;
-		
-		private System.Nullable<double> _ratingsAverage;
-		
-		private System.DateTimeOffset _createdAt;
-		
-		private System.DateTimeOffset _updatedAt;
-		
-		private EntityRef<Category> _Category;
-		
-		private EntityRef<Supplier> _Supplier;
-		
-    #region Extensibility Method Definitions
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnidChanging(int value);
-    partial void OnidChanged();
-    partial void OnnameChanging(string value);
-    partial void OnnameChanged();
-    partial void OnsupplierIdChanging(int value);
-    partial void OnsupplierIdChanged();
-    partial void OncategoryIdChanging(int value);
-    partial void OncategoryIdChanged();
-    partial void OnpriceChanging(double value);
-    partial void OnpriceChanged();
-    partial void OndiscountChanging(System.Nullable<double> value);
-    partial void OndiscountChanged();
-    partial void OnstockChanging(int value);
-    partial void OnstockChanged();
-    partial void OnauthorChanging(string value);
-    partial void OnauthorChanged();
-    partial void OnpageNumberChanging(int value);
-    partial void OnpageNumberChanged();
-    partial void OnpublishingYearChanging(int value);
-    partial void OnpublishingYearChanged();
-    partial void OnslugChanging(string value);
-    partial void OnslugChanged();
-    partial void OnimageChanging(string value);
-    partial void OnimageChanged();
-    partial void OntotalRatingChanging(System.Nullable<int> value);
-    partial void OntotalRatingChanged();
-    partial void OnsoldChanging(System.Nullable<int> value);
-    partial void OnsoldChanged();
-    partial void OnratingsAverageChanging(System.Nullable<double> value);
-    partial void OnratingsAverageChanged();
-    partial void OncreatedAtChanging(System.DateTimeOffset value);
-    partial void OncreatedAtChanged();
-    partial void OnupdatedAtChanging(System.DateTimeOffset value);
-    partial void OnupdatedAtChanged();
-    #endregion
-		
-		public Book()
-		{
-			this._Category = default(EntityRef<Category>);
-			this._Supplier = default(EntityRef<Supplier>);
-			OnCreated();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_id", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
-		public int id
-		{
-			get
-			{
-				return this._id;
-			}
-			set
-			{
-				if ((this._id != value))
-				{
-					this.OnidChanging(value);
-					this.SendPropertyChanging();
-					this._id = value;
-					this.SendPropertyChanged("id");
-					this.OnidChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_name", DbType="NVarChar(255) NOT NULL", CanBeNull=false)]
-		public string name
-		{
-			get
-			{
-				return this._name;
-			}
-			set
-			{
-				if ((this._name != value))
-				{
-					this.OnnameChanging(value);
-					this.SendPropertyChanging();
-					this._name = value;
-					this.SendPropertyChanged("name");
-					this.OnnameChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_supplierId", DbType="Int NOT NULL")]
-		public int supplierId
-		{
-			get
-			{
-				return this._supplierId;
-			}
-			set
-			{
-				if ((this._supplierId != value))
-				{
-					if (this._Supplier.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.OnsupplierIdChanging(value);
-					this.SendPropertyChanging();
-					this._supplierId = value;
-					this.SendPropertyChanged("supplierId");
-					this.OnsupplierIdChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_categoryId", DbType="Int NOT NULL")]
-		public int categoryId
-		{
-			get
-			{
-				return this._categoryId;
-			}
-			set
-			{
-				if ((this._categoryId != value))
-				{
-					if (this._Category.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.OncategoryIdChanging(value);
-					this.SendPropertyChanging();
-					this._categoryId = value;
-					this.SendPropertyChanged("categoryId");
-					this.OncategoryIdChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_price", DbType="Float NOT NULL")]
-		public double price
-		{
-			get
-			{
-				return this._price;
-			}
-			set
-			{
-				if ((this._price != value))
-				{
-					this.OnpriceChanging(value);
-					this.SendPropertyChanging();
-					this._price = value;
-					this.SendPropertyChanged("price");
-					this.OnpriceChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_discount", DbType="Float")]
-		public System.Nullable<double> discount
-		{
-			get
-			{
-				return this._discount;
-			}
-			set
-			{
-				if ((this._discount != value))
-				{
-					this.OndiscountChanging(value);
-					this.SendPropertyChanging();
-					this._discount = value;
-					this.SendPropertyChanged("discount");
-					this.OndiscountChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_stock", DbType="Int NOT NULL")]
-		public int stock
-		{
-			get
-			{
-				return this._stock;
-			}
-			set
-			{
-				if ((this._stock != value))
-				{
-					this.OnstockChanging(value);
-					this.SendPropertyChanging();
-					this._stock = value;
-					this.SendPropertyChanged("stock");
-					this.OnstockChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_author", DbType="NVarChar(255) NOT NULL", CanBeNull=false)]
-		public string author
-		{
-			get
-			{
-				return this._author;
-			}
-			set
-			{
-				if ((this._author != value))
-				{
-					this.OnauthorChanging(value);
-					this.SendPropertyChanging();
-					this._author = value;
-					this.SendPropertyChanged("author");
-					this.OnauthorChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_pageNumber", DbType="Int NOT NULL")]
-		public int pageNumber
-		{
-			get
-			{
-				return this._pageNumber;
-			}
-			set
-			{
-				if ((this._pageNumber != value))
-				{
-					this.OnpageNumberChanging(value);
-					this.SendPropertyChanging();
-					this._pageNumber = value;
-					this.SendPropertyChanged("pageNumber");
-					this.OnpageNumberChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_publishingYear", DbType="Int NOT NULL")]
-		public int publishingYear
-		{
-			get
-			{
-				return this._publishingYear;
-			}
-			set
-			{
-				if ((this._publishingYear != value))
-				{
-					this.OnpublishingYearChanging(value);
-					this.SendPropertyChanging();
-					this._publishingYear = value;
-					this.SendPropertyChanged("publishingYear");
-					this.OnpublishingYearChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_slug", DbType="NVarChar(255)")]
-		public string slug
-		{
-			get
-			{
-				return this._slug;
-			}
-			set
-			{
-				if ((this._slug != value))
-				{
-					this.OnslugChanging(value);
-					this.SendPropertyChanging();
-					this._slug = value;
-					this.SendPropertyChanged("slug");
-					this.OnslugChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_image", DbType="NVarChar(255)")]
-		public string image
-		{
-			get
-			{
-				return this._image;
-			}
-			set
-			{
-				if ((this._image != value))
-				{
-					this.OnimageChanging(value);
-					this.SendPropertyChanging();
-					this._image = value;
-					this.SendPropertyChanged("image");
-					this.OnimageChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_totalRating", DbType="Int")]
-		public System.Nullable<int> totalRating
-		{
-			get
-			{
-				return this._totalRating;
-			}
-			set
-			{
-				if ((this._totalRating != value))
-				{
-					this.OntotalRatingChanging(value);
-					this.SendPropertyChanging();
-					this._totalRating = value;
-					this.SendPropertyChanged("totalRating");
-					this.OntotalRatingChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_sold", DbType="Int")]
-		public System.Nullable<int> sold
-		{
-			get
-			{
-				return this._sold;
-			}
-			set
-			{
-				if ((this._sold != value))
-				{
-					this.OnsoldChanging(value);
-					this.SendPropertyChanging();
-					this._sold = value;
-					this.SendPropertyChanged("sold");
-					this.OnsoldChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ratingsAverage", DbType="Float")]
-		public System.Nullable<double> ratingsAverage
-		{
-			get
-			{
-				return this._ratingsAverage;
-			}
-			set
-			{
-				if ((this._ratingsAverage != value))
-				{
-					this.OnratingsAverageChanging(value);
-					this.SendPropertyChanging();
-					this._ratingsAverage = value;
-					this.SendPropertyChanged("ratingsAverage");
-					this.OnratingsAverageChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_createdAt", DbType="DateTimeOffset NOT NULL")]
-		public System.DateTimeOffset createdAt
-		{
-			get
-			{
-				return this._createdAt;
-			}
-			set
-			{
-				if ((this._createdAt != value))
-				{
-					this.OncreatedAtChanging(value);
-					this.SendPropertyChanging();
-					this._createdAt = value;
-					this.SendPropertyChanged("createdAt");
-					this.OncreatedAtChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_updatedAt", DbType="DateTimeOffset NOT NULL")]
-		public System.DateTimeOffset updatedAt
-		{
-			get
-			{
-				return this._updatedAt;
-			}
-			set
-			{
-				if ((this._updatedAt != value))
-				{
-					this.OnupdatedAtChanging(value);
-					this.SendPropertyChanging();
-					this._updatedAt = value;
-					this.SendPropertyChanged("updatedAt");
-					this.OnupdatedAtChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Category_Book", Storage="_Category", ThisKey="categoryId", OtherKey="id", IsForeignKey=true)]
-		public Category Category
-		{
-			get
-			{
-				return this._Category.Entity;
-			}
-			set
-			{
-				Category previousValue = this._Category.Entity;
-				if (((previousValue != value) 
-							|| (this._Category.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._Category.Entity = null;
-						previousValue.Books.Remove(this);
-					}
-					this._Category.Entity = value;
-					if ((value != null))
-					{
-						value.Books.Add(this);
-						this._categoryId = value.id;
-					}
-					else
-					{
-						this._categoryId = default(int);
-					}
-					this.SendPropertyChanged("Category");
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Supplier_Book", Storage="_Supplier", ThisKey="supplierId", OtherKey="id", IsForeignKey=true)]
-		public Supplier Supplier
-		{
-			get
-			{
-				return this._Supplier.Entity;
-			}
-			set
-			{
-				Supplier previousValue = this._Supplier.Entity;
-				if (((previousValue != value) 
-							|| (this._Supplier.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._Supplier.Entity = null;
-						previousValue.Books.Remove(this);
-					}
-					this._Supplier.Entity = value;
-					if ((value != null))
-					{
-						value.Books.Add(this);
-						this._supplierId = value.id;
-					}
-					else
-					{
-						this._supplierId = default(int);
-					}
-					this.SendPropertyChanged("Supplier");
-				}
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Categories")]
-	public partial class Category : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private int _id;
-		
-		private int _listCateId;
-		
-		private string _name;
-		
-		private System.DateTimeOffset _createdAt;
-		
-		private System.DateTimeOffset _updatedAt;
-		
-		private EntitySet<Book> _Books;
-		
-    #region Extensibility Method Definitions
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnidChanging(int value);
-    partial void OnidChanged();
-    partial void OnlistCateIdChanging(int value);
-    partial void OnlistCateIdChanged();
-    partial void OnnameChanging(string value);
-    partial void OnnameChanged();
-    partial void OncreatedAtChanging(System.DateTimeOffset value);
-    partial void OncreatedAtChanged();
-    partial void OnupdatedAtChanging(System.DateTimeOffset value);
-    partial void OnupdatedAtChanged();
-    #endregion
-		
-		public Category()
-		{
-			this._Books = new EntitySet<Book>(new Action<Book>(this.attach_Books), new Action<Book>(this.detach_Books));
-			OnCreated();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_id", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
-		public int id
-		{
-			get
-			{
-				return this._id;
-			}
-			set
-			{
-				if ((this._id != value))
-				{
-					this.OnidChanging(value);
-					this.SendPropertyChanging();
-					this._id = value;
-					this.SendPropertyChanged("id");
-					this.OnidChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_listCateId", DbType="Int NOT NULL")]
-		public int listCateId
-		{
-			get
-			{
-				return this._listCateId;
-			}
-			set
-			{
-				if ((this._listCateId != value))
-				{
-					this.OnlistCateIdChanging(value);
-					this.SendPropertyChanging();
-					this._listCateId = value;
-					this.SendPropertyChanged("listCateId");
-					this.OnlistCateIdChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_name", DbType="NVarChar(255) NOT NULL", CanBeNull=false)]
-		public string name
-		{
-			get
-			{
-				return this._name;
-			}
-			set
-			{
-				if ((this._name != value))
-				{
-					this.OnnameChanging(value);
-					this.SendPropertyChanging();
-					this._name = value;
-					this.SendPropertyChanged("name");
-					this.OnnameChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_createdAt", DbType="DateTimeOffset NOT NULL")]
-		public System.DateTimeOffset createdAt
-		{
-			get
-			{
-				return this._createdAt;
-			}
-			set
-			{
-				if ((this._createdAt != value))
-				{
-					this.OncreatedAtChanging(value);
-					this.SendPropertyChanging();
-					this._createdAt = value;
-					this.SendPropertyChanged("createdAt");
-					this.OncreatedAtChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_updatedAt", DbType="DateTimeOffset NOT NULL")]
-		public System.DateTimeOffset updatedAt
+		public System.Data.Linq.Table<UserDK> UserDKs
 		{
 			get
-			{
-				return this._updatedAt;
-			}
-			set
 			{
-				if ((this._updatedAt != value))
-				{
-					this.OnupdatedAtChanging(value);
-					this.SendPropertyChanging();
-					this._updatedAt = value;
-					this.SendPropertyChanged("updatedAt");
-					this.OnupdatedAtChanged();
-				}
+				return this.GetTable<UserDK>();
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Category_Book", Storage="_Books", ThisKey="id", OtherKey="categoryId")]
-		public EntitySet<Book> Books
+		public System.Data.Linq.Table<Book> Books
 		{
 			get
-			{
-				return this._Books;
-			}
-			set
-			{
-				this._Books.Assign(value);
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
 			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+				return this.GetTable<Book>();
 			}
-		}
-		
-		private void attach_Books(Book entity)
-		{
-			this.SendPropertyChanging();
-			entity.Category = this;
-		}
-		
-		private void detach_Books(Book entity)
-		{
-			this.SendPropertyChanging();
-			entity.Category = null;
 		}
 	}
 	
@@ -2346,8 +343,231 @@ namespace DTO
 			entity.Supplier = null;
 		}
 	}
-<<<<<<< HEAD
-=======
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="")]
+	public partial class BookDK
+	{
+		
+		private string _image;
+		
+		private string _name;
+		
+		private double _price;
+		
+		private System.Nullable<double> _discount;
+		
+		private int _stock;
+		
+		private string _author;
+		
+		private int _pageNumber;
+		
+		private int _publishingYear;
+		
+		private string _supplier;
+		
+		private System.Nullable<int> _totalRating;
+		
+		private System.Nullable<double> _ratingsAverage;
+		
+		private int _id;
+		
+		public BookDK()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_image", CanBeNull=false)]
+		public string image
+		{
+			get
+			{
+				return this._image;
+			}
+			set
+			{
+				if ((this._image != value))
+				{
+					this._image = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_name", CanBeNull=false)]
+		public string name
+		{
+			get
+			{
+				return this._name;
+			}
+			set
+			{
+				if ((this._name != value))
+				{
+					this._name = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_price")]
+		public double price
+		{
+			get
+			{
+				return this._price;
+			}
+			set
+			{
+				if ((this._price != value))
+				{
+					this._price = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_discount", DbType="Float")]
+		public System.Nullable<double> discount
+		{
+			get
+			{
+				return this._discount;
+			}
+			set
+			{
+				if ((this._discount != value))
+				{
+					this._discount = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_stock")]
+		public int stock
+		{
+			get
+			{
+				return this._stock;
+			}
+			set
+			{
+				if ((this._stock != value))
+				{
+					this._stock = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_author", CanBeNull=false)]
+		public string author
+		{
+			get
+			{
+				return this._author;
+			}
+			set
+			{
+				if ((this._author != value))
+				{
+					this._author = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_pageNumber")]
+		public int pageNumber
+		{
+			get
+			{
+				return this._pageNumber;
+			}
+			set
+			{
+				if ((this._pageNumber != value))
+				{
+					this._pageNumber = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_publishingYear")]
+		public int publishingYear
+		{
+			get
+			{
+				return this._publishingYear;
+			}
+			set
+			{
+				if ((this._publishingYear != value))
+				{
+					this._publishingYear = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_supplier", CanBeNull=false)]
+		public string supplier
+		{
+			get
+			{
+				return this._supplier;
+			}
+			set
+			{
+				if ((this._supplier != value))
+				{
+					this._supplier = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_totalRating", DbType="int")]
+		public System.Nullable<int> totalRating
+		{
+			get
+			{
+				return this._totalRating;
+			}
+			set
+			{
+				if ((this._totalRating != value))
+				{
+					this._totalRating = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ratingsAverage", DbType="Float")]
+		public System.Nullable<double> ratingsAverage
+		{
+			get
+			{
+				return this._ratingsAverage;
+			}
+			set
+			{
+				if ((this._ratingsAverage != value))
+				{
+					this._ratingsAverage = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_id")]
+		public int id
+		{
+			get
+			{
+				return this._id;
+			}
+			set
+			{
+				if ((this._id != value))
+				{
+					this._id = value;
+				}
+			}
+		}
+	}
 	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Users")]
 	public partial class User : INotifyPropertyChanging, INotifyPropertyChanged
@@ -2372,8 +592,6 @@ namespace DTO
 		private System.DateTimeOffset _createdAt;
 		
 		private System.DateTimeOffset _updatedAt;
-		
-		private EntitySet<Group_User> _Group_Users;
 		
     #region Extensibility Method Definitions
     partial void OnLoaded();
@@ -2401,7 +619,6 @@ namespace DTO
 		
 		public User()
 		{
-			this._Group_Users = new EntitySet<Group_User>(new Action<Group_User>(this.attach_Group_Users), new Action<Group_User>(this.detach_Group_Users));
 			OnCreated();
 		}
 		
@@ -2585,19 +802,6 @@ namespace DTO
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="User_Group_User", Storage="_Group_Users", ThisKey="id", OtherKey="userId")]
-		public EntitySet<Group_User> Group_Users
-		{
-			get
-			{
-				return this._Group_Users;
-			}
-			set
-			{
-				this._Group_Users.Assign(value);
-			}
-		}
-		
 		public event PropertyChangingEventHandler PropertyChanging;
 		
 		public event PropertyChangedEventHandler PropertyChanged;
@@ -2616,18 +820,6 @@ namespace DTO
 			{
 				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
 			}
-		}
-		
-		private void attach_Group_Users(Group_User entity)
-		{
-			this.SendPropertyChanging();
-			entity.User = this;
-		}
-		
-		private void detach_Group_Users(Group_User entity)
-		{
-			this.SendPropertyChanging();
-			entity.User = null;
 		}
 	}
 	
@@ -3019,6 +1211,608 @@ namespace DTO
 			entity.List_Cate = null;
 		}
 	}
->>>>>>> 6aa34ccecb5f63192046902568611ab7096d6bb8
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="")]
+	public partial class UserDK
+	{
+		
+		private string _firstname;
+		
+		private string _lastname;
+		
+		private string _phone;
+		
+		private string _email;
+		
+		private string _sex;
+		
+		public UserDK()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_firstname", CanBeNull=false)]
+		public string firstname
+		{
+			get
+			{
+				return this._firstname;
+			}
+			set
+			{
+				if ((this._firstname != value))
+				{
+					this._firstname = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_lastname", CanBeNull=false)]
+		public string lastname
+		{
+			get
+			{
+				return this._lastname;
+			}
+			set
+			{
+				if ((this._lastname != value))
+				{
+					this._lastname = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_phone", CanBeNull=false)]
+		public string phone
+		{
+			get
+			{
+				return this._phone;
+			}
+			set
+			{
+				if ((this._phone != value))
+				{
+					this._phone = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_email", CanBeNull=false)]
+		public string email
+		{
+			get
+			{
+				return this._email;
+			}
+			set
+			{
+				if ((this._email != value))
+				{
+					this._email = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_sex", CanBeNull=false)]
+		public string sex
+		{
+			get
+			{
+				return this._sex;
+			}
+			set
+			{
+				if ((this._sex != value))
+				{
+					this._sex = value;
+				}
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Books")]
+	public partial class Book : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _id;
+		
+		private string _name;
+		
+		private int _supplierId;
+		
+		private int _categoryId;
+		
+		private double _price;
+		
+		private System.Nullable<double> _discount;
+		
+		private int _stock;
+		
+		private int _pageNumber;
+		
+		private int _publishingYear;
+		
+		private string _slug;
+		
+		private string _image;
+		
+		private System.Nullable<int> _totalRating;
+		
+		private System.Nullable<int> _sold;
+		
+		private System.Nullable<double> _ratingsAverage;
+		
+		private System.DateTimeOffset _createdAt;
+		
+		private System.DateTimeOffset _updatedAt;
+		
+		private EntityRef<Supplier> _Supplier;
+		
+		private EntityRef<Category> _Category;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnidChanging(int value);
+    partial void OnidChanged();
+    partial void OnnameChanging(string value);
+    partial void OnnameChanged();
+    partial void OnsupplierIdChanging(int value);
+    partial void OnsupplierIdChanged();
+    partial void OncategoryIdChanging(int value);
+    partial void OncategoryIdChanged();
+    partial void OnpriceChanging(double value);
+    partial void OnpriceChanged();
+    partial void OndiscountChanging(System.Nullable<double> value);
+    partial void OndiscountChanged();
+    partial void OnstockChanging(int value);
+    partial void OnstockChanged();
+    partial void OnpageNumberChanging(int value);
+    partial void OnpageNumberChanged();
+    partial void OnpublishingYearChanging(int value);
+    partial void OnpublishingYearChanged();
+    partial void OnslugChanging(string value);
+    partial void OnslugChanged();
+    partial void OnimageChanging(string value);
+    partial void OnimageChanged();
+    partial void OntotalRatingChanging(System.Nullable<int> value);
+    partial void OntotalRatingChanged();
+    partial void OnsoldChanging(System.Nullable<int> value);
+    partial void OnsoldChanged();
+    partial void OnratingsAverageChanging(System.Nullable<double> value);
+    partial void OnratingsAverageChanged();
+    partial void OncreatedAtChanging(System.DateTimeOffset value);
+    partial void OncreatedAtChanged();
+    partial void OnupdatedAtChanging(System.DateTimeOffset value);
+    partial void OnupdatedAtChanged();
+    #endregion
+		
+		public Book()
+		{
+			this._Supplier = default(EntityRef<Supplier>);
+			this._Category = default(EntityRef<Category>);
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_id", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int id
+		{
+			get
+			{
+				return this._id;
+			}
+			set
+			{
+				if ((this._id != value))
+				{
+					this.OnidChanging(value);
+					this.SendPropertyChanging();
+					this._id = value;
+					this.SendPropertyChanged("id");
+					this.OnidChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_name", DbType="NVarChar(255) NOT NULL", CanBeNull=false)]
+		public string name
+		{
+			get
+			{
+				return this._name;
+			}
+			set
+			{
+				if ((this._name != value))
+				{
+					this.OnnameChanging(value);
+					this.SendPropertyChanging();
+					this._name = value;
+					this.SendPropertyChanged("name");
+					this.OnnameChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_supplierId", DbType="Int NOT NULL")]
+		public int supplierId
+		{
+			get
+			{
+				return this._supplierId;
+			}
+			set
+			{
+				if ((this._supplierId != value))
+				{
+					if (this._Supplier.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnsupplierIdChanging(value);
+					this.SendPropertyChanging();
+					this._supplierId = value;
+					this.SendPropertyChanged("supplierId");
+					this.OnsupplierIdChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_categoryId", DbType="Int NOT NULL")]
+		public int categoryId
+		{
+			get
+			{
+				return this._categoryId;
+			}
+			set
+			{
+				if ((this._categoryId != value))
+				{
+					if (this._Category.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OncategoryIdChanging(value);
+					this.SendPropertyChanging();
+					this._categoryId = value;
+					this.SendPropertyChanged("categoryId");
+					this.OncategoryIdChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_price", DbType="Float NOT NULL")]
+		public double price
+		{
+			get
+			{
+				return this._price;
+			}
+			set
+			{
+				if ((this._price != value))
+				{
+					this.OnpriceChanging(value);
+					this.SendPropertyChanging();
+					this._price = value;
+					this.SendPropertyChanged("price");
+					this.OnpriceChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_discount", DbType="Float")]
+		public System.Nullable<double> discount
+		{
+			get
+			{
+				return this._discount;
+			}
+			set
+			{
+				if ((this._discount != value))
+				{
+					this.OndiscountChanging(value);
+					this.SendPropertyChanging();
+					this._discount = value;
+					this.SendPropertyChanged("discount");
+					this.OndiscountChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_stock", DbType="Int NOT NULL")]
+		public int stock
+		{
+			get
+			{
+				return this._stock;
+			}
+			set
+			{
+				if ((this._stock != value))
+				{
+					this.OnstockChanging(value);
+					this.SendPropertyChanging();
+					this._stock = value;
+					this.SendPropertyChanged("stock");
+					this.OnstockChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_pageNumber", DbType="Int NOT NULL")]
+		public int pageNumber
+		{
+			get
+			{
+				return this._pageNumber;
+			}
+			set
+			{
+				if ((this._pageNumber != value))
+				{
+					this.OnpageNumberChanging(value);
+					this.SendPropertyChanging();
+					this._pageNumber = value;
+					this.SendPropertyChanged("pageNumber");
+					this.OnpageNumberChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_publishingYear", DbType="Int NOT NULL")]
+		public int publishingYear
+		{
+			get
+			{
+				return this._publishingYear;
+			}
+			set
+			{
+				if ((this._publishingYear != value))
+				{
+					this.OnpublishingYearChanging(value);
+					this.SendPropertyChanging();
+					this._publishingYear = value;
+					this.SendPropertyChanged("publishingYear");
+					this.OnpublishingYearChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_slug", DbType="NVarChar(255)")]
+		public string slug
+		{
+			get
+			{
+				return this._slug;
+			}
+			set
+			{
+				if ((this._slug != value))
+				{
+					this.OnslugChanging(value);
+					this.SendPropertyChanging();
+					this._slug = value;
+					this.SendPropertyChanged("slug");
+					this.OnslugChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_image", DbType="NVarChar(255)")]
+		public string image
+		{
+			get
+			{
+				return this._image;
+			}
+			set
+			{
+				if ((this._image != value))
+				{
+					this.OnimageChanging(value);
+					this.SendPropertyChanging();
+					this._image = value;
+					this.SendPropertyChanged("image");
+					this.OnimageChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_totalRating", DbType="Int")]
+		public System.Nullable<int> totalRating
+		{
+			get
+			{
+				return this._totalRating;
+			}
+			set
+			{
+				if ((this._totalRating != value))
+				{
+					this.OntotalRatingChanging(value);
+					this.SendPropertyChanging();
+					this._totalRating = value;
+					this.SendPropertyChanged("totalRating");
+					this.OntotalRatingChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_sold", DbType="Int")]
+		public System.Nullable<int> sold
+		{
+			get
+			{
+				return this._sold;
+			}
+			set
+			{
+				if ((this._sold != value))
+				{
+					this.OnsoldChanging(value);
+					this.SendPropertyChanging();
+					this._sold = value;
+					this.SendPropertyChanged("sold");
+					this.OnsoldChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ratingsAverage", DbType="Float")]
+		public System.Nullable<double> ratingsAverage
+		{
+			get
+			{
+				return this._ratingsAverage;
+			}
+			set
+			{
+				if ((this._ratingsAverage != value))
+				{
+					this.OnratingsAverageChanging(value);
+					this.SendPropertyChanging();
+					this._ratingsAverage = value;
+					this.SendPropertyChanged("ratingsAverage");
+					this.OnratingsAverageChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_createdAt", DbType="DateTimeOffset NOT NULL")]
+		public System.DateTimeOffset createdAt
+		{
+			get
+			{
+				return this._createdAt;
+			}
+			set
+			{
+				if ((this._createdAt != value))
+				{
+					this.OncreatedAtChanging(value);
+					this.SendPropertyChanging();
+					this._createdAt = value;
+					this.SendPropertyChanged("createdAt");
+					this.OncreatedAtChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_updatedAt", DbType="DateTimeOffset NOT NULL")]
+		public System.DateTimeOffset updatedAt
+		{
+			get
+			{
+				return this._updatedAt;
+			}
+			set
+			{
+				if ((this._updatedAt != value))
+				{
+					this.OnupdatedAtChanging(value);
+					this.SendPropertyChanging();
+					this._updatedAt = value;
+					this.SendPropertyChanged("updatedAt");
+					this.OnupdatedAtChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Supplier_Book", Storage="_Supplier", ThisKey="supplierId", OtherKey="id", IsForeignKey=true)]
+		public Supplier Supplier
+		{
+			get
+			{
+				return this._Supplier.Entity;
+			}
+			set
+			{
+				Supplier previousValue = this._Supplier.Entity;
+				if (((previousValue != value) 
+							|| (this._Supplier.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Supplier.Entity = null;
+						previousValue.Books.Remove(this);
+					}
+					this._Supplier.Entity = value;
+					if ((value != null))
+					{
+						value.Books.Add(this);
+						this._supplierId = value.id;
+					}
+					else
+					{
+						this._supplierId = default(int);
+					}
+					this.SendPropertyChanged("Supplier");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Category_Book", Storage="_Category", ThisKey="categoryId", OtherKey="id", IsForeignKey=true)]
+		public Category Category
+		{
+			get
+			{
+				return this._Category.Entity;
+			}
+			set
+			{
+				Category previousValue = this._Category.Entity;
+				if (((previousValue != value) 
+							|| (this._Category.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Category.Entity = null;
+						previousValue.Books.Remove(this);
+					}
+					this._Category.Entity = value;
+					if ((value != null))
+					{
+						value.Books.Add(this);
+						this._categoryId = value.id;
+					}
+					else
+					{
+						this._categoryId = default(int);
+					}
+					this.SendPropertyChanged("Category");
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+	}
 }
 #pragma warning restore 1591

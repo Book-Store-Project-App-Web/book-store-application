@@ -1,107 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?><Database Name="Book_Store" Class="BookStoreDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
   <Connection Mode="AppSettings" ConnectionString="Data Source=LAPTOP-3JB6IQD2;Initial Catalog=Book_Store;User ID=sa" SettingsObjectName="DTO.Properties.Settings" SettingsPropertyName="Book_StoreConnectionString3" Provider="System.Data.SqlClient" />
-  <Table Name="dbo.Groups" Member="Groups">
-    <Type Name="Group">
-      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="groupName" Type="System.String" DbType="NVarChar(255) NOT NULL" CanBeNull="false" />
-      <Column Name="description" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
-      <Column Name="createdAt" Type="System.DateTimeOffset" DbType="DateTimeOffset NOT NULL" CanBeNull="false" />
-      <Column Name="updatedAt" Type="System.DateTimeOffset" DbType="DateTimeOffset NOT NULL" CanBeNull="false" />
-      <Association Name="Group_Group_User" Member="Group_Users" ThisKey="id" OtherKey="groupId" Type="Group_User" />
-      <Association Name="Group_Group_Screen" Member="Group_Screens" ThisKey="id" OtherKey="groupId" Type="Group_Screen" />
-    </Type>
-  </Table>
-  <Table Name="dbo.Group_Users" Member="Group_Users">
-    <Type Name="Group_User">
-      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="groupId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="userId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="createdAt" Type="System.DateTimeOffset" DbType="DateTimeOffset NOT NULL" CanBeNull="false" />
-      <Column Name="updatedAt" Type="System.DateTimeOffset" DbType="DateTimeOffset NOT NULL" CanBeNull="false" />
-      <Association Name="Group_Group_User" Member="Group" ThisKey="groupId" OtherKey="id" Type="Group" IsForeignKey="true" />
-      <Association Name="User_Group_User" Member="User" ThisKey="userId" OtherKey="id" Type="User" IsForeignKey="true" />
-    </Type>
-  </Table>
-  <Table Name="dbo.Group_Screens" Member="Group_Screens">
-    <Type Name="Group_Screen">
-      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="groupId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="screenId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="isRole" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
-      <Column Name="createdAt" Type="System.DateTimeOffset" DbType="DateTimeOffset NOT NULL" CanBeNull="false" />
-      <Column Name="updatedAt" Type="System.DateTimeOffset" DbType="DateTimeOffset NOT NULL" CanBeNull="false" />
-      <Association Name="Group_Group_Screen" Member="Group" ThisKey="groupId" OtherKey="id" Type="Group" IsForeignKey="true" />
-      <Association Name="Screen_Group_Screen" Member="Screen" ThisKey="screenId" OtherKey="id" Type="Screen" IsForeignKey="true" />
-    </Type>
-  </Table>
-  <Table Name="dbo.Screens" Member="Screens">
-    <Type Name="Screen">
-      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="screenName" Type="System.String" DbType="NVarChar(255) NOT NULL" CanBeNull="false" />
-      <Column Name="description" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
-      <Column Name="createdAt" Type="System.DateTimeOffset" DbType="DateTimeOffset NOT NULL" CanBeNull="false" />
-      <Column Name="updatedAt" Type="System.DateTimeOffset" DbType="DateTimeOffset NOT NULL" CanBeNull="false" />
-      <Association Name="Screen_Group_Screen" Member="Group_Screens" ThisKey="id" OtherKey="screenId" Type="Group_Screen" />
-    </Type>
-  </Table>
-  <Table Name="" Member="UserDKs">
-    <Type Name="UserDK">
-      <Column Name="firstName" Type="System.String" CanBeNull="false" />
-      <Column Name="lastName" Type="System.String" CanBeNull="false" />
-      <Column Name="phone" Type="System.String" CanBeNull="false" />
-      <Column Name="email" Type="System.String" CanBeNull="false" />
-      <Column Name="sex" Type="System.String" CanBeNull="false" />
-    </Type>
-  </Table>
-  <Table Name="" Member="BookDKs">
-    <Type Name="BookDK">
-      <Column Name="image" Type="System.String" CanBeNull="false" />
-      <Column Name="name" Type="System.String" CanBeNull="false" />
-      <Column Name="price" Type="System.Double" DbType="FLOAT Not null" CanBeNull="false" />
-      <Column Name="discount" Type="System.Double" DbType="Float" CanBeNull="true" />
-      <Column Name="stock" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="pageNumber" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="publishingYear" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="supplier" Type="System.String" CanBeNull="false" />
-      <Column Name="totalRating" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="ratingsAverage" Type="System.Double" DbType="Float" CanBeNull="true" />
-      <Column Name="id" Type="System.Int32" CanBeNull="false" />
-      <Column Member="author" Type="System.String" CanBeNull="false" />
-    </Type>
-  </Table>
-  <Table Name="dbo.Books" Member="Books">
-    <Type Name="Book">
-      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="name" Type="System.String" DbType="NVarChar(255) NOT NULL" CanBeNull="false" />
-      <Column Name="supplierId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="categoryId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="price" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
-      <Column Name="discount" Type="System.Double" DbType="Float" CanBeNull="true" />
-      <Column Name="stock" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="author" Type="System.String" DbType="NVarChar(255) NOT NULL" CanBeNull="false" />
-      <Column Name="pageNumber" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="publishingYear" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="slug" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
-      <Column Name="image" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
-      <Column Name="totalRating" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="sold" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="ratingsAverage" Type="System.Double" DbType="Float" CanBeNull="true" />
-      <Column Name="createdAt" Type="System.DateTimeOffset" DbType="DateTimeOffset NOT NULL" CanBeNull="false" />
-      <Column Name="updatedAt" Type="System.DateTimeOffset" DbType="DateTimeOffset NOT NULL" CanBeNull="false" />
-      <Association Name="Category_Book" Member="Category" ThisKey="categoryId" OtherKey="id" Type="Category" IsForeignKey="true" />
-      <Association Name="Supplier_Book" Member="Supplier" ThisKey="supplierId" OtherKey="id" Type="Supplier" IsForeignKey="true" />
-    </Type>
-  </Table>
-  <Table Name="dbo.Categories" Member="Categories">
-    <Type Name="Category">
-      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="listCateId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="name" Type="System.String" DbType="NVarChar(255) NOT NULL" CanBeNull="false" />
-      <Column Name="createdAt" Type="System.DateTimeOffset" DbType="DateTimeOffset NOT NULL" CanBeNull="false" />
-      <Column Name="updatedAt" Type="System.DateTimeOffset" DbType="DateTimeOffset NOT NULL" CanBeNull="false" />
-      <Association Name="Category_Book" Member="Books" ThisKey="id" OtherKey="categoryId" Type="Book" />
-    </Type>
-  </Table>
   <Table Name="dbo.Suppliers" Member="Suppliers">
     <Type Name="Supplier">
       <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
@@ -113,8 +11,22 @@
       <Association Name="Supplier_Book" Member="Books" ThisKey="id" OtherKey="supplierId" Type="Book" />
     </Type>
   </Table>
-<<<<<<< HEAD
-=======
+  <Table Name="" Member="BookDKs">
+    <Type Name="BookDK">
+      <Column Name="image" Type="System.String" CanBeNull="false" />
+      <Column Name="name" Type="System.String" CanBeNull="false" />
+      <Column Name="price" Type="System.Double" CanBeNull="false" />
+      <Column Name="discount" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="stock" Type="System.Int32" CanBeNull="false" />
+      <Column Name="author" Type="System.String" CanBeNull="false" />
+      <Column Name="pageNumber" Type="System.Int32" CanBeNull="false" />
+      <Column Name="publishingYear" Type="System.Int32" CanBeNull="false" />
+      <Column Name="supplier" Type="System.String" CanBeNull="false" />
+      <Column Name="totalRating" Type="System.Int32" DbType="int" CanBeNull="true" />
+      <Column Name="ratingsAverage" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="id" Type="System.Int32" CanBeNull="false" />
+    </Type>
+  </Table>
   <Table Name="dbo.Users" Member="Users">
     <Type Name="User">
       <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
@@ -126,7 +38,6 @@
       <Column Name="sex" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
       <Column Name="createdAt" Type="System.DateTimeOffset" DbType="DateTimeOffset NOT NULL" CanBeNull="false" />
       <Column Name="updatedAt" Type="System.DateTimeOffset" DbType="DateTimeOffset NOT NULL" CanBeNull="false" />
-      <Association Name="User_Group_User" Member="Group_Users" ThisKey="id" OtherKey="userId" Type="Group_User" />
     </Type>
   </Table>
   <Table Name="dbo.Categories" Member="Categories">
@@ -149,5 +60,35 @@
       <Association Name="List_Cate_Category" Member="Categories" ThisKey="id" OtherKey="listCateId" Type="Category" />
     </Type>
   </Table>
->>>>>>> 6aa34ccecb5f63192046902568611ab7096d6bb8
+  <Table Name="" Member="UserDKs">
+    <Type Name="UserDK">
+      <Column Name="firstname" Type="System.String" CanBeNull="false" />
+      <Column Name="lastname" Type="System.String" CanBeNull="false" />
+      <Column Name="phone" Type="System.String" CanBeNull="false" />
+      <Column Name="email" Type="System.String" CanBeNull="false" />
+      <Column Name="sex" Type="System.String" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Books" Member="Books">
+    <Type Name="Book">
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="name" Type="System.String" DbType="NVarChar(255) NOT NULL" CanBeNull="false" />
+      <Column Name="supplierId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="categoryId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="price" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
+      <Column Name="discount" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="stock" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="pageNumber" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="publishingYear" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="slug" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="image" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="totalRating" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="sold" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ratingsAverage" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="createdAt" Type="System.DateTimeOffset" DbType="DateTimeOffset NOT NULL" CanBeNull="false" />
+      <Column Name="updatedAt" Type="System.DateTimeOffset" DbType="DateTimeOffset NOT NULL" CanBeNull="false" />
+      <Association Name="Supplier_Book" Member="Supplier" ThisKey="supplierId" OtherKey="id" Type="Supplier" IsForeignKey="true" />
+      <Association Name="Category_Book" Member="Category" ThisKey="categoryId" OtherKey="id" Type="Category" IsForeignKey="true" />
+    </Type>
+  </Table>
 </Database>
