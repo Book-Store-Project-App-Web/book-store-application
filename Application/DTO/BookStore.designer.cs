@@ -45,6 +45,14 @@ namespace DTO
     partial void InsertBook(Book instance);
     partial void UpdateBook(Book instance);
     partial void DeleteBook(Book instance);
+<<<<<<< HEAD
+    partial void InsertCategory(Category instance);
+    partial void UpdateCategory(Category instance);
+    partial void DeleteCategory(Category instance);
+    partial void InsertSupplier(Supplier instance);
+    partial void UpdateSupplier(Supplier instance);
+    partial void DeleteSupplier(Supplier instance);
+=======
     partial void InsertSupplier(Supplier instance);
     partial void UpdateSupplier(Supplier instance);
     partial void DeleteSupplier(Supplier instance);
@@ -57,6 +65,7 @@ namespace DTO
     partial void InsertList_Cate(List_Cate instance);
     partial void UpdateList_Cate(List_Cate instance);
     partial void DeleteList_Cate(List_Cate instance);
+>>>>>>> 6aa34ccecb5f63192046902568611ab7096d6bb8
     #endregion
 		
 		public BookStoreDataContext() : 
@@ -129,14 +138,6 @@ namespace DTO
 			}
 		}
 		
-		public System.Data.Linq.Table<Book> Books
-		{
-			get
-			{
-				return this.GetTable<Book>();
-			}
-		}
-		
 		public System.Data.Linq.Table<BookDK> BookDKs
 		{
 			get
@@ -145,11 +146,11 @@ namespace DTO
 			}
 		}
 		
-		public System.Data.Linq.Table<Supplier> Suppliers
+		public System.Data.Linq.Table<Book> Books
 		{
 			get
 			{
-				return this.GetTable<Supplier>();
+				return this.GetTable<Book>();
 			}
 		}
 		
@@ -168,6 +169,22 @@ namespace DTO
 				return this.GetTable<Category>();
 			}
 		}
+<<<<<<< HEAD
+		
+		public System.Data.Linq.Table<Supplier> Suppliers
+		{
+			get
+			{
+				return this.GetTable<Supplier>();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Users")]
+	public partial class User : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+=======
+>>>>>>> 6aa34ccecb5f63192046902568611ab7096d6bb8
 		
 		public System.Data.Linq.Table<List_Cate> List_Cates
 		{
@@ -1181,6 +1198,231 @@ namespace DTO
 		}
 	}
 	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="")]
+	public partial class BookDK
+	{
+		
+		private string _image;
+		
+		private string _name;
+		
+		private double _price;
+		
+		private System.Nullable<double> _discount;
+		
+		private int _stock;
+		
+		private int _pageNumber;
+		
+		private int _publishingYear;
+		
+		private string _supplier;
+		
+		private System.Nullable<int> _totalRating;
+		
+		private System.Nullable<double> _ratingsAverage;
+		
+		private int _id;
+		
+		private string _author;
+		
+		public BookDK()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_image", CanBeNull=false)]
+		public string image
+		{
+			get
+			{
+				return this._image;
+			}
+			set
+			{
+				if ((this._image != value))
+				{
+					this._image = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_name", CanBeNull=false)]
+		public string name
+		{
+			get
+			{
+				return this._name;
+			}
+			set
+			{
+				if ((this._name != value))
+				{
+					this._name = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_price", DbType="FLOAT Not null")]
+		public double price
+		{
+			get
+			{
+				return this._price;
+			}
+			set
+			{
+				if ((this._price != value))
+				{
+					this._price = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_discount", DbType="Float")]
+		public System.Nullable<double> discount
+		{
+			get
+			{
+				return this._discount;
+			}
+			set
+			{
+				if ((this._discount != value))
+				{
+					this._discount = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_stock", DbType="Int NOT NULL")]
+		public int stock
+		{
+			get
+			{
+				return this._stock;
+			}
+			set
+			{
+				if ((this._stock != value))
+				{
+					this._stock = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_pageNumber", DbType="Int NOT NULL")]
+		public int pageNumber
+		{
+			get
+			{
+				return this._pageNumber;
+			}
+			set
+			{
+				if ((this._pageNumber != value))
+				{
+					this._pageNumber = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_publishingYear", DbType="Int NOT NULL")]
+		public int publishingYear
+		{
+			get
+			{
+				return this._publishingYear;
+			}
+			set
+			{
+				if ((this._publishingYear != value))
+				{
+					this._publishingYear = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_supplier", CanBeNull=false)]
+		public string supplier
+		{
+			get
+			{
+				return this._supplier;
+			}
+			set
+			{
+				if ((this._supplier != value))
+				{
+					this._supplier = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_totalRating", DbType="Int")]
+		public System.Nullable<int> totalRating
+		{
+			get
+			{
+				return this._totalRating;
+			}
+			set
+			{
+				if ((this._totalRating != value))
+				{
+					this._totalRating = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ratingsAverage", DbType="Float")]
+		public System.Nullable<double> ratingsAverage
+		{
+			get
+			{
+				return this._ratingsAverage;
+			}
+			set
+			{
+				if ((this._ratingsAverage != value))
+				{
+					this._ratingsAverage = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_id")]
+		public int id
+		{
+			get
+			{
+				return this._id;
+			}
+			set
+			{
+				if ((this._id != value))
+				{
+					this._id = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_author", CanBeNull=false)]
+		public string author
+		{
+			get
+			{
+				return this._author;
+			}
+			set
+			{
+				if ((this._author != value))
+				{
+					this._author = value;
+				}
+			}
+		}
+	}
+	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Books")]
 	public partial class Book : INotifyPropertyChanging, INotifyPropertyChanged
 	{
@@ -1201,6 +1443,8 @@ namespace DTO
 		
 		private int _stock;
 		
+		private string _author;
+		
 		private int _pageNumber;
 		
 		private int _publishingYear;
@@ -1219,9 +1463,9 @@ namespace DTO
 		
 		private System.DateTimeOffset _updatedAt;
 		
-		private EntityRef<Supplier> _Supplier;
-		
 		private EntityRef<Category> _Category;
+		
+		private EntityRef<Supplier> _Supplier;
 		
     #region Extensibility Method Definitions
     partial void OnLoaded();
@@ -1241,6 +1485,8 @@ namespace DTO
     partial void OndiscountChanged();
     partial void OnstockChanging(int value);
     partial void OnstockChanged();
+    partial void OnauthorChanging(string value);
+    partial void OnauthorChanged();
     partial void OnpageNumberChanging(int value);
     partial void OnpageNumberChanged();
     partial void OnpublishingYearChanging(int value);
@@ -1263,8 +1509,8 @@ namespace DTO
 		
 		public Book()
 		{
-			this._Supplier = default(EntityRef<Supplier>);
 			this._Category = default(EntityRef<Category>);
+			this._Supplier = default(EntityRef<Supplier>);
 			OnCreated();
 		}
 		
@@ -1412,6 +1658,26 @@ namespace DTO
 					this._stock = value;
 					this.SendPropertyChanged("stock");
 					this.OnstockChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_author", DbType="NVarChar(255) NOT NULL", CanBeNull=false)]
+		public string author
+		{
+			get
+			{
+				return this._author;
+			}
+			set
+			{
+				if ((this._author != value))
+				{
+					this.OnauthorChanging(value);
+					this.SendPropertyChanging();
+					this._author = value;
+					this.SendPropertyChanged("author");
+					this.OnauthorChanged();
 				}
 			}
 		}
@@ -1596,40 +1862,6 @@ namespace DTO
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Supplier_Book", Storage="_Supplier", ThisKey="supplierId", OtherKey="id", IsForeignKey=true)]
-		public Supplier Supplier
-		{
-			get
-			{
-				return this._Supplier.Entity;
-			}
-			set
-			{
-				Supplier previousValue = this._Supplier.Entity;
-				if (((previousValue != value) 
-							|| (this._Supplier.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._Supplier.Entity = null;
-						previousValue.Books.Remove(this);
-					}
-					this._Supplier.Entity = value;
-					if ((value != null))
-					{
-						value.Books.Add(this);
-						this._supplierId = value.id;
-					}
-					else
-					{
-						this._supplierId = default(int);
-					}
-					this.SendPropertyChanged("Supplier");
-				}
-			}
-		}
-		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Category_Book", Storage="_Category", ThisKey="categoryId", OtherKey="id", IsForeignKey=true)]
 		public Category Category
 		{
@@ -1664,6 +1896,40 @@ namespace DTO
 			}
 		}
 		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Supplier_Book", Storage="_Supplier", ThisKey="supplierId", OtherKey="id", IsForeignKey=true)]
+		public Supplier Supplier
+		{
+			get
+			{
+				return this._Supplier.Entity;
+			}
+			set
+			{
+				Supplier previousValue = this._Supplier.Entity;
+				if (((previousValue != value) 
+							|| (this._Supplier.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Supplier.Entity = null;
+						previousValue.Books.Remove(this);
+					}
+					this._Supplier.Entity = value;
+					if ((value != null))
+					{
+						value.Books.Add(this);
+						this._supplierId = value.id;
+					}
+					else
+					{
+						this._supplierId = default(int);
+					}
+					this.SendPropertyChanged("Supplier");
+				}
+			}
+		}
+		
 		public event PropertyChangingEventHandler PropertyChanging;
 		
 		public event PropertyChangedEventHandler PropertyChanged;
@@ -1685,197 +1951,47 @@ namespace DTO
 		}
 	}
 	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="")]
-	public partial class BookDK
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Categories")]
+	public partial class Category : INotifyPropertyChanging, INotifyPropertyChanged
 	{
 		
-		private string _image;
-		
-		private string _name;
-		
-		private double _price;
-		
-		private System.Nullable<double> _discount;
-		
-		private int _stock;
-		
-		private int _pageNumber;
-		
-		private int _publishingYear;
-		
-		private string _supplier;
-		
-		private System.Nullable<int> _totalRating;
-		
-		private System.Nullable<double> _ratingsAverage;
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
 		
 		private int _id;
 		
-		public BookDK()
+		private int _listCateId;
+		
+		private string _name;
+		
+		private System.DateTimeOffset _createdAt;
+		
+		private System.DateTimeOffset _updatedAt;
+		
+		private EntitySet<Book> _Books;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnidChanging(int value);
+    partial void OnidChanged();
+    partial void OnlistCateIdChanging(int value);
+    partial void OnlistCateIdChanged();
+    partial void OnnameChanging(string value);
+    partial void OnnameChanged();
+    partial void OncreatedAtChanging(System.DateTimeOffset value);
+    partial void OncreatedAtChanged();
+    partial void OnupdatedAtChanging(System.DateTimeOffset value);
+    partial void OnupdatedAtChanged();
+    #endregion
+		
+		public Category()
 		{
+			this._Books = new EntitySet<Book>(new Action<Book>(this.attach_Books), new Action<Book>(this.detach_Books));
+			OnCreated();
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_image", CanBeNull=false)]
-		public string image
-		{
-			get
-			{
-				return this._image;
-			}
-			set
-			{
-				if ((this._image != value))
-				{
-					this._image = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_name", CanBeNull=false)]
-		public string name
-		{
-			get
-			{
-				return this._name;
-			}
-			set
-			{
-				if ((this._name != value))
-				{
-					this._name = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_price", DbType="FLOAT Not null")]
-		public double price
-		{
-			get
-			{
-				return this._price;
-			}
-			set
-			{
-				if ((this._price != value))
-				{
-					this._price = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_discount", DbType="Float")]
-		public System.Nullable<double> discount
-		{
-			get
-			{
-				return this._discount;
-			}
-			set
-			{
-				if ((this._discount != value))
-				{
-					this._discount = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_stock", DbType="Int NOT NULL")]
-		public int stock
-		{
-			get
-			{
-				return this._stock;
-			}
-			set
-			{
-				if ((this._stock != value))
-				{
-					this._stock = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_pageNumber", DbType="Int NOT NULL")]
-		public int pageNumber
-		{
-			get
-			{
-				return this._pageNumber;
-			}
-			set
-			{
-				if ((this._pageNumber != value))
-				{
-					this._pageNumber = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_publishingYear", DbType="Int NOT NULL")]
-		public int publishingYear
-		{
-			get
-			{
-				return this._publishingYear;
-			}
-			set
-			{
-				if ((this._publishingYear != value))
-				{
-					this._publishingYear = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_supplier", CanBeNull=false)]
-		public string supplier
-		{
-			get
-			{
-				return this._supplier;
-			}
-			set
-			{
-				if ((this._supplier != value))
-				{
-					this._supplier = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_totalRating", DbType="Int")]
-		public System.Nullable<int> totalRating
-		{
-			get
-			{
-				return this._totalRating;
-			}
-			set
-			{
-				if ((this._totalRating != value))
-				{
-					this._totalRating = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ratingsAverage", DbType="Float")]
-		public System.Nullable<double> ratingsAverage
-		{
-			get
-			{
-				return this._ratingsAverage;
-			}
-			set
-			{
-				if ((this._ratingsAverage != value))
-				{
-					this._ratingsAverage = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_id")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_id", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
 		public int id
 		{
 			get
@@ -1886,9 +2002,138 @@ namespace DTO
 			{
 				if ((this._id != value))
 				{
+					this.OnidChanging(value);
+					this.SendPropertyChanging();
 					this._id = value;
+					this.SendPropertyChanged("id");
+					this.OnidChanged();
 				}
 			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_listCateId", DbType="Int NOT NULL")]
+		public int listCateId
+		{
+			get
+			{
+				return this._listCateId;
+			}
+			set
+			{
+				if ((this._listCateId != value))
+				{
+					this.OnlistCateIdChanging(value);
+					this.SendPropertyChanging();
+					this._listCateId = value;
+					this.SendPropertyChanged("listCateId");
+					this.OnlistCateIdChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_name", DbType="NVarChar(255) NOT NULL", CanBeNull=false)]
+		public string name
+		{
+			get
+			{
+				return this._name;
+			}
+			set
+			{
+				if ((this._name != value))
+				{
+					this.OnnameChanging(value);
+					this.SendPropertyChanging();
+					this._name = value;
+					this.SendPropertyChanged("name");
+					this.OnnameChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_createdAt", DbType="DateTimeOffset NOT NULL")]
+		public System.DateTimeOffset createdAt
+		{
+			get
+			{
+				return this._createdAt;
+			}
+			set
+			{
+				if ((this._createdAt != value))
+				{
+					this.OncreatedAtChanging(value);
+					this.SendPropertyChanging();
+					this._createdAt = value;
+					this.SendPropertyChanged("createdAt");
+					this.OncreatedAtChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_updatedAt", DbType="DateTimeOffset NOT NULL")]
+		public System.DateTimeOffset updatedAt
+		{
+			get
+			{
+				return this._updatedAt;
+			}
+			set
+			{
+				if ((this._updatedAt != value))
+				{
+					this.OnupdatedAtChanging(value);
+					this.SendPropertyChanging();
+					this._updatedAt = value;
+					this.SendPropertyChanged("updatedAt");
+					this.OnupdatedAtChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Category_Book", Storage="_Books", ThisKey="id", OtherKey="categoryId")]
+		public EntitySet<Book> Books
+		{
+			get
+			{
+				return this._Books;
+			}
+			set
+			{
+				this._Books.Assign(value);
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+		
+		private void attach_Books(Book entity)
+		{
+			this.SendPropertyChanging();
+			entity.Category = this;
+		}
+		
+		private void detach_Books(Book entity)
+		{
+			this.SendPropertyChanging();
+			entity.Category = null;
 		}
 	}
 	
@@ -2101,6 +2346,8 @@ namespace DTO
 			entity.Supplier = null;
 		}
 	}
+<<<<<<< HEAD
+=======
 	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Users")]
 	public partial class User : INotifyPropertyChanging, INotifyPropertyChanged
@@ -2772,5 +3019,6 @@ namespace DTO
 			entity.List_Cate = null;
 		}
 	}
+>>>>>>> 6aa34ccecb5f63192046902568611ab7096d6bb8
 }
 #pragma warning restore 1591

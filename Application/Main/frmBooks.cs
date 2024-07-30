@@ -54,6 +54,7 @@ namespace Main
             {
                 string bookId = dataGridViewBook.CurrentRow.Cells["id"].Value.ToString();
                 string name = txtName.Text;
+                string author = txtAuthor.Text;
                 int supplierId = Convert.ToInt32(cboSupplier.SelectedValue);
                 int categoryId = Convert.ToInt32(cboCate.SelectedValue);
                 double price = Convert.ToDouble(txtPrice.Text);
@@ -70,12 +71,13 @@ namespace Main
                     price = price,
                     discount = discount,
                     stock = stock,
+                    author = author,
                     pageNumber = pageNumber,
                     publishingYear = publishingYear
                 };
 
                 var isUpdated = bllBook.UpdateBook(Convert.ToInt32(bookId), _book);
-                if (isUpdated)
+                if (isUpdated != null)
                 {
                     MessageBox.Show("Sửa thành công!");
                     LoadGridView();
@@ -133,6 +135,7 @@ namespace Main
             txtPageNumber.Text = selectedRow.Cells["pageNumber"].Value?.ToString();
             txtPublishingYear.Text = selectedRow.Cells["publishingYear"].Value?.ToString();
             txtStock.Text = selectedRow.Cells["stock"].Value?.ToString();
+            txtAuthor.Text = selectedRow.Cells["author"].Value?.ToString();
             txtDiscount.Text = selectedRow.Cells["discount"].Value?.ToString();
         }
 
@@ -146,6 +149,7 @@ namespace Main
                 double price = Convert.ToDouble(txtPrice.Text);
                 double discount = Convert.ToDouble(txtDiscount.Text);
                 int stock = Convert.ToInt32(txtStock.Text);
+                string author = txtAuthor.Text;
                 int pageNumber = Convert.ToInt32(txtPageNumber.Text);
                 int publishingYear = Convert.ToInt32(txtPublishingYear.Text);
                 var book = bllBook.CheckExistBook(name);
@@ -175,6 +179,7 @@ namespace Main
                         price = price,
                         discount = discount,
                         stock = stock,
+                        author = author,
                         pageNumber = pageNumber,
                         publishingYear = publishingYear
                     };
@@ -233,7 +238,7 @@ namespace Main
         {
             OpenFileDialog openFileDialog = new OpenFileDialog();
             openFileDialog.InitialDirectory = "c:\\";
-            openFileDialog.Filter = "Image files (*.jpg, *.jpeg, *.png)|*.jpg;*.jpeg;*.png";
+            openFileDialog.Filter = "Image files (*.jpg, *.jpeg, *.png, *.webp)|*.jpg;*.jpeg;*.png;*.webp";
             openFileDialog.FilterIndex = 2;
             openFileDialog.RestoreDirectory = true;
 
