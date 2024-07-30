@@ -33,6 +33,7 @@ namespace DAL
                 price = b.price,
                 discount = b.discount,
                 stock = b.stock,
+                author = b.author,
                 pageNumber = b.pageNumber,
                 publishingYear = b.publishingYear,
                 supplier = s.name,
@@ -45,26 +46,9 @@ namespace DAL
      
         public Book CreatNewBook(Book book)
         {
-            Book _book = new Book();
-            _book.image = book.image;
-            _book.name = book.name;
-            _book.supplierId = book.supplierId;
-            _book.categoryId = book.categoryId;
-            _book.price = book.price;
-            _book.discount = book.discount;
-            _book.stock = book.stock;
-            _book.pageNumber = book.pageNumber;
-            _book.publishingYear = book.publishingYear;
-            _book.slug = GenerateSlug(book.name);
-            _book.totalRating = 0;
-            _book.sold = 0;
-            _book.ratingsAverage = 0;
-            _book.createdAt = DateTime.Now;
-            _book.updatedAt = DateTime.Now;
-
-            bt.Books.InsertOnSubmit(_book);
+            bt.Books.InsertOnSubmit(book);
             bt.SubmitChanges();
-            return _book;
+            return book;
         }
 
         public List<Category> ListCateBook()
@@ -79,6 +63,10 @@ namespace DAL
         {
             return bt.Books.Where(b => b.name == name).FirstOrDefault();
         }
+        public Book CheckUpdateBook(int id)
+        {
+            return bt.Books.Where(b => b.id == id).FirstOrDefault();
+        }
         public bool DeleteBook(int id)
         {
             var book =  bt.Books.Where(b => b.id == id).FirstOrDefault();
@@ -90,31 +78,10 @@ namespace DAL
             }
             return false;
         }
-        public bool UpdateBook(int id, Book book)
-        {
-              Book _book =  bt.Books.Where(b => b.id == id).FirstOrDefault();
-            if (_book != null)
-            {
-                _book.image = book.image;
-                _book.name = book.name;
-                _book.supplierId = book.supplierId;
-                _book.categoryId = book.categoryId;
-                _book.price = book.price;
-                _book.discount = book.discount;
-                _book.stock = book.stock;
-                _book.pageNumber = book.pageNumber;
-                _book.publishingYear = book.publishingYear;
-                _book.slug = GenerateSlug(book.name);
-                _book.totalRating = 0;
-                _book.sold = 0;
-                _book.ratingsAverage = 3.5;
-                _book.createdAt = DateTime.Now;
-                _book.updatedAt = DateTime.Now;
-
-                bt.SubmitChanges();
-                return true;
-            }
-            return false;
+        public Book UpdateBook(int id, Book book)
+        {             
+            bt.SubmitChanges();
+            return book;
         }
     }
 }
