@@ -35,5 +35,13 @@ namespace BLL
         {
             return dalBook.CheckExistBook(name);
         }
+        public bool DeleteBook(int id)
+        {
+            return dalBook.DeleteBook(id);
+        }
+        public bool UpdateBook(int id, Book _book)
+        {
+            return dalBook.UpdateBook(id, _book);
+        }
     }
 }
