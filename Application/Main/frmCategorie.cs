@@ -120,11 +120,11 @@ namespace Main
             {
                 dataGridView1.Columns.Remove("List_Cate");
             }
-            dataGridView1.Columns["id"].HeaderText = "ID";
-            dataGridView1.Columns["listCateId"].HeaderText = "List Cate";
-            dataGridView1.Columns["name"].HeaderText = "Name";
-            dataGridView1.Columns["createdAt"].HeaderText = "Creation Time";
-            dataGridView1.Columns["updatedAt"].HeaderText = "Updatetion Time";
+            dataGridView1.Columns["id"].HeaderText = "Mã thể loại";
+            dataGridView1.Columns["listCateId"].HeaderText = "Danh mục thể loại";
+            dataGridView1.Columns["name"].HeaderText = "Tên thể loại";
+            dataGridView1.Columns["createdAt"].HeaderText = "Thời gian tạo";
+            dataGridView1.Columns["updatedAt"].HeaderText = "Thời gian sửa";
 
             dataGridView1.Columns["createdAt"].DefaultCellStyle.Format = "dd/MM/yyyy HH:mm:ss";
             dataGridView1.Columns["updatedAt"].DefaultCellStyle.Format = "dd/MM/yyyy HH:mm:ss";

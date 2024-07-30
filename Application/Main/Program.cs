@@ -29,7 +29,7 @@ namespace Main
             DecentralizationForm = new frmDecentralization();
             formBooks = new frmBooks();
             CategorieForm = new frmCategorie();
-            Application.Run(CategorieForm);
+            Application.Run(formBooks);
         }
     }
 }
