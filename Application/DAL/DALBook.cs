@@ -79,5 +79,42 @@ namespace DAL
         {
             return bt.Books.Where(b => b.name == name).FirstOrDefault();
         }
+        public bool DeleteBook(int id)
+        {
+            var book =  bt.Books.Where(b => b.id == id).FirstOrDefault();
+            if(book != null)
+            {
+                bt.Books.DeleteOnSubmit(book);
+                bt.SubmitChanges();
+                return true;
+            }
+            return false;
+        }
+        public bool UpdateBook(int id, Book book)
+        {
+              Book _book =  bt.Books.Where(b => b.id == id).FirstOrDefault();
+            if (_book != null)
+            {
+                _book.image = book.image;
+                _book.name = book.name;
+                _book.supplierId = book.supplierId;
+                _book.categoryId = book.categoryId;
+                _book.price = book.price;
+                _book.discount = book.discount;
+                _book.stock = book.stock;
+                _book.pageNumber = book.pageNumber;
+                _book.publishingYear = book.publishingYear;
+                _book.slug = GenerateSlug(book.name);
+                _book.totalRating = 0;
+                _book.sold = 0;
+                _book.ratingsAverage = 3.5;
+                _book.createdAt = DateTime.Now;
+                _book.updatedAt = DateTime.Now;
+
+                bt.SubmitChanges();
+                return true;
+            }
+            return false;
+        }
     }
 }

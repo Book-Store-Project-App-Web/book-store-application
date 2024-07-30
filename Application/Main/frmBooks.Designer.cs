@@ -50,6 +50,8 @@ namespace Main
             this.cboCate = new System.Windows.Forms.ComboBox();
             this.cboSupplier = new System.Windows.Forms.ComboBox();
             this.btnSave = new System.Windows.Forms.Button();
+            this.btnDeleteBook = new System.Windows.Forms.Button();
+            this.btnUpdateBook = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewBook)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -229,18 +231,38 @@ namespace Main
             // 
             // btnSave
             // 
-            this.btnSave.Location = new System.Drawing.Point(816, 200);
+            this.btnSave.Location = new System.Drawing.Point(962, 130);
             this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(243, 47);
+            this.btnSave.Size = new System.Drawing.Size(97, 47);
             this.btnSave.TabIndex = 23;
             this.btnSave.Text = "Lưu";
             this.btnSave.UseVisualStyleBackColor = true;
+            // 
+            // btnDeleteBook
+            // 
+            this.btnDeleteBook.Location = new System.Drawing.Point(962, 45);
+            this.btnDeleteBook.Name = "btnDeleteBook";
+            this.btnDeleteBook.Size = new System.Drawing.Size(97, 48);
+            this.btnDeleteBook.TabIndex = 24;
+            this.btnDeleteBook.Text = "Xóa";
+            this.btnDeleteBook.UseVisualStyleBackColor = true;
+            // 
+            // btnUpdateBook
+            // 
+            this.btnUpdateBook.Location = new System.Drawing.Point(816, 130);
+            this.btnUpdateBook.Name = "btnUpdateBook";
+            this.btnUpdateBook.Size = new System.Drawing.Size(97, 48);
+            this.btnUpdateBook.TabIndex = 25;
+            this.btnUpdateBook.Text = "Sửa";
+            this.btnUpdateBook.UseVisualStyleBackColor = true;
             // 
             // frmBooks
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1155, 765);
+            this.Controls.Add(this.btnUpdateBook);
+            this.Controls.Add(this.btnDeleteBook);
             this.Controls.Add(this.btnSave);
             this.Controls.Add(this.cboSupplier);
             this.Controls.Add(this.cboCate);
@@ -294,5 +316,7 @@ namespace Main
         private System.Windows.Forms.ComboBox cboCate;
         private System.Windows.Forms.ComboBox cboSupplier;
         private System.Windows.Forms.Button btnSave;
+        private System.Windows.Forms.Button btnDeleteBook;
+        private System.Windows.Forms.Button btnUpdateBook;
     }
 }

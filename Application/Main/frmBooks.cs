@@ -28,12 +28,65 @@ namespace Main
             this.btnSelectImage.Click += BtnSelectImage_Click;
             this.btnAddBook.Click += BtnAddBook_Click;
             this.btnSave.Click += BtnSave_Click;
+            this.btnUpdateBook.Click += BtnUpdateBook_Click;
+            this.btnDeleteBook.Click += BtnDeleteBook_Click;
             this.dataGridViewBook.CellClick += DataGridViewBook_CellClick;
             errorProvider = new ErrorProvider();
         }
+
+        private void BtnDeleteBook_Click(object sender, EventArgs e)
+        {
+            string bookId = dataGridViewBook.CurrentRow.Cells["id"].Value.ToString();
+            bool isDeleted = bllBook.DeleteBook(Convert.ToInt32(bookId));
+            if(isDeleted)
+            {
+                MessageBox.Show("Xóa sách thành công!");
+                LoadGridView();
+            }
+            else
+            {
+                MessageBox.Show("Không tìm thấy sách để xóa!");
+            }
+        }
+        private void BtnUpdateBook_Click(object sender, EventArgs e)
+        {
+            if (AreControlsValid())
+            {
+                string bookId = dataGridViewBook.CurrentRow.Cells["id"].Value.ToString();
+                string name = txtName.Text;
+                int supplierId = Convert.ToInt32(cboSupplier.SelectedValue);
+                int categoryId = Convert.ToInt32(cboCate.SelectedValue);
+                double price = Convert.ToDouble(txtPrice.Text);
+                double discount = Convert.ToDouble(txtDiscount.Text);
+                int stock = Convert.ToInt32(txtStock.Text);
+                int pageNumber = Convert.ToInt32(txtPageNumber.Text);
+                int publishingYear = Convert.ToInt32(txtPublishingYear.Text);
+
+                var _book = new Book
+                {
+                    name = name,
+                    supplierId = supplierId,
+                    categoryId = categoryId,
+                    price = price,
+                    discount = discount,
+                    stock = stock,
+                    pageNumber = pageNumber,
+                    publishingYear = publishingYear
+                };
+
+                var isUpdated = bllBook.UpdateBook(Convert.ToInt32(bookId), _book);
+                if (isUpdated)
+                {
+                    MessageBox.Show("Sửa thành công!");
+                    LoadGridView();
+                }
+                
+            }
+        }
+
         void LoadGridView()
         {
-            SetControlsEnabled(false);
+            SetControlsEnabled(false);  
             var books = bllBook.ListBooks();
             dataGridViewBook.DataSource = books;
             dataGridViewBook.Columns["Image"].Visible = false;
@@ -49,9 +102,6 @@ namespace Main
 
                 dataGridViewBook.Columns.Insert(0, imageColumn);
             }
-
-
-            //dataGridViewBook.RowTemplate.Height = 100;
 
             foreach (DataGridViewRow row in dataGridViewBook.Rows)
             {
@@ -76,6 +126,7 @@ namespace Main
         }
         private void DataGridViewBook_CellClick(object sender, DataGridViewCellEventArgs e)
         {
+            btnDeleteBook.Enabled = true;
             DataGridViewRow selectedRow = dataGridViewBook.CurrentRow;
             txtName.Text = selectedRow.Cells["name"].Value?.ToString();
             txtPrice.Text = selectedRow.Cells["price"].Value?.ToString();
@@ -173,6 +224,8 @@ namespace Main
         private void BtnAddBook_Click(object sender, EventArgs e)
         {
             SetControlsEnabled(true);
+            btnDeleteBook.Enabled = false;
+            btnUpdateBook.Enabled = true;
             ClearTextBox();
         }
 
