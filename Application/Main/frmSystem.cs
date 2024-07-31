@@ -15,18 +15,24 @@ namespace Main
         public frmSystem()
         {
             InitializeComponent();
-            this.QuanLyHangMenu.Click += QuanLyHangMenu_Click;
             this.DecentralizationToolStripMenuItem.Click += DecentralizationToolStripMenuItem_Click;
+            this.BookToolStripMenuItem.Click += BookToolStripMenuItem_Click;
+            this.CategoriesToolStripMenuItem.Click += CategoriesToolStripMenuItem_Click;
+        }
+
+        private void CategoriesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Program.CategorieForm.Show();
+        }
+
+        private void BookToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Program.formBooks.Show();
         }
 
         private void DecentralizationToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Program.DecentralizationForm.Show();
-        }
-
-        private void QuanLyHangMenu_Click(object sender, EventArgs e)
-        {
-            //Program.BookFrom.Show();
         }
     }
 }
