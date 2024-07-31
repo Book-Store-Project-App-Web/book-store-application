@@ -31,7 +31,7 @@ namespace BLL
             _book.price = book.price;
             _book.discount = book.discount;
             _book.stock = book.stock;
-            //_book.author = book.author;
+            _book.author = book.author;
             _book.pageNumber = book.pageNumber;
             _book.publishingYear = book.publishingYear;
             _book.slug = helper.GenerateSlug(book.name);
