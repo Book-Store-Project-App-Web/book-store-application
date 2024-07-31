@@ -27,7 +27,7 @@ namespace Main
             DecentralizationForm = new frmDecentralization();
             formBooks = new frmBooks();
             CategorieForm = new frmCategorie();
-            Application.Run(formBooks);
+            Application.Run(loginForm);
         }
     }
 }
