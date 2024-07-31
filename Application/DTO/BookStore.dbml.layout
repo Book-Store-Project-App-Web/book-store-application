@@ -58,7 +58,7 @@
         <classShapeMoniker Id="f28a8bce-9b17-4ecb-9cff-07690de3f661" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(8.625 : 4.86704752604167); (3.25 : 4.86704752604167)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(8.625 : 4.71079752604167); (3.25 : 4.71079752604167)]" fixedFrom="Algorithm" fixedTo="Algorithm">
       <AssociationMoniker Name="/BookStoreDataContext/Category/Category_Book" />
       <nodes>
         <classShapeMoniker Id="0655ed23-56b2-458d-a903-2f98051d2597" />

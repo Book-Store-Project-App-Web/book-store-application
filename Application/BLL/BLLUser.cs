@@ -35,7 +35,9 @@ namespace BLL
                     MessageBox.Show("Sai tài khoản!");
                     return null;
                 }
-                if (dalUser.checkPassUser(user.email, pPass) == true)
+
+                bool isPasswordValid = BCrypt.Net.BCrypt.Verify(pPass, user.password);
+                if (isPasswordValid)
                 {
                     return user;
                 }
