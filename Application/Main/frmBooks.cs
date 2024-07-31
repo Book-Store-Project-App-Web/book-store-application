@@ -71,7 +71,7 @@ namespace Main
                     price = price,
                     discount = discount,
                     stock = stock,
-                    //author = author,
+                    author = author,
                     pageNumber = pageNumber,
                     publishingYear = publishingYear
                 };
@@ -179,7 +179,7 @@ namespace Main
                         price = price,
                         discount = discount,
                         stock = stock,
-                        //author = author,
+                        author = author,
                         pageNumber = pageNumber,
                         publishingYear = publishingYear
                     };

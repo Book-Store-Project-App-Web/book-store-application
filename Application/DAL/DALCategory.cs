@@ -14,15 +14,7 @@ namespace DAL
 
         public List<Category> Categories()
         {
-            var categories = dalcontext.Categories.ToList();
-            return categories.Select(c => new Category
-            {
-                id = c.id,
-                listCateId = c.listCateId,
-                name = c.name,
-                createdAt = c.createdAt,
-                updatedAt = c.updatedAt
-            }).ToList();
+            return dalcontext.Categories.Select(c => c).ToList<Category>();
         }
         public List<List_Cate> ListCate_cate()
         {

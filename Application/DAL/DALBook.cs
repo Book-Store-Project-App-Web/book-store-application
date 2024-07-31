@@ -33,7 +33,7 @@ namespace DAL
                 price = b.price,
                 discount = b.discount,
                 stock = b.stock,
-                //author = b.author,
+                author = b.author,
                 pageNumber = b.pageNumber,
                 publishingYear = b.publishingYear,
                 supplier = s.name,

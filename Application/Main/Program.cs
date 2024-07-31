@@ -11,7 +11,6 @@ namespace Main
         public static frmLogin loginForm = null;
         public static frmSystem SystemForm = null;
         public static frmDecentralization DecentralizationForm = null;
-        //public static frmUser UserForm = null;
         public static frmBooks formBooks = null;
         public static frmCategorie CategorieForm = null;
         /// <summary>
@@ -23,13 +22,12 @@ namespace Main
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             loginForm = new frmLogin();
-            //UserForm = new frmUser();
             SystemForm = new frmSystem();
             //BookFrom = new frmBook();
             DecentralizationForm = new frmDecentralization();
             formBooks = new frmBooks();
             CategorieForm = new frmCategorie();
-            Application.Run(CategorieForm);
+            Application.Run(formBooks);
         }
     }
 }

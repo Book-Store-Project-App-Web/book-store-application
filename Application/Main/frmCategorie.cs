@@ -39,7 +39,7 @@ namespace Main
                 };
 
                 bllcategory.UpdateCategory(category);
-                LoadCategories();
+                //LoadCategories();
                 ClearFields();
             }
             else
@@ -71,7 +71,7 @@ namespace Main
             if (int.TryParse(txtIdCategory.Text, out int id))
             {
                 bllcategory.DeleteCategory(id);
-                LoadCategories();
+                //LoadCategories();
                 ClearFields();
             }
             else
@@ -136,7 +136,7 @@ namespace Main
             var listCategories = bllcategory.Listcate_cate();
             cbBoxListCategory.DataSource = listCategories;
             cbBoxListCategory.DisplayMember = "Name";
-            cbBoxListCategory.ValueMember = "Id";
+            cbBoxListCategory.ValueMember = "id";
         }
 
         private void ClearFields()
