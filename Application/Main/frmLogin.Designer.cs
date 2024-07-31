@@ -34,10 +34,10 @@ namespace Main
             this.panel1 = new System.Windows.Forms.Panel();
             this.btnSignIn = new System.Windows.Forms.Button();
             this.chkBoxShowpassword = new System.Windows.Forms.CheckBox();
+            this.txtPassword = new InheritControl.PasswordText();
             this.lblTitleDN = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.txtPassword = new InheritControl.PasswordText();
             this.txtEmail = new InheritControl.EmailText();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             this.panel1.SuspendLayout();
@@ -55,10 +55,10 @@ namespace Main
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.txtEmail);
             this.panel1.Controls.Add(this.btnSignIn);
             this.panel1.Controls.Add(this.chkBoxShowpassword);
             this.panel1.Controls.Add(this.txtPassword);
-            this.panel1.Controls.Add(this.txtEmail);
             this.panel1.Controls.Add(this.lblTitleDN);
             this.panel1.Controls.Add(this.label2);
             this.panel1.Controls.Add(this.label1);
@@ -89,6 +89,15 @@ namespace Main
             this.chkBoxShowpassword.TabIndex = 20;
             this.chkBoxShowpassword.Text = "Show password";
             this.chkBoxShowpassword.UseVisualStyleBackColor = true;
+            // 
+            // txtPassword
+            // 
+            this.txtPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtPassword.Location = new System.Drawing.Point(143, 171);
+            this.txtPassword.Name = "txtPassword";
+            this.txtPassword.Size = new System.Drawing.Size(236, 27);
+            this.txtPassword.TabIndex = 19;
+            this.txtPassword.UseSystemPasswordChar = true;
             // 
             // lblTitleDN
             // 
@@ -123,22 +132,13 @@ namespace Main
             this.label1.TabIndex = 15;
             this.label1.Text = "Email";
             // 
-            // txtPassword
-            // 
-            this.txtPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtPassword.Location = new System.Drawing.Point(143, 171);
-            this.txtPassword.Name = "txtPassword";
-            this.txtPassword.Size = new System.Drawing.Size(236, 27);
-            this.txtPassword.TabIndex = 19;
-            this.txtPassword.UseSystemPasswordChar = true;
-            // 
             // txtEmail
             // 
             this.txtEmail.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtEmail.Location = new System.Drawing.Point(143, 122);
+            this.txtEmail.Location = new System.Drawing.Point(143, 126);
             this.txtEmail.Name = "txtEmail";
             this.txtEmail.Size = new System.Drawing.Size(236, 27);
-            this.txtEmail.TabIndex = 18;
+            this.txtEmail.TabIndex = 22;
             // 
             // frmLogin
             // 
@@ -169,10 +169,10 @@ namespace Main
         private System.Windows.Forms.Label lblTitleDN;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
-        private InheritControl.EmailText txtEmail;
         private InheritControl.PasswordText txtPassword;
         private System.Windows.Forms.CheckBox chkBoxShowpassword;
         private System.Windows.Forms.Button btnSignIn;
+        private InheritControl.EmailText txtEmail;
     }
 }
 

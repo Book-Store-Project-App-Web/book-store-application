@@ -27,7 +27,7 @@ namespace Main
 
         public void User()
         {
-            dataGVUser.DataSource = bllUser.LoadUser();
+            dataGVUser.DataSource = bllUser.LoadUserDK();
         }
     }
 }

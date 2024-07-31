@@ -51,6 +51,12 @@
     <Compile Include="PasswordText.Designer.cs">
       <DependentUpon>PasswordText.cs</DependentUpon>
     </Compile>
+    <Compile Include="PhoneText.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="PhoneText.Designer.cs">
+      <DependentUpon>PhoneText.cs</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -32,10 +32,10 @@
             this.menuStrip2 = new System.Windows.Forms.MenuStrip();
             this.quảnLýNhânSựToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.quảnLýNhânViênToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.DecentralizationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.quảnLýKháchHàngToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.quảnLýSảnPhẩmToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.QuanLyHangMenu = new System.Windows.Forms.ToolStripMenuItem();
-            this.quảnLýNhậpHàngToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.BookToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.quảnLýBánHàngToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.thuToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.chiToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -52,7 +52,7 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.DecentralizationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.CategoriesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -90,6 +90,12 @@
             this.quảnLýNhânViênToolStripMenuItem.Size = new System.Drawing.Size(216, 26);
             this.quảnLýNhânViênToolStripMenuItem.Text = "Quản lý nhân viên";
             // 
+            // DecentralizationToolStripMenuItem
+            // 
+            this.DecentralizationToolStripMenuItem.Name = "DecentralizationToolStripMenuItem";
+            this.DecentralizationToolStripMenuItem.Size = new System.Drawing.Size(216, 26);
+            this.DecentralizationToolStripMenuItem.Text = "Phân quyền";
+            // 
             // quảnLýKháchHàngToolStripMenuItem
             // 
             this.quảnLýKháchHàngToolStripMenuItem.Name = "quảnLýKháchHàngToolStripMenuItem";
@@ -99,23 +105,17 @@
             // quảnLýSảnPhẩmToolStripMenuItem
             // 
             this.quảnLýSảnPhẩmToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.QuanLyHangMenu,
-            this.quảnLýNhậpHàngToolStripMenuItem});
+            this.BookToolStripMenuItem,
+            this.CategoriesToolStripMenuItem});
             this.quảnLýSảnPhẩmToolStripMenuItem.Name = "quảnLýSảnPhẩmToolStripMenuItem";
             this.quảnLýSảnPhẩmToolStripMenuItem.Size = new System.Drawing.Size(139, 24);
             this.quảnLýSảnPhẩmToolStripMenuItem.Text = "Quản lý sản phẩm";
             // 
-            // QuanLyHangMenu
+            // BookToolStripMenuItem
             // 
-            this.QuanLyHangMenu.Name = "QuanLyHangMenu";
-            this.QuanLyHangMenu.Size = new System.Drawing.Size(208, 26);
-            this.QuanLyHangMenu.Text = "Quản lý hàng";
-            // 
-            // quảnLýNhậpHàngToolStripMenuItem
-            // 
-            this.quảnLýNhậpHàngToolStripMenuItem.Name = "quảnLýNhậpHàngToolStripMenuItem";
-            this.quảnLýNhậpHàngToolStripMenuItem.Size = new System.Drawing.Size(208, 26);
-            this.quảnLýNhậpHàngToolStripMenuItem.Text = "Quản lý nhập hàng";
+            this.BookToolStripMenuItem.Name = "BookToolStripMenuItem";
+            this.BookToolStripMenuItem.Size = new System.Drawing.Size(216, 26);
+            this.BookToolStripMenuItem.Text = "Sản phẩm";
             // 
             // quảnLýBánHàngToolStripMenuItem
             // 
@@ -130,19 +130,19 @@
             // thuToolStripMenuItem
             // 
             this.thuToolStripMenuItem.Name = "thuToolStripMenuItem";
-            this.thuToolStripMenuItem.Size = new System.Drawing.Size(138, 26);
+            this.thuToolStripMenuItem.Size = new System.Drawing.Size(216, 26);
             this.thuToolStripMenuItem.Text = "Thu";
             // 
             // chiToolStripMenuItem
             // 
             this.chiToolStripMenuItem.Name = "chiToolStripMenuItem";
-            this.chiToolStripMenuItem.Size = new System.Drawing.Size(138, 26);
+            this.chiToolStripMenuItem.Size = new System.Drawing.Size(216, 26);
             this.chiToolStripMenuItem.Text = "Chi";
             // 
             // báoCáoToolStripMenuItem
             // 
             this.báoCáoToolStripMenuItem.Name = "báoCáoToolStripMenuItem";
-            this.báoCáoToolStripMenuItem.Size = new System.Drawing.Size(138, 26);
+            this.báoCáoToolStripMenuItem.Size = new System.Drawing.Size(216, 26);
             this.báoCáoToolStripMenuItem.Text = "Báo cáo";
             // 
             // quảnLýBánHàngToolStripMenuItem1
@@ -158,19 +158,19 @@
             // quảnLýĐơnHàngToolStripMenuItem
             // 
             this.quảnLýĐơnHàngToolStripMenuItem.Name = "quảnLýĐơnHàngToolStripMenuItem";
-            this.quảnLýĐơnHàngToolStripMenuItem.Size = new System.Drawing.Size(205, 26);
+            this.quảnLýĐơnHàngToolStripMenuItem.Size = new System.Drawing.Size(216, 26);
             this.quảnLýĐơnHàngToolStripMenuItem.Text = "Quản lý đơn hàng";
             // 
             // quảnLýGiaoHàngToolStripMenuItem
             // 
             this.quảnLýGiaoHàngToolStripMenuItem.Name = "quảnLýGiaoHàngToolStripMenuItem";
-            this.quảnLýGiaoHàngToolStripMenuItem.Size = new System.Drawing.Size(205, 26);
+            this.quảnLýGiaoHàngToolStripMenuItem.Size = new System.Drawing.Size(216, 26);
             this.quảnLýGiaoHàngToolStripMenuItem.Text = "Quản lý giao hàng";
             // 
             // bảoHàngToolStripMenuItem
             // 
             this.bảoHàngToolStripMenuItem.Name = "bảoHàngToolStripMenuItem";
-            this.bảoHàngToolStripMenuItem.Size = new System.Drawing.Size(205, 26);
+            this.bảoHàngToolStripMenuItem.Size = new System.Drawing.Size(216, 26);
             this.bảoHàngToolStripMenuItem.Text = "Bảo hành";
             // 
             // thôngTinCáNhânToolStripMenuItem
@@ -246,11 +246,11 @@
             this.pictureBox1.TabIndex = 12;
             this.pictureBox1.TabStop = false;
             // 
-            // DecentralizationToolStripMenuItem
+            // CategoriesToolStripMenuItem
             // 
-            this.DecentralizationToolStripMenuItem.Name = "DecentralizationToolStripMenuItem";
-            this.DecentralizationToolStripMenuItem.Size = new System.Drawing.Size(216, 26);
-            this.DecentralizationToolStripMenuItem.Text = "Phân quyền";
+            this.CategoriesToolStripMenuItem.Name = "CategoriesToolStripMenuItem";
+            this.CategoriesToolStripMenuItem.Size = new System.Drawing.Size(216, 26);
+            this.CategoriesToolStripMenuItem.Text = "Loại sản phẩm";
             // 
             // frmSystem
             // 
@@ -284,8 +284,7 @@
         private System.Windows.Forms.ToolStripMenuItem quảnLýNhânViênToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem quảnLýKháchHàngToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem quảnLýSảnPhẩmToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem QuanLyHangMenu;
-        private System.Windows.Forms.ToolStripMenuItem quảnLýNhậpHàngToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem BookToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem quảnLýBánHàngToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem thuToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem chiToolStripMenuItem;
@@ -303,5 +302,6 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.ToolStripMenuItem DecentralizationToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem CategoriesToolStripMenuItem;
     }
 }

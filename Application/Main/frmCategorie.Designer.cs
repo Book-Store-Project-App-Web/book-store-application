@@ -30,17 +30,17 @@
         {
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.grBoxCategory = new System.Windows.Forms.GroupBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.txtIdCategory = new System.Windows.Forms.TextBox();
-            this.txtNameCategory = new System.Windows.Forms.TextBox();
             this.cbBoxListCategory = new System.Windows.Forms.ComboBox();
+            this.txtNameCategory = new System.Windows.Forms.TextBox();
+            this.txtIdCategory = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.btnCreate = new System.Windows.Forms.Button();
-            this.btnDelete = new System.Windows.Forms.Button();
-            this.btnEdit = new System.Windows.Forms.Button();
             this.btnNew = new System.Windows.Forms.Button();
+            this.btnEdit = new System.Windows.Forms.Button();
+            this.btnDelete = new System.Windows.Forms.Button();
+            this.btnCreate = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.grBoxCategory.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -73,23 +73,27 @@
             this.grBoxCategory.TabStop = false;
             this.grBoxCategory.Text = "Thông tin";
             // 
-            // label1
+            // cbBoxListCategory
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(35, 49);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(80, 18);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Mã thể loại";
+            this.cbBoxListCategory.FormattingEnabled = true;
+            this.cbBoxListCategory.Location = new System.Drawing.Point(184, 127);
+            this.cbBoxListCategory.Name = "cbBoxListCategory";
+            this.cbBoxListCategory.Size = new System.Drawing.Size(194, 26);
+            this.cbBoxListCategory.TabIndex = 5;
             // 
-            // label2
+            // txtNameCategory
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(35, 88);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(84, 18);
-            this.label2.TabIndex = 1;
-            this.label2.Text = "Tên thể loại";
+            this.txtNameCategory.Location = new System.Drawing.Point(183, 85);
+            this.txtNameCategory.Name = "txtNameCategory";
+            this.txtNameCategory.Size = new System.Drawing.Size(195, 24);
+            this.txtNameCategory.TabIndex = 4;
+            // 
+            // txtIdCategory
+            // 
+            this.txtIdCategory.Location = new System.Drawing.Point(183, 46);
+            this.txtIdCategory.Name = "txtIdCategory";
+            this.txtIdCategory.Size = new System.Drawing.Size(195, 24);
+            this.txtIdCategory.TabIndex = 3;
             // 
             // label3
             // 
@@ -100,27 +104,23 @@
             this.label3.TabIndex = 2;
             this.label3.Text = "Danh mục thể loại";
             // 
-            // txtIdCategory
+            // label2
             // 
-            this.txtIdCategory.Location = new System.Drawing.Point(183, 46);
-            this.txtIdCategory.Name = "txtIdCategory";
-            this.txtIdCategory.Size = new System.Drawing.Size(195, 24);
-            this.txtIdCategory.TabIndex = 3;
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(35, 88);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(84, 18);
+            this.label2.TabIndex = 1;
+            this.label2.Text = "Tên thể loại";
             // 
-            // txtNameCategory
+            // label1
             // 
-            this.txtNameCategory.Location = new System.Drawing.Point(183, 85);
-            this.txtNameCategory.Name = "txtNameCategory";
-            this.txtNameCategory.Size = new System.Drawing.Size(195, 24);
-            this.txtNameCategory.TabIndex = 4;
-            // 
-            // cbBoxListCategory
-            // 
-            this.cbBoxListCategory.FormattingEnabled = true;
-            this.cbBoxListCategory.Location = new System.Drawing.Point(184, 127);
-            this.cbBoxListCategory.Name = "cbBoxListCategory";
-            this.cbBoxListCategory.Size = new System.Drawing.Size(194, 26);
-            this.cbBoxListCategory.TabIndex = 5;
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(35, 49);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(80, 18);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "Mã thể loại";
             // 
             // groupBox1
             // 
@@ -137,23 +137,14 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Danh mục chức năng";
             // 
-            // btnCreate
+            // btnNew
             // 
-            this.btnCreate.Location = new System.Drawing.Point(44, 46);
-            this.btnCreate.Name = "btnCreate";
-            this.btnCreate.Size = new System.Drawing.Size(80, 53);
-            this.btnCreate.TabIndex = 0;
-            this.btnCreate.Text = "Thêm";
-            this.btnCreate.UseVisualStyleBackColor = true;
-            // 
-            // btnDelete
-            // 
-            this.btnDelete.Location = new System.Drawing.Point(130, 46);
-            this.btnDelete.Name = "btnDelete";
-            this.btnDelete.Size = new System.Drawing.Size(80, 53);
-            this.btnDelete.TabIndex = 1;
-            this.btnDelete.Text = "Xóa";
-            this.btnDelete.UseVisualStyleBackColor = true;
+            this.btnNew.Location = new System.Drawing.Point(130, 105);
+            this.btnNew.Name = "btnNew";
+            this.btnNew.Size = new System.Drawing.Size(80, 53);
+            this.btnNew.TabIndex = 3;
+            this.btnNew.Text = "Làm mới";
+            this.btnNew.UseVisualStyleBackColor = true;
             // 
             // btnEdit
             // 
@@ -164,14 +155,23 @@
             this.btnEdit.Text = "Sửa";
             this.btnEdit.UseVisualStyleBackColor = true;
             // 
-            // btnNew
+            // btnDelete
             // 
-            this.btnNew.Location = new System.Drawing.Point(130, 105);
-            this.btnNew.Name = "btnNew";
-            this.btnNew.Size = new System.Drawing.Size(80, 53);
-            this.btnNew.TabIndex = 3;
-            this.btnNew.Text = "Làm mới";
-            this.btnNew.UseVisualStyleBackColor = true;
+            this.btnDelete.Location = new System.Drawing.Point(130, 46);
+            this.btnDelete.Name = "btnDelete";
+            this.btnDelete.Size = new System.Drawing.Size(80, 53);
+            this.btnDelete.TabIndex = 1;
+            this.btnDelete.Text = "Xóa";
+            this.btnDelete.UseVisualStyleBackColor = true;
+            // 
+            // btnCreate
+            // 
+            this.btnCreate.Location = new System.Drawing.Point(44, 46);
+            this.btnCreate.Name = "btnCreate";
+            this.btnCreate.Size = new System.Drawing.Size(80, 53);
+            this.btnCreate.TabIndex = 0;
+            this.btnCreate.Text = "Thêm";
+            this.btnCreate.UseVisualStyleBackColor = true;
             // 
             // frmCategorie
             // 

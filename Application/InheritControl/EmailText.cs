@@ -1,36 +1,50 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Text.RegularExpressions;
 
 namespace InheritControl
 {
     public class EmailText : TextBox
     {
-        ErrorProvider errorProvider;
+        private ErrorProvider errorProvider;
+
         public EmailText()
         {
             this.KeyPress += EmailText_KeyPress;
-            //this.errorProvider = new ErrorProvider();
+            this.errorProvider = new ErrorProvider();
+            this.Validating += EmailText_Validating;
         }
 
         private void EmailText_KeyPress(object sender, KeyPressEventArgs e)
         {
-            //Regex regex = new Regex(@"^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$");
-            //String email = this.Text;
-            //Match match = regex.Match(email);
+            if (!char.IsControl(e.KeyChar) && !char.IsLetterOrDigit(e.KeyChar) &&
+                e.KeyChar != '@' && e.KeyChar != '.' && e.KeyChar != '-' && e.KeyChar != '_')
+            {
+                e.Handled = true;
+            }
+        }
 
-            //if (match.Success)
-            //{
-            //    errorProvider.Clear();
-            //}
-            //else
-            //{
-            //    errorProvider.SetError(this, "Ivalid Email");
-            //}
+        private void EmailText_Validating(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            string email = this.Text.Trim();
+            Regex regex = new Regex(@"^[^\s@]+@[^\s@]+\.[^\s@]+$");
+
+            if (string.IsNullOrWhiteSpace(email) || !regex.IsMatch(email))
+            {
+                errorProvider.SetError(this, "Địa chỉ email không hợp lệ.");
+                
+                e.Cancel = true;
+            }
+            else
+            {
+                errorProvider.SetError(this, string.Empty);
+            }
         }
     }
 }

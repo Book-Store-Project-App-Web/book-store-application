@@ -54,10 +54,28 @@ namespace BLL
             }
 
         }
-        public List<UserDK> LoadUser()
+        public List<UserDK> LoadUserDK()
+        {
+            return dalUser.LoadUserDK();
+        }
+
+        public List<User> LoadUser()
         {
             return dalUser.LoadUser();
         }
+        public void AddUser(User user)
+        {
+            dalUser.AddUser(user);
+        }
 
+        public void UpdateUser(User user)
+        {
+            dalUser.UpdateUser(user);
+        }
+
+        public void DeleteUser(int id)
+        {
+            dalUser.DeleteUser(id);
+        }
     }
 }
