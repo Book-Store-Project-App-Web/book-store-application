@@ -22,6 +22,10 @@ namespace BLL
         {
             return dalcategory.ListCate_cate();
         }
+        public bool CategoryExists(int id)
+        {
+            return dalcategory.Categories().Any(c => c.id == id);
+        }
 
         public void AddCategory(Category category)
         {
