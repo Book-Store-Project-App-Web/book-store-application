@@ -24,31 +24,16 @@ namespace Main
             this.btnDelete.Click += BtnDelete_Click;
             this.btnEdit.Click += BtnEdit_Click;
             this.btnNew.Click += BtnNew_Click;
+            this.txtSearch.TextChanged += TxtSearch_TextChanged;
+        }
+
+        private void TxtSearch_TextChanged(object sender, EventArgs e)
+        {
+            string Search = txtSearch.Text.Trim();
+            LoadCategories(Search);
         }
 
         private void BtnNew_Click(object sender, EventArgs e)
-        {
-            if (int.TryParse(txtIdCategory.Text, out int id))
-            {
-                var category = new Category
-                {
-                    id = id,
-                    name = txtNameCategory.Text,
-                    listCateId = (int)cbBoxListCategory.SelectedValue,
-                    updatedAt = DateTime.Now
-                };
-
-                bllcategory.UpdateCategory(category);
-                //LoadCategories();
-                ClearFields();
-            }
-            else
-            {
-                MessageBox.Show("Invalid Category ID.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
-
-        private void BtnEdit_Click(object sender, EventArgs e)
         {
             if (int.TryParse(txtIdCategory.Text, out int id))
             {
@@ -66,17 +51,44 @@ namespace Main
             }
         }
 
-        private void BtnDelete_Click(object sender, EventArgs e)
+        private void BtnEdit_Click(object sender, EventArgs e)
         {
             if (int.TryParse(txtIdCategory.Text, out int id))
             {
-                bllcategory.DeleteCategory(id);
-                //LoadCategories();
+                var category = new Category
+                {
+                    id = id,
+                    name = txtNameCategory.Text,
+                    listCateId = (int)cbBoxListCategory.SelectedValue,
+                    updatedAt = DateTime.Now
+                };
+
+                bllcategory.UpdateCategory(category);
+                MessageBox.Show("Sửa thành công","Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+                LoadCategories();
                 ClearFields();
             }
             else
             {
-                MessageBox.Show("Invalid Category ID.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Sửa thất bại", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void BtnDelete_Click(object sender, EventArgs e)
+        {
+            if (int.TryParse(txtIdCategory.Text, out int id))
+            {
+                try
+                {
+                    bllcategory.DeleteCategory(id);
+                    MessageBox.Show("Xóa thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+                    LoadCategories();  
+                    ClearFields();   
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Đã xảy ra lỗi khi xóa " + ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
         }
 
@@ -91,6 +103,7 @@ namespace Main
             };
 
             bllcategory.AddCategory(category);
+            MessageBox.Show("Thêm thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
             LoadCategories();
             ClearFields();
         }
@@ -113,9 +126,17 @@ namespace Main
             Load_Cate_category();
         }
 
-        public void LoadCategories()
+        public void LoadCategories(string searchTerm = "")
         {
-            dataGridView1.DataSource = bllcategory.LoadCategories();
+            var categories = bllcategory.LoadCategories();
+
+            if (!string.IsNullOrEmpty(searchTerm))
+            {
+                categories = categories.Where(c =>
+            (!string.IsNullOrEmpty(c.name) && c.name.IndexOf(searchTerm, StringComparison.OrdinalIgnoreCase) >= 0)).ToList();
+            }
+
+            dataGridView1.DataSource = categories;
             if (dataGridView1.Columns.Contains("List_Cate"))
             {
                 dataGridView1.Columns.Remove("List_Cate");
