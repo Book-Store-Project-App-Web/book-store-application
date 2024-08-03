@@ -14,6 +14,7 @@ namespace Main
         public static frmBooks formBooks = null;
         public static frmUser UserForm = null;
         public static frmCategorie CategorieForm = null;
+        public static frmInvoice InvoiceForm = null;
         /// <summary>
         /// The main entry point for the application.
         /// </summary>
@@ -29,7 +30,8 @@ namespace Main
             formBooks = new frmBooks();
             CategorieForm = new frmCategorie();
             UserForm = new frmUser();
-            Application.Run(SystemForm);
+            InvoiceForm = new frmInvoice();
+            Application.Run(InvoiceForm);
         }
     }
 }
