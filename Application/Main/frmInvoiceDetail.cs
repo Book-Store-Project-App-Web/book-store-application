@@ -16,6 +16,8 @@ namespace Main
     {
         private int _orderId;
         BLLBookOrders GUIBookOrders = new BLLBookOrders();
+        BLLInvoice GUIInvoice = new BLLInvoice();
+        BLLBook GUIBook = new BLLBook();
         public frmInvoiceDetail(int orderId)
         {
             InitializeComponent();
@@ -26,22 +28,43 @@ namespace Main
 
         private void DataGridView1_SelectionChanged(object sender, EventArgs e)
         {
-
+            if (dataGridView1.SelectedRows.Count > 0)
+            {
+                var selectedRow = dataGridView1.SelectedRows[0];
+                var bookId = Convert.ToInt32(selectedRow.Cells["bookId"].Value);
+                var book = GUIBook.ListBooks().FirstOrDefault(b => b.id == bookId);
+                if (book != null)
+                {
+                    txtIdBook.Text = book.id.ToString();
+                    txtNameBook.Text = book.name;
+                    txtBookPrice.Text = book.price.ToString();
+                    txtPurchaseQuantity.Text = selectedRow.Cells["quantity"].Value.ToString();
+                }
+            }
         }
 
         private void FrmInvoiceDetail_Load(object sender, EventArgs e)
         {
             LoadBookOrders();
+            LoadOrderDetails();
         }
         public void LoadBookOrders()
         {
             dataGridView1.DataSource = GUIBookOrders.GetBookOrdersByOrderId(_orderId);
-            if (dataGridView1.Columns.Contains("Book") || dataGridView1.Columns.Contains("Order") || dataGridView1.Columns.Contains("updatedAt"))
+            ConfigureDataGridView();
+        }
+
+        private void ConfigureDataGridView()
+        {
+            var unwantedColumns = new[] { "Book", "Order", "updatedAt" };
+            foreach (var column in unwantedColumns)
             {
-                dataGridView1.Columns.Remove("Book");
-                dataGridView1.Columns.Remove("Order");
-                dataGridView1.Columns.Remove("updatedAt");
+                if (dataGridView1.Columns.Contains(column))
+                {
+                    dataGridView1.Columns.Remove(column);
+                }
             }
+
             dataGridView1.Columns["id"].HeaderText = "Mã CT Hóa đơn";
             dataGridView1.Columns["bookId"].HeaderText = "Mã sách";
             dataGridView1.Columns["orderId"].HeaderText = "Mã hóa đơn";
@@ -51,6 +74,21 @@ namespace Main
 
             dataGridView1.Columns["createdAt"].DefaultCellStyle.Format = "dd/MM/yyyy HH:mm:ss";
         }
+        private void LoadOrderDetails()
+        {
+            var order = GUIInvoice.LoadInvoice().FirstOrDefault(o => o.id == _orderId);
+            if (order != null)
+            {
+                txtIdInvoice.Text = order.id.ToString();
+                txtIdUser.Text = order.userId.ToString();
+                txtFullName.Text = order.fullName;
+                txtAddress.Text = order.address;
+                txtPhone.Text = order.phone;
+                txtTotalPrice.Text = order.totalOrderPrice.ToString();
+                txtDateCreate.Text = order.createdAt.ToString("dd/MM/yyyy HH:mm:ss");
+            }
+        }
+
 
     }
 }
