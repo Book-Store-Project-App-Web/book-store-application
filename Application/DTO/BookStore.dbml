@@ -116,6 +116,7 @@
       <Column Name="createdAt" Type="System.DateTimeOffset" DbType="DateTimeOffset NOT NULL" CanBeNull="false" />
       <Column Name="updatedAt" Type="System.DateTimeOffset" DbType="DateTimeOffset NOT NULL" CanBeNull="false" />
       <Association Name="Group_Group_User" Member="Group_Users" ThisKey="id" OtherKey="groupId" Type="Group_User" />
+      <Association Name="Group_Group_Screen" Member="Group_Screens" ThisKey="id" OtherKey="groupId" Type="Group_Screen" />
     </Type>
   </Table>
   <Table Name="dbo.Group_Users" Member="Group_Users">
@@ -127,6 +128,28 @@
       <Column Name="updatedAt" Type="System.DateTimeOffset" DbType="DateTimeOffset NOT NULL" CanBeNull="false" />
       <Association Name="Group_Group_User" Member="Group" ThisKey="groupId" OtherKey="id" Type="Group" IsForeignKey="true" />
       <Association Name="User_Group_User" Member="User" ThisKey="userId" OtherKey="id" Type="User" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Screens" Member="Screens">
+    <Type Name="Screen">
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="screenName" Type="System.String" DbType="NVarChar(255) NOT NULL" CanBeNull="false" />
+      <Column Name="description" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="createdAt" Type="System.DateTimeOffset" DbType="DateTimeOffset NOT NULL" CanBeNull="false" />
+      <Column Name="updatedAt" Type="System.DateTimeOffset" DbType="DateTimeOffset NOT NULL" CanBeNull="false" />
+      <Association Name="Screen_Group_Screen" Member="Group_Screens" ThisKey="id" OtherKey="screenId" Type="Group_Screen" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Group_Screens" Member="Group_Screens">
+    <Type Name="Group_Screen">
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="groupId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="screenId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="isRole" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="createdAt" Type="System.DateTimeOffset" DbType="DateTimeOffset NOT NULL" CanBeNull="false" />
+      <Column Name="updatedAt" Type="System.DateTimeOffset" DbType="DateTimeOffset NOT NULL" CanBeNull="false" />
+      <Association Name="Group_Group_Screen" Member="Group" ThisKey="groupId" OtherKey="id" Type="Group" IsForeignKey="true" />
+      <Association Name="Screen_Group_Screen" Member="Screen" ThisKey="screenId" OtherKey="id" Type="Screen" IsForeignKey="true" />
     </Type>
   </Table>
 </Database>

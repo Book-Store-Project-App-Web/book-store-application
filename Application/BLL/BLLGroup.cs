@@ -16,7 +16,7 @@ namespace BLL
         {
         }
 
-        public List<Group> LoadGroup()
+        public List<dynamic> LoadGroup()
         {
             return dalGr.LoadGroup();
         }
@@ -44,6 +44,11 @@ namespace BLL
         public Group_User DeleteGU(int groupId, int userId)
         {
             return dalGr.DeleteGU(groupId, userId);
+        }
+
+        public List<dynamic> LoadGroupScreen(int groupId)
+        {
+            return dalGr.LoadGroupScreen(groupId);
         }
     }
 }

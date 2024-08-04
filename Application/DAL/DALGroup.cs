@@ -15,10 +15,19 @@ namespace DAL
         public DALGroup()
         {
         }
-        public List<Group> LoadGroup()
+        public List<dynamic> LoadGroup()
         {
-            return dalcontext.Groups.Select(g => g).ToList<Group>();
+            return dalcontext.Groups.Select(result => new
+            {
+                result.id,
+                result.groupName,
+                result.description,
+            }).ToList<dynamic>();
         }
+        //public List<Group> LoadGroup()
+        //{
+        //    return dalcontext.Groups.Select(g => g).ToList<Group>();
+        //}
         public List<dynamic> LoadGroup_User(int groupId)
         {
             var query = dalcontext.Group_Users
@@ -75,6 +84,36 @@ namespace DAL
                 return gu;
             }
             return null;
+        }
+
+        public List<dynamic> LoadGroupScreen(int groupId)
+        {
+            var query = dalcontext.Screens
+                .Join(dalcontext.Group_Screens,
+                      screen => screen.id,
+                      groupScreen => groupScreen.screenId,
+                      (screen, groupScreen) => new { screen, groupScreen })
+                .Join(dalcontext.Groups,
+                      screenGroupScreen => screenGroupScreen.groupScreen.groupId,
+                      group => group.id,
+                      (screenGroupScreen, group) => new
+                      {
+                          screenGroupScreen.screen.id,
+                          group.groupName,
+                          screenGroupScreen.groupScreen.isRole,
+                          screenGroupScreen.screen.screenName,
+                          screenGroupScreen.groupScreen.groupId
+                      })
+                .Where(result => result.groupId == groupId)
+                .Select(result => new
+                {
+                    result.id,
+                    result.groupName,
+                    result.isRole,
+                    result.screenName
+                });
+
+            return query.ToList<dynamic>();
         }
     }
 }
