@@ -75,6 +75,7 @@
       <Column Name="ratingsAverage" Type="System.Double" DbType="Float" CanBeNull="true" />
       <Column Name="createdAt" Type="System.DateTimeOffset" DbType="DateTimeOffset NOT NULL" CanBeNull="false" />
       <Column Name="updatedAt" Type="System.DateTimeOffset" DbType="DateTimeOffset NOT NULL" CanBeNull="false" />
+      <Association Name="Book_Book_Order" Member="Book_Orders" ThisKey="id" OtherKey="bookId" Type="Book_Order" />
       <Association Name="Supplier_Book" Member="Supplier" ThisKey="supplierId" OtherKey="id" Type="Supplier" IsForeignKey="true" />
       <Association Name="Category_Book" Member="Category" ThisKey="categoryId" OtherKey="id" Type="Category" IsForeignKey="true" />
     </Type>
@@ -91,6 +92,7 @@
       <Column Name="createdAt" Type="System.DateTimeOffset" DbType="DateTimeOffset NOT NULL" CanBeNull="false" />
       <Column Name="updatedAt" Type="System.DateTimeOffset" DbType="DateTimeOffset NOT NULL" CanBeNull="false" />
       <Association Name="User_Order" Member="Orders" ThisKey="id" OtherKey="userId" Type="Order" />
+      <Association Name="User_Import_Invoice" Member="Import_Invoices" ThisKey="id" OtherKey="userId" Type="Import_Invoice" />
     </Type>
   </Table>
   <Table Name="dbo.Orders" Member="Orders">
@@ -100,10 +102,35 @@
       <Column Name="fullName" Type="System.String" DbType="NVarChar(255) NOT NULL" CanBeNull="false" />
       <Column Name="phone" Type="System.String" DbType="NVarChar(255) NOT NULL" CanBeNull="false" />
       <Column Name="address" Type="System.String" DbType="NVarChar(255) NOT NULL" CanBeNull="false" />
-      <Column Name="totalOrderPrice" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="totalOrderPrice" Type="System.Double" DbType="Float" CanBeNull="false" />
       <Column Name="createdAt" Type="System.DateTimeOffset" DbType="DateTimeOffset NOT NULL" CanBeNull="false" />
       <Column Name="updatedAt" Type="System.DateTimeOffset" DbType="DateTimeOffset NOT NULL" CanBeNull="false" />
+      <Association Name="Order_Book_Order" Member="Book_Orders" ThisKey="id" OtherKey="orderId" Type="Book_Order" />
       <Association Name="User_Order" Member="User" ThisKey="userId" OtherKey="id" Type="User" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Import_Invoices" Member="Import_Invoices">
+    <Type Name="Import_Invoice">
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="userId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="supplier" Type="System.String" DbType="NVarChar(255) NOT NULL" CanBeNull="false" />
+      <Column Name="totalInvoice" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="createdAt" Type="System.DateTimeOffset" DbType="DateTimeOffset NOT NULL" CanBeNull="false" />
+      <Column Name="updatedAt" Type="System.DateTimeOffset" DbType="DateTimeOffset NOT NULL" CanBeNull="false" />
+      <Association Name="User_Import_Invoice" Member="User" ThisKey="userId" OtherKey="id" Type="User" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Book_Orders" Member="Book_Orders">
+    <Type Name="Book_Order">
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="bookId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="orderId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="quantity" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="unitPrice" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="createdAt" Type="System.DateTimeOffset" DbType="DateTimeOffset NOT NULL" CanBeNull="false" />
+      <Column Name="updatedAt" Type="System.DateTimeOffset" DbType="DateTimeOffset NOT NULL" CanBeNull="false" />
+      <Association Name="Book_Book_Order" Member="Book" ThisKey="bookId" OtherKey="id" Type="Book" IsForeignKey="true" />
+      <Association Name="Order_Book_Order" Member="Order" ThisKey="orderId" OtherKey="id" Type="Order" IsForeignKey="true" />
     </Type>
   </Table>
 </Database>

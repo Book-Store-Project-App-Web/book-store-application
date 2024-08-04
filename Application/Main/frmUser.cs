@@ -36,7 +36,13 @@ namespace Main
 
         private void DataGridView1_SelectionChanged(object sender, EventArgs e)
         {
-            if (dataGridView1.SelectedRows.Count > 0)
+            bool isRowSelected = dataGridView1.SelectedRows.Count > 0;
+
+            btnCreate.Enabled = !isRowSelected;
+
+            UpdateButtonStates();
+
+            if (isRowSelected)
             {
                 var row = dataGridView1.SelectedRows[0];
                 txtIdUser.Text = row.Cells["id"].Value.ToString();
@@ -47,6 +53,9 @@ namespace Main
                 txtPassword.Text = row.Cells["password"].Value.ToString();
                 var sex = row.Cells["sex"].Value.ToString();
                 cboBoxSex.SelectedItem = sex;
+            }else
+            {
+                ClearInputFields();
             }
         }
 
@@ -164,6 +173,15 @@ namespace Main
             txtEmail.Clear();
             txtPassword.Clear();
             cboBoxSex.SelectedIndex = -1;
+            dataGridView1.ClearSelection();
+        }
+        private void UpdateButtonStates()
+        {
+            bool isRowSelected = dataGridView1.SelectedRows.Count > 0;
+
+            btnDelete.Enabled = isRowSelected;
+            btnEdit.Enabled = isRowSelected;
+            btnRefresh.Enabled = isRowSelected;
         }
     }
 }

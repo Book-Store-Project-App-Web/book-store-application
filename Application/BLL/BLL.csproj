@@ -72,6 +72,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BLLBook.cs" />
+    <Compile Include="BLLBookOrders.cs" />
     <Compile Include="BLLCategory.cs" />
     <Compile Include="BLLInvoice.cs" />
     <Compile Include="BLLUser.cs" />
