@@ -73,6 +73,7 @@
   <ItemGroup>
     <Compile Include="BLLBook.cs" />
     <Compile Include="BLLCategory.cs" />
+    <Compile Include="BLLGroup.cs" />
     <Compile Include="BLLInvoice.cs" />
     <Compile Include="BLLUser.cs" />
     <Compile Include="DcentralizationClass .cs" />

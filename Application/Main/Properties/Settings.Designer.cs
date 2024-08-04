@@ -12,7 +12,7 @@ namespace Main.Properties {
     
     
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Editors.SettingsDesigner.SettingsSingleFileGenerator", "15.9.0.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Editors.SettingsDesigner.SettingsSingleFileGenerator", "16.10.0.0")]
     internal sealed partial class Settings : global::System.Configuration.ApplicationSettingsBase {
         
         private static Settings defaultInstance = ((Settings)(global::System.Configuration.ApplicationSettingsBase.Synchronized(new Settings())));
@@ -25,8 +25,8 @@ namespace Main.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=LAPTOP-3JB6IQD2;Initial Catalog=Book_Store;Persist Security Info=True" +
-            ";User ID=sa;Password =sa123")]
+        [global::System.Configuration.DefaultSettingValueAttribute("DESKTOP-8I1VIDD\\SQLEXPRESS;Initial Catalog=ModuleDN;Persist Security Info=True;Us" +
+            "er ID=sa;Password=123")]
         public string conn {
             get {
                 return ((string)(this["conn"]));

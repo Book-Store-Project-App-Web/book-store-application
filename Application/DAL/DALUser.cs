@@ -23,7 +23,7 @@ namespace DAL
          }
         public List<UserDK> LoadUserDK()
         {
-            return dalcontext.Users.Select(u => new UserDK { firstname = u.firstName, lastname = u.lastName, phone = u.phone, email = u.email, sex = u.sex }).ToList();
+            return dalcontext.Users.Select(u => new UserDK { id = u.id, firstname = u.firstName, lastname = u.lastName, phone = u.phone, email = u.email, sex = u.sex }).ToList();
         }
 
         public void AddUser(User user)
