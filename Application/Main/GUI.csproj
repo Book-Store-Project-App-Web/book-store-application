@@ -91,6 +91,12 @@
     <Compile Include="frmCategorie.Designer.cs">
       <DependentUpon>frmCategorie.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmGroup_Screen.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmGroup_Screen.Designer.cs">
+      <DependentUpon>frmGroup_Screen.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmGroup_User.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -134,6 +140,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmCategorie.resx">
       <DependentUpon>frmCategorie.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmGroup_Screen.resx">
+      <DependentUpon>frmGroup_Screen.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmGroup_User.resx">
       <DependentUpon>frmGroup_User.cs</DependentUpon>

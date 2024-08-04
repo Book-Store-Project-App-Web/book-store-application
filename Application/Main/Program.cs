@@ -16,6 +16,8 @@ namespace Main
         public static frmCategorie CategorieForm = null;
         public static frmInvoice InvoiceForm = null;
         public static frmGroup_User GUForm = null;
+        public static frmGroup_Screen GCForm = null;
+
 
         /// <summary>
         /// The main entry point for the application.
@@ -34,7 +36,8 @@ namespace Main
             UserForm = new frmUser();
             InvoiceForm = new frmInvoice();
             GUForm = new frmGroup_User();
-            Application.Run(GUForm);
+            GCForm = new frmGroup_Screen();
+            Application.Run(GCForm);
         }
     }
 }
