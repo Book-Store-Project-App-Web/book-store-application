@@ -241,6 +241,10 @@
             this.ClientSize = new System.Drawing.Size(1182, 596);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.groupBox1);
+            this.MaximizeBox = false;
+            this.MaximumSize = new System.Drawing.Size(1200, 643);
+            this.MinimizeBox = false;
+            this.MinimumSize = new System.Drawing.Size(1200, 643);
             this.Name = "frmInvoice";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Quản lý hóa đơn";
