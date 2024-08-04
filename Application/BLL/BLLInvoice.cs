@@ -17,5 +17,17 @@ namespace BLL
         {
             return bllInvoice.LoadlistInvoice();
         }
+        public void AddInvoice(Order order)
+        {
+            bllInvoice.AddInvoice(order);
+        }
+        public void DeleteInvoice(int id)
+        {
+            bllInvoice.DeleteInvoice(id);
+        }
+        public void UpdateInvoice(Order order)
+        {
+            bllInvoice.UpdateInvoice(order);
+        }
     }
 }

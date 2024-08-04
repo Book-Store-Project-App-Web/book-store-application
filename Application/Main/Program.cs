@@ -37,7 +37,7 @@ namespace Main
             InvoiceForm = new frmInvoice();
             GUForm = new frmGroup_User();
             GCForm = new frmGroup_Screen();
-            Application.Run(GCForm);
+            Application.Run(InvoiceForm);
         }
     }
 }

@@ -1,5 +1,5 @@
-﻿<?xml version="1.0" encoding="utf-8"?><Database Name="book_store" Class="BookStoreDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
-  <Connection Mode="AppSettings" ConnectionString="Data Source=DESKTOP-8I1VIDD\SQLEXPRESS;Initial Catalog=book_store;Persist Security Info=True;User ID=sa" SettingsObjectName="DTO.Properties.Settings" SettingsPropertyName="Book_StoreConnectionString" Provider="System.Data.SqlClient" />
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="Book_Store" Class="BookStoreDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=LAPTOP-3JB6IQD2;Initial Catalog=Book_Store;Persist Security Info=True;User ID=sa" SettingsObjectName="DTO.Properties.Settings" SettingsPropertyName="Book_StoreConnectionString5" Provider="System.Data.SqlClient" />
   <Table Name="" Member="BookDKs">
     <Type Name="BookDK">
       <Column Name="image" Type="System.String" CanBeNull="false" />
@@ -76,6 +76,7 @@
       <Column Name="ratingsAverage" Type="System.Double" DbType="Float" CanBeNull="true" />
       <Column Name="createdAt" Type="System.DateTimeOffset" DbType="DateTimeOffset NOT NULL" CanBeNull="false" />
       <Column Name="updatedAt" Type="System.DateTimeOffset" DbType="DateTimeOffset NOT NULL" CanBeNull="false" />
+      <Association Name="Book_Book_Order" Member="Book_Orders" ThisKey="id" OtherKey="bookId" Type="Book_Order" />
       <Association Name="Supplier_Book" Member="Supplier" ThisKey="supplierId" OtherKey="id" Type="Supplier" IsForeignKey="true" />
       <Association Name="Category_Book" Member="Category" ThisKey="categoryId" OtherKey="id" Type="Category" IsForeignKey="true" />
     </Type>
@@ -105,6 +106,7 @@
       <Column Name="totalOrderPrice" Type="System.Double" DbType="Float" CanBeNull="true" />
       <Column Name="createdAt" Type="System.DateTimeOffset" DbType="DateTimeOffset NOT NULL" CanBeNull="false" />
       <Column Name="updatedAt" Type="System.DateTimeOffset" DbType="DateTimeOffset NOT NULL" CanBeNull="false" />
+      <Association Name="Order_Book_Order" Member="Book_Orders" ThisKey="id" OtherKey="orderId" Type="Book_Order" />
       <Association Name="User_Order" Member="User" ThisKey="userId" OtherKey="id" Type="User" IsForeignKey="true" />
     </Type>
   </Table>
@@ -150,6 +152,19 @@
       <Column Name="updatedAt" Type="System.DateTimeOffset" DbType="DateTimeOffset NOT NULL" CanBeNull="false" />
       <Association Name="Group_Group_Screen" Member="Group" ThisKey="groupId" OtherKey="id" Type="Group" IsForeignKey="true" />
       <Association Name="Screen_Group_Screen" Member="Screen" ThisKey="screenId" OtherKey="id" Type="Screen" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Book_Orders" Member="Book_Orders">
+    <Type Name="Book_Order">
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="bookId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="orderId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="quantity" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="unitPrice" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="createdAt" Type="System.DateTimeOffset" DbType="DateTimeOffset NOT NULL" CanBeNull="false" />
+      <Column Name="updatedAt" Type="System.DateTimeOffset" DbType="DateTimeOffset NOT NULL" CanBeNull="false" />
+      <Association Name="Book_Book_Order" Member="Book" ThisKey="bookId" OtherKey="id" Type="Book" IsForeignKey="true" />
+      <Association Name="Order_Book_Order" Member="Order" ThisKey="orderId" OtherKey="id" Type="Order" IsForeignKey="true" />
     </Type>
   </Table>
 </Database>

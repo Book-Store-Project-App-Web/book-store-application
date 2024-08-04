@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 11, 11" name="BookStore">
+<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 11, 13" name="BookStore">
   <DataContextMoniker Name="/BookStoreDataContext" />
   <nestedChildShapes>
     <classShape Id="76c8a5ea-bbad-4b65-af63-9fbc1c9f8412" isExpanded="false" absoluteBounds="3.125, 0.5, 2, 0.45">
@@ -45,7 +45,7 @@
         <elementListCompartment Id="dd28b973-a1a0-4e2f-bc3b-1a0331bc37bb" absoluteBounds="5.0150000000000006, 1.585, 1.9700000000000002, 3.518513997395833" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <associationConnector edgePoints="[(6.5 : 2.375); (6.5 : 1.575)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(6.5 : 2.375); (6.5 : 1.575)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/BookStoreDataContext/Supplier/Supplier_Book" />
       <nodes>
         <classShapeMoniker Id="ee1236a4-343e-43ca-a884-427a56d35783" />
@@ -71,7 +71,7 @@
         <elementListCompartment Id="d582cc2e-d540-4ac7-9627-c39120cdeccf" absoluteBounds="2.265, 8.835, 1.9700000000000002, 1.7878011067708335" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <associationConnector edgePoints="[(7.25 : 9.54890055338542); (4.25 : 9.54890055338542)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+    <associationConnector edgePoints="[(7.25 : 9.54890055338542); (5.95833333333333 : 9.54890055338542 : JumpStart); (5.79166666666667 : 9.54890055338542 : JumpEnd); (4.25 : 9.54890055338542)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/BookStoreDataContext/User/User_Order" />
       <nodes>
         <classShapeMoniker Id="3021615a-39de-40ca-a9fc-9b5d71741c54" />
@@ -90,14 +90,14 @@
         <elementListCompartment Id="07af72e0-a1da-46e3-8abd-06a3421cb838" absoluteBounds="8.015, 4.585, 1.9700000000000002, 1.2108968098958333" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <associationConnector edgePoints="[(3.375 : 5.57294840494792); (8 : 5.57294840494792)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(3.375 : 5.57294840494792); (5.79166666666667 : 5.57294840494792 : JumpStart); (5.95833333333333 : 5.57294840494792 : JumpEnd); (8 : 5.57294840494792)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/BookStoreDataContext/Group/Group_Group_User" />
       <nodes>
         <classShapeMoniker Id="ec8a7121-2c80-452b-a1d4-b2c4517bd21b" />
         <classShapeMoniker Id="1acfcb67-5799-4451-9930-2d59c4d24ec8" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(8.625 : 8.25); (8.625 : 5.89589680989583)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(8.625 : 8.25); (8.625 : 5.89589680989583)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/BookStoreDataContext/User/User_Group_User" />
       <nodes>
         <classShapeMoniker Id="3021615a-39de-40ca-a9fc-9b5d71741c54" />
@@ -116,18 +116,38 @@
         <elementListCompartment Id="ae7b52dd-56b8-4f29-a080-b01e73393499" absoluteBounds="0.64000000000000012, 3.085, 1.9700000000000002, 1.4031982421875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <associationConnector edgePoints="[(2 : 5.25); (2 : 4.5881982421875)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(2 : 5.25); (2 : 4.5881982421875)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/BookStoreDataContext/Group/Group_Group_Screen" />
       <nodes>
         <classShapeMoniker Id="ec8a7121-2c80-452b-a1d4-b2c4517bd21b" />
         <classShapeMoniker Id="8dea2cbd-7066-4b60-a357-f7134a280bfe" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(3.75 : 3.79409912109375); (2.625 : 3.79409912109375)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(3.75 : 3.79409912109375); (2.625 : 3.79409912109375)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/BookStoreDataContext/Screen/Screen_Group_Screen" />
       <nodes>
         <classShapeMoniker Id="fbf97aec-5dbe-4b88-b350-21738279314f" />
         <classShapeMoniker Id="8dea2cbd-7066-4b60-a357-f7134a280bfe" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="1a20cd47-5287-4377-9e64-2bbd98119ffd" absoluteBounds="1.125, 10.625, 2, 2.1554996744791666">
+      <DataClassMoniker Name="/BookStoreDataContext/Book_Order" />
+      <nestedChildShapes>
+        <elementListCompartment Id="0437176f-ace9-481c-957c-a25ce2a758d1" absoluteBounds="1.1400000000000001, 11.085, 1.9700000000000002, 1.5954996744791665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(5.875 : 1.575); (5.875 : 11.782900390625); (3.125 : 11.782900390625)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/BookStoreDataContext/Book/Book_Book_Order" />
+      <nodes>
+        <classShapeMoniker Id="f28a8bce-9b17-4ecb-9cff-07690de3f661" />
+        <classShapeMoniker Id="1a20cd47-5287-4377-9e64-2bbd98119ffd" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(3.7187525 : 10.7228011067708); (3.7187525 : 11.2215987486979); (3.125 : 11.2215987486979)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/BookStoreDataContext/Order/Order_Book_Order" />
+      <nodes>
+        <classShapeMoniker Id="debed695-24bc-4f9e-b380-9341cbe3d342" />
+        <classShapeMoniker Id="1a20cd47-5287-4377-9e64-2bbd98119ffd" />
       </nodes>
     </associationConnector>
   </nestedChildShapes>
