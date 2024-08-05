@@ -40,7 +40,7 @@ namespace Main
             GUForm = new frmGroup_User();
             GCForm = new frmGroup_Screen();
             StaticticalForm = new frmStatistic();
-            Application.Run(StaticticalForm);
+            Application.Run(UserForm);
         }
     }
 }

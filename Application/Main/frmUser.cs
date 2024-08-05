@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using BLL;
+using Utilities;
 using DTO;
 
 namespace Main
@@ -15,16 +16,33 @@ namespace Main
     public partial class frmUser : Form
     {
         BLLUser blluser = new BLLUser();
+        Library lb = new Library();
+        private ErrorProvider errorProvider;
+
         public frmUser()
         {
             InitializeComponent();
+            errorProvider = new ErrorProvider();
             this.Load += FrmUser_Load;
             this.btnCreate.Click += BtnCreate_Click;
             this.btnDelete.Click += BtnDelete_Click;
             this.btnEdit.Click += BtnEdit_Click;
             this.btnRefresh.Click += btnRefresh_Click;
-            this.dataGridView1.SelectionChanged += DataGridView1_SelectionChanged;
+            this.dataGridView1.CellClick += DataGridView1_CellClick;
             this.txtSearch.TextChanged += TxtSearch_TextChanged;
+        }
+
+        private void DataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            DataGridViewRow row = dataGridView1.CurrentRow;
+            txtIdUser.Text = row.Cells["id"].Value?.ToString();
+            txtLastName.Text = row.Cells["lastName"].Value?.ToString();
+            txtFirstName.Text = row.Cells["firstName"].Value?.ToString();
+            txtPhone.Text = row.Cells["phone"].Value?.ToString();
+            txtEmail.Text = row.Cells["email"].Value?.ToString();
+            var sex = row.Cells["sex"].Value;
+            cboBoxSex.SelectedItem = sex;
+            txtPassword.Enabled = false;
         }
 
         private void TxtSearch_TextChanged(object sender, EventArgs e)
@@ -34,24 +52,11 @@ namespace Main
             LoadUserList(searchTerm);
         }
 
-        private void DataGridView1_SelectionChanged(object sender, EventArgs e)
-        {
-            if (dataGridView1.SelectedRows.Count > 0)
-            {
-                var row = dataGridView1.SelectedRows[0];
-                txtIdUser.Text = row.Cells["id"].Value.ToString();
-                txtFistName.Text = row.Cells["firstName"].Value.ToString();
-                txtLastName.Text = row.Cells["lastName"].Value.ToString();
-                txtPhone.Text = row.Cells["phone"].Value.ToString();
-                txtEmail.Text = row.Cells["email"].Value.ToString();
-                txtPassword.Text = row.Cells["password"].Value.ToString();
-                var sex = row.Cells["sex"].Value.ToString();
-                cboBoxSex.SelectedItem = sex;
-            }
-        }
+       
 
         private void btnRefresh_Click(object sender, EventArgs e)
         {
+            txtPassword.Enabled = true;
             ClearInputFields();
         }
 
@@ -61,19 +66,21 @@ namespace Main
             {
                 var row = dataGridView1.SelectedRows[0];
                 int id = int.Parse(row.Cells["id"].Value.ToString());
+                if (cboBoxSex.SelectedItem == null)
+                {
+                    MessageBox.Show("Phải chọn giới tính !!!");
+                    return;
+                }
                 var user = new User
                 {
-                    id = id,
-                    firstName = txtFistName.Text,
-                    lastName = txtLastName.Text,
+                    firstName = txtLastName.Text,
+                    lastName = txtFirstName.Text,
                     phone = txtPhone.Text,
                     email = txtEmail.Text,
-                    password = BCrypt.Net.BCrypt.HashPassword(txtPassword.Text),
-                    sex = cboBoxSex.SelectedItem.ToString(),
-                    updatedAt = DateTime.Now
+                    sex = cboBoxSex.SelectedItem.ToString()
                 };
 
-                blluser.UpdateUser(user);
+                blluser.UpdateUser(id,user);
                 LoadUserList();
                 MessageBox.Show("Cập nhật người dùng thành công!");
                 ClearInputFields();
@@ -103,20 +110,22 @@ namespace Main
 
         private void BtnCreate_Click(object sender, EventArgs e)
         {
-            var user = new User
+            if (lb.AreControlsValid(this,errorProvider, "txtLastName", "txtFirstName", "txtPhone", "txtEmail", "txtPassword"))
             {
-                firstName = txtFistName.Text,
-                lastName = txtLastName.Text,
-                phone = txtPhone.Text,
-                email = txtEmail.Text,
-                password = BCrypt.Net.BCrypt.HashPassword(txtPassword.Text),
-                sex = cboBoxSex.SelectedItem.ToString(),
-                updatedAt = DateTime.Now,
-                createdAt = DateTime.Now
-             };
-    
-            blluser.AddUser(user);
-            LoadUserList();
+                var user = new User
+                {
+                    firstName = txtFirstName.Text,
+                    lastName = txtLastName.Text,
+                    phone = txtPhone.Text,
+                    email = txtEmail.Text,
+                    password = txtPassword.Text,
+                    sex = cboBoxSex.SelectedItem.ToString()
+                };
+
+                blluser.AddUser(user);
+                MessageBox.Show("Thêm người dùng thành công");
+                LoadUserList();
+            }
         }
 
         private void FrmUser_Load(object sender, EventArgs e)
@@ -127,27 +136,21 @@ namespace Main
 
         public void LoadUserList(string searchTerm = "")
         {
-            var users = blluser.LoadUser(); 
-
+            var users = blluser.LoadUser();
             if (!string.IsNullOrEmpty(searchTerm))
             {
-                users = users.Where(u =>
-            (!string.IsNullOrEmpty(u.firstName) && u.firstName.IndexOf(searchTerm, StringComparison.OrdinalIgnoreCase) >= 0) ||
-            (!string.IsNullOrEmpty(u.lastName) && u.lastName.IndexOf(searchTerm, StringComparison.OrdinalIgnoreCase) >= 0) ||
-            (!string.IsNullOrEmpty(u.email) && u.email.IndexOf(searchTerm, StringComparison.OrdinalIgnoreCase) >= 0)).ToList();
+                users = blluser.SearchUser(searchTerm);
             }
-
             dataGridView1.DataSource = users;
             dataGridView1.Columns["id"].HeaderText = "Mã người dùng";
-            dataGridView1.Columns["firstName"].HeaderText = "Tên riêng";
-            dataGridView1.Columns["lastName"].HeaderText = "Họ";
+            dataGridView1.Columns["firstName"].HeaderText = "Họ";
+            dataGridView1.Columns["lastName"].HeaderText = "Tên riêng";
             dataGridView1.Columns["phone"].HeaderText = "Số điện thoại";
             dataGridView1.Columns["email"].HeaderText = "Email";
-            dataGridView1.Columns["password"].HeaderText = "Mật khẩu";
             dataGridView1.Columns["sex"].HeaderText = "Giới tính";
+            dataGridView1.Columns["createdAt"].HeaderText = "Ngày tạo";
 
-            dataGridView1.Columns["createdAt"].DefaultCellStyle.Format = "dd/MM/yyyy HH:mm:ss";
-            dataGridView1.Columns["updatedAt"].DefaultCellStyle.Format = "dd/MM/yyyy HH:mm:ss";
+            dataGridView1.Columns["createdAt"].DefaultCellStyle.Format = "dd/MM/yyyy";
 
         }
         private void LoadSexComboBox()
@@ -157,12 +160,12 @@ namespace Main
         }
         private void ClearInputFields()
         {
-            txtFistName.Clear();
             txtLastName.Clear();
+            txtFirstName.Clear();
             txtIdUser.Clear();
             txtPhone.Clear();
             txtEmail.Clear();
-            txtPassword.Clear();
+            //txtPassword.Clear();
             cboBoxSex.SelectedIndex = -1;
         }
     }
