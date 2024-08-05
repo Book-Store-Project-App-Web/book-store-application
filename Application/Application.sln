@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.35026.233
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.34114.132
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GUI", "Main\GUI.csproj", "{6C0B0C85-77BD-41BE-BA22-5CEDA45F56D8}"
 EndProject
@@ -14,6 +14,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DTO", "DTO\DTO.csproj", "{821AD11E-0908-4907-977D-9A76A98981F8}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TripleDES_Classs", "TripleDES_Classs\TripleDES_Classs.csproj", "{3760A93C-EE0A-4E9E-B4E8-AB1E6B8C1C40}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Utilities", "Utilities\Utilities.csproj", "{33C06577-02D0-47E6-8D8E-323B4AE93430}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -45,6 +47,10 @@ Global
 		{3760A93C-EE0A-4E9E-B4E8-AB1E6B8C1C40}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3760A93C-EE0A-4E9E-B4E8-AB1E6B8C1C40}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3760A93C-EE0A-4E9E-B4E8-AB1E6B8C1C40}.Release|Any CPU.Build.0 = Release|Any CPU
+		{33C06577-02D0-47E6-8D8E-323B4AE93430}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{33C06577-02D0-47E6-8D8E-323B4AE93430}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{33C06577-02D0-47E6-8D8E-323B4AE93430}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{33C06577-02D0-47E6-8D8E-323B4AE93430}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -70,154 +70,173 @@
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.txt_Id_Invoice);
             this.groupBox1.Controls.Add(this.label2);
-            this.groupBox1.Location = new System.Drawing.Point(12, 12);
+            this.groupBox1.Location = new System.Drawing.Point(9, 10);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(1158, 226);
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox1.Size = new System.Drawing.Size(868, 184);
             this.groupBox1.TabIndex = 2;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Thông tin";
             // 
             // txtPhone
             // 
-            this.txtPhone.Location = new System.Drawing.Point(516, 58);
+            this.txtPhone.Location = new System.Drawing.Point(387, 47);
+            this.txtPhone.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.txtPhone.Name = "txtPhone";
-            this.txtPhone.Size = new System.Drawing.Size(202, 22);
+            this.txtPhone.Size = new System.Drawing.Size(152, 20);
             this.txtPhone.TabIndex = 24;
             // 
             // cboBoxIdUser
             // 
             this.cboBoxIdUser.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboBoxIdUser.FormattingEnabled = true;
-            this.cboBoxIdUser.Location = new System.Drawing.Point(197, 102);
+            this.cboBoxIdUser.Location = new System.Drawing.Point(148, 83);
+            this.cboBoxIdUser.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.cboBoxIdUser.Name = "cboBoxIdUser";
-            this.cboBoxIdUser.Size = new System.Drawing.Size(202, 24);
+            this.cboBoxIdUser.Size = new System.Drawing.Size(152, 21);
             this.cboBoxIdUser.TabIndex = 23;
             // 
             // btnViewDetail
             // 
-            this.btnViewDetail.Location = new System.Drawing.Point(835, 83);
+            this.btnViewDetail.Location = new System.Drawing.Point(626, 67);
+            this.btnViewDetail.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnViewDetail.Name = "btnViewDetail";
-            this.btnViewDetail.Size = new System.Drawing.Size(102, 43);
+            this.btnViewDetail.Size = new System.Drawing.Size(76, 35);
             this.btnViewDetail.TabIndex = 22;
             this.btnViewDetail.Text = "Xem chi tiết";
             this.btnViewDetail.UseVisualStyleBackColor = true;
             // 
             // btnRefresh
             // 
-            this.btnRefresh.Location = new System.Drawing.Point(952, 83);
+            this.btnRefresh.Location = new System.Drawing.Point(714, 67);
+            this.btnRefresh.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnRefresh.Name = "btnRefresh";
-            this.btnRefresh.Size = new System.Drawing.Size(90, 43);
+            this.btnRefresh.Size = new System.Drawing.Size(68, 35);
             this.btnRefresh.TabIndex = 21;
             this.btnRefresh.Text = "Làm mới";
             this.btnRefresh.UseVisualStyleBackColor = true;
             // 
             // btnEdit
             // 
-            this.btnEdit.Location = new System.Drawing.Point(990, 29);
+            this.btnEdit.Location = new System.Drawing.Point(742, 24);
+            this.btnEdit.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnEdit.Name = "btnEdit";
-            this.btnEdit.Size = new System.Drawing.Size(69, 43);
+            this.btnEdit.Size = new System.Drawing.Size(52, 35);
             this.btnEdit.TabIndex = 20;
             this.btnEdit.Text = "Sửa";
             this.btnEdit.UseVisualStyleBackColor = true;
             // 
             // btnDelete
             // 
-            this.btnDelete.Location = new System.Drawing.Point(902, 29);
+            this.btnDelete.Location = new System.Drawing.Point(676, 24);
+            this.btnDelete.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnDelete.Name = "btnDelete";
-            this.btnDelete.Size = new System.Drawing.Size(69, 43);
+            this.btnDelete.Size = new System.Drawing.Size(52, 35);
             this.btnDelete.TabIndex = 19;
             this.btnDelete.Text = "Xóa";
             this.btnDelete.UseVisualStyleBackColor = true;
             // 
             // btnCreate
             // 
-            this.btnCreate.Location = new System.Drawing.Point(815, 29);
+            this.btnCreate.Location = new System.Drawing.Point(611, 24);
+            this.btnCreate.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnCreate.Name = "btnCreate";
-            this.btnCreate.Size = new System.Drawing.Size(69, 43);
+            this.btnCreate.Size = new System.Drawing.Size(52, 35);
             this.btnCreate.TabIndex = 18;
             this.btnCreate.Text = "Tạo";
             this.btnCreate.UseVisualStyleBackColor = true;
             // 
             // txtAddress
             // 
-            this.txtAddress.Location = new System.Drawing.Point(516, 102);
+            this.txtAddress.Location = new System.Drawing.Point(387, 83);
+            this.txtAddress.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.txtAddress.Name = "txtAddress";
-            this.txtAddress.Size = new System.Drawing.Size(202, 22);
+            this.txtAddress.Size = new System.Drawing.Size(152, 20);
             this.txtAddress.TabIndex = 15;
             // 
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(419, 105);
+            this.label6.Location = new System.Drawing.Point(314, 85);
+            this.label6.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(51, 17);
+            this.label6.Size = new System.Drawing.Size(40, 13);
             this.label6.TabIndex = 14;
             this.label6.Text = "Địa chỉ";
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(419, 62);
+            this.label5.Location = new System.Drawing.Point(314, 50);
+            this.label5.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(91, 17);
+            this.label5.Size = new System.Drawing.Size(70, 13);
             this.label5.TabIndex = 12;
             this.label5.Text = "Số điện thoại";
             // 
             // txtTotalPrice
             // 
-            this.txtTotalPrice.Location = new System.Drawing.Point(516, 147);
+            this.txtTotalPrice.Location = new System.Drawing.Point(387, 119);
+            this.txtTotalPrice.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.txtTotalPrice.Name = "txtTotalPrice";
-            this.txtTotalPrice.Size = new System.Drawing.Size(202, 22);
+            this.txtTotalPrice.Size = new System.Drawing.Size(152, 20);
             this.txtTotalPrice.TabIndex = 11;
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(419, 150);
+            this.label4.Location = new System.Drawing.Point(314, 122);
+            this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(68, 17);
+            this.label4.Size = new System.Drawing.Size(52, 13);
             this.label4.TabIndex = 10;
             this.label4.Text = "Tổng tiền";
             // 
             // txtFullname
             // 
-            this.txtFullname.Location = new System.Drawing.Point(197, 147);
+            this.txtFullname.Location = new System.Drawing.Point(148, 119);
+            this.txtFullname.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.txtFullname.Name = "txtFullname";
-            this.txtFullname.Size = new System.Drawing.Size(202, 22);
+            this.txtFullname.Size = new System.Drawing.Size(152, 20);
             this.txtFullname.TabIndex = 9;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(82, 152);
+            this.label1.Location = new System.Drawing.Point(62, 124);
+            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(115, 17);
+            this.label1.Size = new System.Drawing.Size(89, 13);
             this.label1.TabIndex = 8;
             this.label1.Text = "Tên Khách Hàng";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(82, 105);
+            this.label3.Location = new System.Drawing.Point(62, 85);
+            this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(109, 17);
+            this.label3.Size = new System.Drawing.Size(85, 13);
             this.label3.TabIndex = 6;
             this.label3.Text = "Mã Khách Hàng";
             // 
             // txt_Id_Invoice
             // 
             this.txt_Id_Invoice.Enabled = false;
-            this.txt_Id_Invoice.Location = new System.Drawing.Point(197, 59);
+            this.txt_Id_Invoice.Location = new System.Drawing.Point(148, 48);
+            this.txt_Id_Invoice.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.txt_Id_Invoice.Name = "txt_Id_Invoice";
-            this.txt_Id_Invoice.Size = new System.Drawing.Size(202, 22);
+            this.txt_Id_Invoice.Size = new System.Drawing.Size(152, 20);
             this.txt_Id_Invoice.TabIndex = 5;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(82, 62);
+            this.label2.Location = new System.Drawing.Point(62, 50);
+            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(95, 17);
+            this.label2.Size = new System.Drawing.Size(74, 13);
             this.label2.TabIndex = 4;
             this.label2.Text = "Mã Đơn Hàng";
             // 
@@ -225,26 +244,28 @@
             // 
             this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(12, 244);
-            this.dataGridView1.MinimumSize = new System.Drawing.Size(800, 300);
+            this.dataGridView1.Location = new System.Drawing.Point(9, 198);
+            this.dataGridView1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dataGridView1.MinimumSize = new System.Drawing.Size(600, 244);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.RowTemplate.Height = 24;
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView1.Size = new System.Drawing.Size(1158, 342);
+            this.dataGridView1.Size = new System.Drawing.Size(868, 278);
             this.dataGridView1.TabIndex = 3;
             // 
             // frmInvoice
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1182, 596);
+            this.ClientSize = new System.Drawing.Size(888, 491);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.groupBox1);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.MaximizeBox = false;
-            this.MaximumSize = new System.Drawing.Size(1200, 643);
+            this.MaximumSize = new System.Drawing.Size(904, 530);
             this.MinimizeBox = false;
-            this.MinimumSize = new System.Drawing.Size(1200, 643);
+            this.MinimumSize = new System.Drawing.Size(904, 530);
             this.Name = "frmInvoice";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Quản lý hóa đơn";

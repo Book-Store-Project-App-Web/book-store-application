@@ -18,9 +18,34 @@ namespace DAL
         {
             return dalcontext.Users.SingleOrDefault(u => u.email == pMail);
         }
-        public List<User> LoadUser() {
-            return dalcontext.Users.Select(u => u).ToList<User>();
+        public List<dynamic> LoadUser() {
+            return dalcontext.Users.Select(u => new
+            {
+                u.id,
+                u.lastName,
+                u.firstName,
+                u.email,
+                u.phone,
+                u.sex,
+                u.createdAt
+            }
+            ).ToList<dynamic>();
          }
+        public List<dynamic> SearchUser(string searchText)
+        {
+            return dalcontext.Users.Where(u => u.email.Contains(searchText) || u.lastName.Contains(searchText)).Select(u => new
+            {
+                u.id,
+                u.lastName,
+                u.firstName,
+                u.email,
+                u.phone,
+                u.sex,
+                u.createdAt
+            }
+            ).ToList<dynamic>();
+        }
+
         public List<UserDK> LoadUserDK()
         {
             return dalcontext.Users.Select(u => new UserDK { id = u.id, firstname = u.firstName, lastname = u.lastName, phone = u.phone, email = u.email, sex = u.sex }).ToList();
@@ -32,17 +57,16 @@ namespace DAL
             dalcontext.SubmitChanges();
         }
 
-        public void UpdateUser(User user)
+        public void UpdateUser(int id,User user)
         {
-            var existingUser = dalcontext.Users.SingleOrDefault(u => u.id == user.id);
+            var existingUser = dalcontext.Users.SingleOrDefault(u => u.id == id);
             if (existingUser != null)
             {
                 existingUser.firstName = user.firstName;
                 existingUser.lastName = user.lastName;
                 existingUser.phone = user.phone;
                 existingUser.email = user.email;
-                existingUser.password = user.password;
-                existingUser.sex = existingUser.sex;
+                existingUser.sex = user.sex;
                 existingUser.updatedAt = DateTime.Now;
                 dalcontext.SubmitChanges();
             }

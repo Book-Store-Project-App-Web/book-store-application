@@ -60,6 +60,7 @@ namespace Main
             // 
             // dataGridViewBook
             // 
+            this.dataGridViewBook.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridViewBook.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewBook.Location = new System.Drawing.Point(12, 278);
             this.dataGridViewBook.Name = "dataGridViewBook";

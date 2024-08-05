@@ -59,18 +59,31 @@ namespace BLL
             return dalUser.LoadUserDK();
         }
 
-        public List<User> LoadUser()
+        public List<dynamic> LoadUser()
         {
             return dalUser.LoadUser();
         }
+        public List<dynamic> SearchUser(string searchText)
+        {
+            return dalUser.SearchUser(searchText);
+        }
         public void AddUser(User user)
         {
-            dalUser.AddUser(user);
+            User _user = new User();
+            _user.firstName = user.firstName;
+            _user.lastName = user.lastName;
+            _user.email = user.email;
+            _user.phone = user.phone;
+            _user.sex = user.sex;
+            _user.password = BCrypt.Net.BCrypt.HashPassword(user.password);
+            _user.createdAt = DateTime.Now;
+            _user.updatedAt = DateTime.Now;
+            dalUser.AddUser(_user);
         }
 
-        public void UpdateUser(User user)
+        public void UpdateUser(int id,User user)
         {
-            dalUser.UpdateUser(user);
+            dalUser.UpdateUser(id,user);
         }
 
         public void DeleteUser(int id)
