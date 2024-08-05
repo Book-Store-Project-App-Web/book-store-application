@@ -89,5 +89,14 @@ namespace BLL
         {
             return dalBook.TotalOrder();
         }
+
+        public List<Book> GetBookByIdSupplier(int idSupplier)
+        {
+            return dalBook.GetbooksByIdSuppliers(idSupplier);
+        }
+        public Book GetBookById(int idBook)
+        {
+            return dalBook.GetBookById(idBook);
+        }
     }
 }

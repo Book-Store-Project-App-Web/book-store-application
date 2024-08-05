@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using BLL;
+using DTO;
 
 namespace Main
 {
@@ -10,7 +12,6 @@ namespace Main
     {
         public static frmLogin loginForm = null;
         public static frmSystem SystemForm = null;
-        public static frmDecentralization DecentralizationForm = null;
         public static frmBooks formBooks = null;
         public static frmUser UserForm = null;
         public static frmCategorie CategorieForm = null;
@@ -18,8 +19,7 @@ namespace Main
         public static frmGroup_User GUForm = null;
         public static frmGroup_Screen GCForm = null;
         public static frmStatistic StaticticalForm = null;
-
-
+        public static frmImport_Invoicecs Import_InvoicecForm = null;
 
         /// <summary>
         /// The main entry point for the application.
@@ -32,7 +32,6 @@ namespace Main
             loginForm = new frmLogin();
             SystemForm = new frmSystem();
             //BookFrom = new frmBook();
-            DecentralizationForm = new frmDecentralization();
             formBooks = new frmBooks();
             CategorieForm = new frmCategorie();
             UserForm = new frmUser();
@@ -40,7 +39,8 @@ namespace Main
             GUForm = new frmGroup_User();
             GCForm = new frmGroup_Screen();
             StaticticalForm = new frmStatistic();
-            Application.Run(StaticticalForm);
+            Import_InvoicecForm = new frmImport_Invoicecs(loginForm.LoggedInUserId);
+            Application.Run(loginForm);
         }
     }
 }

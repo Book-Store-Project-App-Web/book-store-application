@@ -57,5 +57,9 @@ namespace DAL
                 dalcontext.SubmitChanges();
             }
         }
+        public User GetUserById(int userId)
+        {
+            return dalcontext.Users.SingleOrDefault(u => u.id == userId);
+        }
     }
 }

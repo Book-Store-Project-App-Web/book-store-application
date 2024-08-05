@@ -115,7 +115,7 @@ namespace Main
             if (string.IsNullOrWhiteSpace(txtFullname.Text) ||
                 string.IsNullOrWhiteSpace(txtPhone.Text) ||
                 string.IsNullOrWhiteSpace(txtAddress.Text) ||
-                !decimal.TryParse(txtTotalPrice.Text, out var totalOrderPrice) ||
+                !double.TryParse(txtTotalPrice.Text, out var totalOrderPrice) ||
                 cboBoxIdUser.SelectedValue == null)
             {
                 MessageBox.Show("Vui lòng điền đầy đủ thông tin");

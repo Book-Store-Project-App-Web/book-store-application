@@ -14,6 +14,7 @@ namespace Main
 {
     public partial class frmLogin : Form
     {
+        public int LoggedInUserId;
         BLLUser bllUser = new BLLUser();
         public frmLogin()
         {
@@ -27,13 +28,17 @@ namespace Main
             string password = txtPassword.Text;
             try
             {
+                
                 var loginResult = bllUser.logInUser(email, password);
 
                 if (loginResult != null)
                 {
+                    LoggedInUserId = loginResult.id;
                     MessageBox.Show("Đăng nhập thành công");
-                    Program.SystemForm.Show();
                     this.Hide();
+                    Program.SystemForm = new frmSystem();
+                    Program.Import_InvoicecForm = new frmImport_Invoicecs(LoggedInUserId);
+                    Program.SystemForm.Show();
                 }
             }
             catch (Exception ex)
