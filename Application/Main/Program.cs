@@ -17,6 +17,8 @@ namespace Main
         public static frmInvoice InvoiceForm = null;
         public static frmGroup_User GUForm = null;
         public static frmGroup_Screen GCForm = null;
+        public static frmStatistic StaticticalForm = null;
+
 
 
         /// <summary>
@@ -37,7 +39,8 @@ namespace Main
             InvoiceForm = new frmInvoice();
             GUForm = new frmGroup_User();
             GCForm = new frmGroup_Screen();
-            Application.Run(InvoiceForm);
+            StaticticalForm = new frmStatistic();
+            Application.Run(StaticticalForm);
         }
     }
 }

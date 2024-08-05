@@ -80,5 +80,14 @@ namespace BLL
             }
             return dalBook.UpdateBook(id, _book);
         }
+
+        public List<dynamic> Top10BookofMonth()
+        {
+            return dalBook.Top10BookofMonth();
+        }
+        public List<dynamic> TotalOrder()
+        {
+            return dalBook.TotalOrder();
+        }
     }
 }
