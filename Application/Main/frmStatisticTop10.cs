@@ -12,11 +12,11 @@ using BLL;
 
 namespace Main
 {
-    public partial class frmStatistic : Form
+    public partial class frmStatisticTop10 : Form
     {
         BLLBook bllBook = new BLLBook();
 
-        public frmStatistic()
+        public frmStatisticTop10()
         {
             InitializeComponent();
             this.Load += FrmStatistic_Load;

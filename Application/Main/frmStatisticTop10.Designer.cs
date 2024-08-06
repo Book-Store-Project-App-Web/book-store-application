@@ -1,7 +1,7 @@
 ﻿
 namespace Main
 {
-    partial class frmStatistic
+    partial class frmStatisticTop10
     {
         /// <summary>
         /// Required designer variable.
