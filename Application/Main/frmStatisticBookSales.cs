@@ -87,7 +87,7 @@ namespace Main
         public void LoadBookOrders()
         {
             dataGridView1.DataSource = GUIBookOrders.LoadBookOrders();
-            var unwantedColumns = new[] { "Book", "Order", "updatedAt" };
+            var unwantedColumns = new[] { "Book", "Order","createdAt", "updatedAt" };
             foreach (var column in unwantedColumns)
             {
                 if (dataGridView1.Columns.Contains(column))
@@ -100,9 +100,7 @@ namespace Main
             dataGridView1.Columns["orderId"].HeaderText = "Mã hóa đơn";
             dataGridView1.Columns["quantity"].HeaderText = "Số lượng";
             dataGridView1.Columns["unitPrice"].HeaderText = "Đơn giá";
-            dataGridView1.Columns["createdAt"].HeaderText = "Ngày lập";
-
-            dataGridView1.Columns["createdAt"].DefaultCellStyle.Format = "dd/MM/yyyy HH:mm:ss";
+           
         }
     }
 }

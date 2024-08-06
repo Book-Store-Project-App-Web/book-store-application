@@ -37,16 +37,16 @@
             this.BookToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.CategoriesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.StatisticsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.thuToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.chiToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.RevenueToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.ExpenditurreToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.Top10ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.StatisticBookSalesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.InvoiceToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ImportInvoiceToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.lbFullname = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.StatisticBookSalesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -111,31 +111,37 @@
             // StatisticsToolStripMenuItem
             // 
             this.StatisticsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.thuToolStripMenuItem,
-            this.chiToolStripMenuItem,
+            this.RevenueToolStripMenuItem,
+            this.ExpenditurreToolStripMenuItem,
             this.Top10ToolStripMenuItem,
             this.StatisticBookSalesToolStripMenuItem});
             this.StatisticsToolStripMenuItem.Name = "StatisticsToolStripMenuItem";
             this.StatisticsToolStripMenuItem.Size = new System.Drawing.Size(82, 24);
             this.StatisticsToolStripMenuItem.Text = "Thống kê";
             // 
-            // thuToolStripMenuItem
+            // RevenueToolStripMenuItem
             // 
-            this.thuToolStripMenuItem.Name = "thuToolStripMenuItem";
-            this.thuToolStripMenuItem.Size = new System.Drawing.Size(260, 26);
-            this.thuToolStripMenuItem.Text = "Thu";
+            this.RevenueToolStripMenuItem.Name = "RevenueToolStripMenuItem";
+            this.RevenueToolStripMenuItem.Size = new System.Drawing.Size(260, 26);
+            this.RevenueToolStripMenuItem.Text = "Doanh thu";
             // 
-            // chiToolStripMenuItem
+            // ExpenditurreToolStripMenuItem
             // 
-            this.chiToolStripMenuItem.Name = "chiToolStripMenuItem";
-            this.chiToolStripMenuItem.Size = new System.Drawing.Size(260, 26);
-            this.chiToolStripMenuItem.Text = "Chi";
+            this.ExpenditurreToolStripMenuItem.Name = "ExpenditurreToolStripMenuItem";
+            this.ExpenditurreToolStripMenuItem.Size = new System.Drawing.Size(260, 26);
+            this.ExpenditurreToolStripMenuItem.Text = "Chi phí";
             // 
             // Top10ToolStripMenuItem
             // 
             this.Top10ToolStripMenuItem.Name = "Top10ToolStripMenuItem";
             this.Top10ToolStripMenuItem.Size = new System.Drawing.Size(260, 26);
             this.Top10ToolStripMenuItem.Text = "Top 10 sản phẩm bán chạy";
+            // 
+            // StatisticBookSalesToolStripMenuItem
+            // 
+            this.StatisticBookSalesToolStripMenuItem.Name = "StatisticBookSalesToolStripMenuItem";
+            this.StatisticBookSalesToolStripMenuItem.Size = new System.Drawing.Size(260, 26);
+            this.StatisticBookSalesToolStripMenuItem.Text = "Số lượng sách bán";
             // 
             // InvoiceToolStripMenuItem
             // 
@@ -191,12 +197,6 @@
             this.pictureBox1.TabIndex = 12;
             this.pictureBox1.TabStop = false;
             // 
-            // StatisticBookSalesToolStripMenuItem
-            // 
-            this.StatisticBookSalesToolStripMenuItem.Name = "StatisticBookSalesToolStripMenuItem";
-            this.StatisticBookSalesToolStripMenuItem.Size = new System.Drawing.Size(260, 26);
-            this.StatisticBookSalesToolStripMenuItem.Text = "Số lượng sách bán";
-            // 
             // frmSystem
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -229,8 +229,8 @@
         private System.Windows.Forms.ToolStripMenuItem quảnLýSảnPhẩmToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem BookToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem StatisticsToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem thuToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem chiToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem RevenueToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem ExpenditurreToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem Top10ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem InvoiceToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem ImportInvoiceToolStripMenuItem;

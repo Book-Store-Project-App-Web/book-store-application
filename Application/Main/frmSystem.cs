@@ -30,6 +30,26 @@ namespace Main
             this.DecentraliAccountToolStripMenuItem.Click += DecentraliAccountToolStripMenuItem_Click;
             this.Top10ToolStripMenuItem.Click += Top10ToolStripMenuItem_Click;
             this.StatisticBookSalesToolStripMenuItem.Click += StatisticBookSalesToolStripMenuItem_Click;
+            this.RevenueToolStripMenuItem.Click += RevenueToolStripMenuItem_Click;
+            this.ExpenditurreToolStripMenuItem.Click += ExpenditurreToolStripMenuItem_Click;
+        }
+
+        private void ExpenditurreToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (Program.ExpenditureForm == null || Program.ExpenditureForm.IsDisposed)
+            {
+                Program.ExpenditureForm = new frmExpenditure();
+            }
+            Program.ExpenditureForm.Show();
+        }
+
+        private void RevenueToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (Program.RevenueForm == null || Program.RevenueForm.IsDisposed)
+            {
+                Program.RevenueForm = new frmRevenue();
+            }
+            Program.RevenueForm.Show();
         }
 
         private void StatisticBookSalesToolStripMenuItem_Click(object sender, EventArgs e)

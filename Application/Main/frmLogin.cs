@@ -20,6 +20,19 @@ namespace Main
         {
             InitializeComponent();
             this.btnSignIn.Click += BtnSignIn_Click;
+            this.chkBoxShowpassword.CheckedChanged += ChkBoxShowpassword_CheckedChanged;
+        }
+
+        private void ChkBoxShowpassword_CheckedChanged(object sender, EventArgs e)
+        {
+            if (chkBoxShowpassword.Checked)
+            {
+                txtPassword.UseSystemPasswordChar = false;
+            }
+            else
+            {
+                txtPassword.UseSystemPasswordChar = true;
+            }
         }
 
         private void BtnSignIn_Click(object sender, EventArgs e)

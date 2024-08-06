@@ -47,5 +47,14 @@ namespace DAL
                 dalcontext.SubmitChanges();
             }
         }
+        public List<Order> GetOrdersByOrderId(int orderId)
+        {
+            return dalcontext.Orders.Where(bo => bo.id == orderId).ToList();
+        }
+
+        public List<Order> GetOrdersByMonthAndYear(int year, int month)
+        {
+            return dalcontext.Orders.Where(bo => bo.updatedAt.Year == year && bo.updatedAt.Month == month).ToList();
+        }
     }
 }
