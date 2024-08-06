@@ -43,8 +43,6 @@
             this.label3 = new System.Windows.Forms.Label();
             this.txtIdUser = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.dataGvSuppliers = new System.Windows.Forms.DataGridView();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.lbTotalAll = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
@@ -70,8 +68,6 @@
             this.label15 = new System.Windows.Forms.Label();
             this.label16 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
-            this.groupBox3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGvSuppliers)).BeginInit();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGvBook_Import)).BeginInit();
             this.SuspendLayout();
@@ -218,27 +214,6 @@
             this.label2.TabIndex = 4;
             this.label2.Text = "Mã nhân viên";
             // 
-            // groupBox3
-            // 
-            this.groupBox3.Controls.Add(this.dataGvSuppliers);
-            this.groupBox3.Location = new System.Drawing.Point(786, 12);
-            this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(384, 226);
-            this.groupBox3.TabIndex = 7;
-            this.groupBox3.TabStop = false;
-            this.groupBox3.Text = "Danh sách nhà cung cấp";
-            // 
-            // dataGvSuppliers
-            // 
-            this.dataGvSuppliers.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dataGvSuppliers.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGvSuppliers.Location = new System.Drawing.Point(6, 30);
-            this.dataGvSuppliers.Name = "dataGvSuppliers";
-            this.dataGvSuppliers.ReadOnly = true;
-            this.dataGvSuppliers.RowTemplate.Height = 24;
-            this.dataGvSuppliers.Size = new System.Drawing.Size(372, 179);
-            this.dataGvSuppliers.TabIndex = 0;
-            // 
             // groupBox2
             // 
             this.groupBox2.Controls.Add(this.lbTotalAll);
@@ -261,7 +236,7 @@
             this.groupBox2.Controls.Add(this.label16);
             this.groupBox2.Location = new System.Drawing.Point(12, 244);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(1158, 463);
+            this.groupBox2.Size = new System.Drawing.Size(768, 463);
             this.groupBox2.TabIndex = 8;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Thông tin sách nhập";
@@ -457,16 +432,13 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1182, 717);
+            this.ClientSize = new System.Drawing.Size(792, 717);
             this.Controls.Add(this.groupBox2);
-            this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox1);
             this.Name = "frmImport_Invoicecs";
-            this.Text = "frmImport_Invoicecs";
+            this.Text = "Phiếu nhập";
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
-            this.groupBox3.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGvSuppliers)).EndInit();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGvBook_Import)).EndInit();
@@ -491,8 +463,6 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox txtIdUser;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.GroupBox groupBox3;
-        private System.Windows.Forms.DataGridView dataGvSuppliers;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.Label lbTotalAll;
         private System.Windows.Forms.Label label9;

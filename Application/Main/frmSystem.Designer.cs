@@ -46,6 +46,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.lbFullname = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.StatisticBookSalesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -77,13 +78,13 @@
             // DecentraliAccountToolStripMenuItem
             // 
             this.DecentraliAccountToolStripMenuItem.Name = "DecentraliAccountToolStripMenuItem";
-            this.DecentraliAccountToolStripMenuItem.Size = new System.Drawing.Size(216, 26);
+            this.DecentraliAccountToolStripMenuItem.Size = new System.Drawing.Size(160, 26);
             this.DecentraliAccountToolStripMenuItem.Text = "Phân quyền";
             // 
             // AccountToolStripMenuItem
             // 
             this.AccountToolStripMenuItem.Name = "AccountToolStripMenuItem";
-            this.AccountToolStripMenuItem.Size = new System.Drawing.Size(216, 26);
+            this.AccountToolStripMenuItem.Size = new System.Drawing.Size(160, 26);
             this.AccountToolStripMenuItem.Text = "Tài khoản";
             // 
             // quảnLýSảnPhẩmToolStripMenuItem
@@ -98,13 +99,13 @@
             // BookToolStripMenuItem
             // 
             this.BookToolStripMenuItem.Name = "BookToolStripMenuItem";
-            this.BookToolStripMenuItem.Size = new System.Drawing.Size(216, 26);
+            this.BookToolStripMenuItem.Size = new System.Drawing.Size(180, 26);
             this.BookToolStripMenuItem.Text = "Sản phẩm";
             // 
             // CategoriesToolStripMenuItem
             // 
             this.CategoriesToolStripMenuItem.Name = "CategoriesToolStripMenuItem";
-            this.CategoriesToolStripMenuItem.Size = new System.Drawing.Size(216, 26);
+            this.CategoriesToolStripMenuItem.Size = new System.Drawing.Size(180, 26);
             this.CategoriesToolStripMenuItem.Text = "Loại sản phẩm";
             // 
             // StatisticsToolStripMenuItem
@@ -112,7 +113,8 @@
             this.StatisticsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.thuToolStripMenuItem,
             this.chiToolStripMenuItem,
-            this.Top10ToolStripMenuItem});
+            this.Top10ToolStripMenuItem,
+            this.StatisticBookSalesToolStripMenuItem});
             this.StatisticsToolStripMenuItem.Name = "StatisticsToolStripMenuItem";
             this.StatisticsToolStripMenuItem.Size = new System.Drawing.Size(82, 24);
             this.StatisticsToolStripMenuItem.Text = "Thống kê";
@@ -189,6 +191,12 @@
             this.pictureBox1.TabIndex = 12;
             this.pictureBox1.TabStop = false;
             // 
+            // StatisticBookSalesToolStripMenuItem
+            // 
+            this.StatisticBookSalesToolStripMenuItem.Name = "StatisticBookSalesToolStripMenuItem";
+            this.StatisticBookSalesToolStripMenuItem.Size = new System.Drawing.Size(260, 26);
+            this.StatisticBookSalesToolStripMenuItem.Text = "Số lượng sách bán";
+            // 
             // frmSystem
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -231,5 +239,6 @@
         private System.Windows.Forms.Label lbFullname;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.ToolStripMenuItem CategoriesToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem StatisticBookSalesToolStripMenuItem;
     }
 }

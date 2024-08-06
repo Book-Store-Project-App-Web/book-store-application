@@ -29,6 +29,16 @@ namespace Main
             this.AccountToolStripMenuItem.Click += AccountToolStripMenuItem_Click;
             this.DecentraliAccountToolStripMenuItem.Click += DecentraliAccountToolStripMenuItem_Click;
             this.Top10ToolStripMenuItem.Click += Top10ToolStripMenuItem_Click;
+            this.StatisticBookSalesToolStripMenuItem.Click += StatisticBookSalesToolStripMenuItem_Click;
+        }
+
+        private void StatisticBookSalesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (Program.StatiscticBookSales == null || Program.StatiscticBookSales.IsDisposed)
+            {
+                Program.StatiscticBookSales = new frmStatisticBook_Sales();
+            }
+            Program.StatiscticBookSales.Show();
         }
 
         private void FrmSystem_FormClosed(object sender, FormClosedEventArgs e)
