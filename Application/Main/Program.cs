@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using BLL;
+using DTO;
 
 namespace Main
 {
@@ -18,6 +20,7 @@ namespace Main
         public static frmGroup_User GUForm = null;
         public static frmGroup_Screen GCForm = null;
         public static frmStatistic StaticticalForm = null;
+        public static frmImport_Invoicecs Import_InvoicecForm = null;
 
 
 
@@ -40,7 +43,8 @@ namespace Main
             GUForm = new frmGroup_User();
             GCForm = new frmGroup_Screen();
             StaticticalForm = new frmStatistic();
-            Application.Run(UserForm);
+            Import_InvoicecForm = new frmImport_Invoicecs(loginForm.LoggedInUserId);
+            Application.Run(loginForm);
         }
     }
 }

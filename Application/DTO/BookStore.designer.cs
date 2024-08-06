@@ -63,10 +63,16 @@ namespace DTO
     partial void InsertBook_Order(Book_Order instance);
     partial void UpdateBook_Order(Book_Order instance);
     partial void DeleteBook_Order(Book_Order instance);
+    partial void InsertBook_ImportInvoice(Book_ImportInvoice instance);
+    partial void UpdateBook_ImportInvoice(Book_ImportInvoice instance);
+    partial void DeleteBook_ImportInvoice(Book_ImportInvoice instance);
+    partial void InsertImport_Invoice(Import_Invoice instance);
+    partial void UpdateImport_Invoice(Import_Invoice instance);
+    partial void DeleteImport_Invoice(Import_Invoice instance);
     #endregion
 		
 		public BookStoreDataContext() : 
-				base(global::DTO.Properties.Settings.Default.Book_StoreConnectionString5, mappingSource)
+				base(global::DTO.Properties.Settings.Default.Book_StoreConnectionString, mappingSource)
 		{
 			OnCreated();
 		}
@@ -196,6 +202,22 @@ namespace DTO
 			get
 			{
 				return this.GetTable<Book_Order>();
+			}
+		}
+		
+		public System.Data.Linq.Table<Book_ImportInvoice> Book_ImportInvoices
+		{
+			get
+			{
+				return this.GetTable<Book_ImportInvoice>();
+			}
+		}
+		
+		public System.Data.Linq.Table<Import_Invoice> Import_Invoices
+		{
+			get
+			{
+				return this.GetTable<Import_Invoice>();
 			}
 		}
 	}
@@ -1183,6 +1205,8 @@ namespace DTO
 		
 		private EntitySet<Book_Order> _Book_Orders;
 		
+		private EntitySet<Book_ImportInvoice> _Book_ImportInvoices;
+		
 		private EntityRef<Supplier> _Supplier;
 		
 		private EntityRef<Category> _Category;
@@ -1230,6 +1254,7 @@ namespace DTO
 		public Book()
 		{
 			this._Book_Orders = new EntitySet<Book_Order>(new Action<Book_Order>(this.attach_Book_Orders), new Action<Book_Order>(this.detach_Book_Orders));
+			this._Book_ImportInvoices = new EntitySet<Book_ImportInvoice>(new Action<Book_ImportInvoice>(this.attach_Book_ImportInvoices), new Action<Book_ImportInvoice>(this.detach_Book_ImportInvoices));
 			this._Supplier = default(EntityRef<Supplier>);
 			this._Category = default(EntityRef<Category>);
 			OnCreated();
@@ -1596,6 +1621,19 @@ namespace DTO
 			}
 		}
 		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Book_Book_ImportInvoice", Storage="_Book_ImportInvoices", ThisKey="id", OtherKey="bookId")]
+		public EntitySet<Book_ImportInvoice> Book_ImportInvoices
+		{
+			get
+			{
+				return this._Book_ImportInvoices;
+			}
+			set
+			{
+				this._Book_ImportInvoices.Assign(value);
+			}
+		}
+		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Supplier_Book", Storage="_Supplier", ThisKey="supplierId", OtherKey="id", IsForeignKey=true)]
 		public Supplier Supplier
 		{
@@ -1695,6 +1733,18 @@ namespace DTO
 			this.SendPropertyChanging();
 			entity.Book = null;
 		}
+		
+		private void attach_Book_ImportInvoices(Book_ImportInvoice entity)
+		{
+			this.SendPropertyChanging();
+			entity.Book = this;
+		}
+		
+		private void detach_Book_ImportInvoices(Book_ImportInvoice entity)
+		{
+			this.SendPropertyChanging();
+			entity.Book = null;
+		}
 	}
 	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Users")]
@@ -1725,6 +1775,8 @@ namespace DTO
 		
 		private EntitySet<Group_User> _Group_Users;
 		
+		private EntitySet<Import_Invoice> _Import_Invoices;
+		
     #region Extensibility Method Definitions
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
@@ -1753,6 +1805,7 @@ namespace DTO
 		{
 			this._Orders = new EntitySet<Order>(new Action<Order>(this.attach_Orders), new Action<Order>(this.detach_Orders));
 			this._Group_Users = new EntitySet<Group_User>(new Action<Group_User>(this.attach_Group_Users), new Action<Group_User>(this.detach_Group_Users));
+			this._Import_Invoices = new EntitySet<Import_Invoice>(new Action<Import_Invoice>(this.attach_Import_Invoices), new Action<Import_Invoice>(this.detach_Import_Invoices));
 			OnCreated();
 		}
 		
@@ -1962,6 +2015,19 @@ namespace DTO
 			}
 		}
 		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="User_Import_Invoice", Storage="_Import_Invoices", ThisKey="id", OtherKey="userId")]
+		public EntitySet<Import_Invoice> Import_Invoices
+		{
+			get
+			{
+				return this._Import_Invoices;
+			}
+			set
+			{
+				this._Import_Invoices.Assign(value);
+			}
+		}
+		
 		public event PropertyChangingEventHandler PropertyChanging;
 		
 		public event PropertyChangedEventHandler PropertyChanged;
@@ -2001,6 +2067,18 @@ namespace DTO
 		}
 		
 		private void detach_Group_Users(Group_User entity)
+		{
+			this.SendPropertyChanging();
+			entity.User = null;
+		}
+		
+		private void attach_Import_Invoices(Import_Invoice entity)
+		{
+			this.SendPropertyChanging();
+			entity.User = this;
+		}
+		
+		private void detach_Import_Invoices(Import_Invoice entity)
 		{
 			this.SendPropertyChanging();
 			entity.User = null;
@@ -3495,6 +3573,545 @@ namespace DTO
 			{
 				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
 			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Book_ImportInvoices")]
+	public partial class Book_ImportInvoice : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _id;
+		
+		private int _bookId;
+		
+		private int _importInvoiceId;
+		
+		private System.Nullable<int> _quantity;
+		
+		private System.Nullable<double> _unitPrice;
+		
+		private System.DateTimeOffset _createdAt;
+		
+		private System.DateTimeOffset _updatedAt;
+		
+		private EntityRef<Book> _Book;
+		
+		private EntityRef<Import_Invoice> _Import_Invoice;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnidChanging(int value);
+    partial void OnidChanged();
+    partial void OnbookIdChanging(int value);
+    partial void OnbookIdChanged();
+    partial void OnimportInvoiceIdChanging(int value);
+    partial void OnimportInvoiceIdChanged();
+    partial void OnquantityChanging(System.Nullable<int> value);
+    partial void OnquantityChanged();
+    partial void OnunitPriceChanging(System.Nullable<double> value);
+    partial void OnunitPriceChanged();
+    partial void OncreatedAtChanging(System.DateTimeOffset value);
+    partial void OncreatedAtChanged();
+    partial void OnupdatedAtChanging(System.DateTimeOffset value);
+    partial void OnupdatedAtChanged();
+    #endregion
+		
+		public Book_ImportInvoice()
+		{
+			this._Book = default(EntityRef<Book>);
+			this._Import_Invoice = default(EntityRef<Import_Invoice>);
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_id", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int id
+		{
+			get
+			{
+				return this._id;
+			}
+			set
+			{
+				if ((this._id != value))
+				{
+					this.OnidChanging(value);
+					this.SendPropertyChanging();
+					this._id = value;
+					this.SendPropertyChanged("id");
+					this.OnidChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_bookId", DbType="Int NOT NULL")]
+		public int bookId
+		{
+			get
+			{
+				return this._bookId;
+			}
+			set
+			{
+				if ((this._bookId != value))
+				{
+					if (this._Book.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnbookIdChanging(value);
+					this.SendPropertyChanging();
+					this._bookId = value;
+					this.SendPropertyChanged("bookId");
+					this.OnbookIdChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_importInvoiceId", DbType="Int NOT NULL")]
+		public int importInvoiceId
+		{
+			get
+			{
+				return this._importInvoiceId;
+			}
+			set
+			{
+				if ((this._importInvoiceId != value))
+				{
+					if (this._Import_Invoice.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnimportInvoiceIdChanging(value);
+					this.SendPropertyChanging();
+					this._importInvoiceId = value;
+					this.SendPropertyChanged("importInvoiceId");
+					this.OnimportInvoiceIdChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_quantity", DbType="Int")]
+		public System.Nullable<int> quantity
+		{
+			get
+			{
+				return this._quantity;
+			}
+			set
+			{
+				if ((this._quantity != value))
+				{
+					this.OnquantityChanging(value);
+					this.SendPropertyChanging();
+					this._quantity = value;
+					this.SendPropertyChanged("quantity");
+					this.OnquantityChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_unitPrice", DbType="Float")]
+		public System.Nullable<double> unitPrice
+		{
+			get
+			{
+				return this._unitPrice;
+			}
+			set
+			{
+				if ((this._unitPrice != value))
+				{
+					this.OnunitPriceChanging(value);
+					this.SendPropertyChanging();
+					this._unitPrice = value;
+					this.SendPropertyChanged("unitPrice");
+					this.OnunitPriceChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_createdAt", DbType="DateTimeOffset NOT NULL")]
+		public System.DateTimeOffset createdAt
+		{
+			get
+			{
+				return this._createdAt;
+			}
+			set
+			{
+				if ((this._createdAt != value))
+				{
+					this.OncreatedAtChanging(value);
+					this.SendPropertyChanging();
+					this._createdAt = value;
+					this.SendPropertyChanged("createdAt");
+					this.OncreatedAtChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_updatedAt", DbType="DateTimeOffset NOT NULL")]
+		public System.DateTimeOffset updatedAt
+		{
+			get
+			{
+				return this._updatedAt;
+			}
+			set
+			{
+				if ((this._updatedAt != value))
+				{
+					this.OnupdatedAtChanging(value);
+					this.SendPropertyChanging();
+					this._updatedAt = value;
+					this.SendPropertyChanged("updatedAt");
+					this.OnupdatedAtChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Book_Book_ImportInvoice", Storage="_Book", ThisKey="bookId", OtherKey="id", IsForeignKey=true)]
+		public Book Book
+		{
+			get
+			{
+				return this._Book.Entity;
+			}
+			set
+			{
+				Book previousValue = this._Book.Entity;
+				if (((previousValue != value) 
+							|| (this._Book.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Book.Entity = null;
+						previousValue.Book_ImportInvoices.Remove(this);
+					}
+					this._Book.Entity = value;
+					if ((value != null))
+					{
+						value.Book_ImportInvoices.Add(this);
+						this._bookId = value.id;
+					}
+					else
+					{
+						this._bookId = default(int);
+					}
+					this.SendPropertyChanged("Book");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Import_Invoice_Book_ImportInvoice", Storage="_Import_Invoice", ThisKey="importInvoiceId", OtherKey="id", IsForeignKey=true)]
+		public Import_Invoice Import_Invoice
+		{
+			get
+			{
+				return this._Import_Invoice.Entity;
+			}
+			set
+			{
+				Import_Invoice previousValue = this._Import_Invoice.Entity;
+				if (((previousValue != value) 
+							|| (this._Import_Invoice.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Import_Invoice.Entity = null;
+						previousValue.Book_ImportInvoices.Remove(this);
+					}
+					this._Import_Invoice.Entity = value;
+					if ((value != null))
+					{
+						value.Book_ImportInvoices.Add(this);
+						this._importInvoiceId = value.id;
+					}
+					else
+					{
+						this._importInvoiceId = default(int);
+					}
+					this.SendPropertyChanged("Import_Invoice");
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Import_Invoices")]
+	public partial class Import_Invoice : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _id;
+		
+		private int _userId;
+		
+		private string _supplier;
+		
+		private System.Nullable<double> _totalInvoice;
+		
+		private System.DateTimeOffset _createdAt;
+		
+		private System.DateTimeOffset _updatedAt;
+		
+		private EntitySet<Book_ImportInvoice> _Book_ImportInvoices;
+		
+		private EntityRef<User> _User;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnidChanging(int value);
+    partial void OnidChanged();
+    partial void OnuserIdChanging(int value);
+    partial void OnuserIdChanged();
+    partial void OnsupplierChanging(string value);
+    partial void OnsupplierChanged();
+    partial void OntotalInvoiceChanging(System.Nullable<double> value);
+    partial void OntotalInvoiceChanged();
+    partial void OncreatedAtChanging(System.DateTimeOffset value);
+    partial void OncreatedAtChanged();
+    partial void OnupdatedAtChanging(System.DateTimeOffset value);
+    partial void OnupdatedAtChanged();
+    #endregion
+		
+		public Import_Invoice()
+		{
+			this._Book_ImportInvoices = new EntitySet<Book_ImportInvoice>(new Action<Book_ImportInvoice>(this.attach_Book_ImportInvoices), new Action<Book_ImportInvoice>(this.detach_Book_ImportInvoices));
+			this._User = default(EntityRef<User>);
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_id", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int id
+		{
+			get
+			{
+				return this._id;
+			}
+			set
+			{
+				if ((this._id != value))
+				{
+					this.OnidChanging(value);
+					this.SendPropertyChanging();
+					this._id = value;
+					this.SendPropertyChanged("id");
+					this.OnidChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_userId", DbType="Int NOT NULL")]
+		public int userId
+		{
+			get
+			{
+				return this._userId;
+			}
+			set
+			{
+				if ((this._userId != value))
+				{
+					if (this._User.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnuserIdChanging(value);
+					this.SendPropertyChanging();
+					this._userId = value;
+					this.SendPropertyChanged("userId");
+					this.OnuserIdChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_supplier", DbType="NVarChar(255) NOT NULL", CanBeNull=false)]
+		public string supplier
+		{
+			get
+			{
+				return this._supplier;
+			}
+			set
+			{
+				if ((this._supplier != value))
+				{
+					this.OnsupplierChanging(value);
+					this.SendPropertyChanging();
+					this._supplier = value;
+					this.SendPropertyChanged("supplier");
+					this.OnsupplierChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_totalInvoice", DbType="Float")]
+		public System.Nullable<double> totalInvoice
+		{
+			get
+			{
+				return this._totalInvoice;
+			}
+			set
+			{
+				if ((this._totalInvoice != value))
+				{
+					this.OntotalInvoiceChanging(value);
+					this.SendPropertyChanging();
+					this._totalInvoice = value;
+					this.SendPropertyChanged("totalInvoice");
+					this.OntotalInvoiceChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_createdAt", DbType="DateTimeOffset NOT NULL")]
+		public System.DateTimeOffset createdAt
+		{
+			get
+			{
+				return this._createdAt;
+			}
+			set
+			{
+				if ((this._createdAt != value))
+				{
+					this.OncreatedAtChanging(value);
+					this.SendPropertyChanging();
+					this._createdAt = value;
+					this.SendPropertyChanged("createdAt");
+					this.OncreatedAtChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_updatedAt", DbType="DateTimeOffset NOT NULL")]
+		public System.DateTimeOffset updatedAt
+		{
+			get
+			{
+				return this._updatedAt;
+			}
+			set
+			{
+				if ((this._updatedAt != value))
+				{
+					this.OnupdatedAtChanging(value);
+					this.SendPropertyChanging();
+					this._updatedAt = value;
+					this.SendPropertyChanged("updatedAt");
+					this.OnupdatedAtChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Import_Invoice_Book_ImportInvoice", Storage="_Book_ImportInvoices", ThisKey="id", OtherKey="importInvoiceId")]
+		public EntitySet<Book_ImportInvoice> Book_ImportInvoices
+		{
+			get
+			{
+				return this._Book_ImportInvoices;
+			}
+			set
+			{
+				this._Book_ImportInvoices.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="User_Import_Invoice", Storage="_User", ThisKey="userId", OtherKey="id", IsForeignKey=true)]
+		public User User
+		{
+			get
+			{
+				return this._User.Entity;
+			}
+			set
+			{
+				User previousValue = this._User.Entity;
+				if (((previousValue != value) 
+							|| (this._User.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._User.Entity = null;
+						previousValue.Import_Invoices.Remove(this);
+					}
+					this._User.Entity = value;
+					if ((value != null))
+					{
+						value.Import_Invoices.Add(this);
+						this._userId = value.id;
+					}
+					else
+					{
+						this._userId = default(int);
+					}
+					this.SendPropertyChanged("User");
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+		
+		private void attach_Book_ImportInvoices(Book_ImportInvoice entity)
+		{
+			this.SendPropertyChanging();
+			entity.Import_Invoice = this;
+		}
+		
+		private void detach_Book_ImportInvoices(Book_ImportInvoice entity)
+		{
+			this.SendPropertyChanging();
+			entity.Import_Invoice = null;
 		}
 	}
 }

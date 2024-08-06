@@ -73,9 +73,12 @@
   <ItemGroup>
     <Compile Include="BLLBook.cs" />
     <Compile Include="BLLBookOrders.cs" />
+    <Compile Include="BLLBook_ImportInvoice.cs" />
     <Compile Include="BLLCategory.cs" />
     <Compile Include="BLLGroup.cs" />
+    <Compile Include="BLLImport_Invoice.cs" />
     <Compile Include="BLLInvoice.cs" />
+    <Compile Include="BLLSuppliers.cs" />
     <Compile Include="BLLUser.cs" />
     <Compile Include="DcentralizationClass .cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

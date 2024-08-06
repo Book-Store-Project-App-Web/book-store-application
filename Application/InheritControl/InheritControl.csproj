@@ -58,6 +58,12 @@
       <DependentUpon>PhoneText.cs</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="QuantityText.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="QuantityText.Designer.cs">
+      <DependentUpon>QuantityText.cs</DependentUpon>
+    </Compile>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

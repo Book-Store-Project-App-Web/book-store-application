@@ -135,5 +135,14 @@ namespace DAL
 
             return bt.Orders.Where(o => o.createdAt >= firstDayOfMonth && o.createdAt < firstDayOfNextMonth).Select(x => x).ToList<dynamic>();
         }
+        public List<Book> GetbooksByIdSuppliers(int idSuppler)
+        {
+            return bt.Books.Where(b => b.supplierId == idSuppler).ToList();
+        }
+
+        public Book GetBookById(int idBook)
+        {
+            return bt.Books.FirstOrDefault(b => b.id == idBook);
+        }
     }
 }

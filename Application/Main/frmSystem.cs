@@ -18,6 +18,12 @@ namespace Main
             this.DecentralizationToolStripMenuItem.Click += DecentralizationToolStripMenuItem_Click;
             this.BookToolStripMenuItem.Click += BookToolStripMenuItem_Click;
             this.CategoriesToolStripMenuItem.Click += CategoriesToolStripMenuItem_Click;
+            this.ImportInvoiceToolStripMenuItem.Click += ImportInvoiceToolStripMenuItem_Click;
+        }
+
+        private void ImportInvoiceToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Program.Import_InvoicecForm.Show();
         }
 
         private void CategoriesToolStripMenuItem_Click(object sender, EventArgs e)

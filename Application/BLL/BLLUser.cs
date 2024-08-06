@@ -90,5 +90,9 @@ namespace BLL
         {
             dalUser.DeleteUser(id);
         }
+        public User GetUserById(int userId)
+        {
+            return dalUser.GetUserById(userId);
+        }
     }
 }

@@ -107,6 +107,12 @@
     <Compile Include="frmGroup_User.Designer.cs">
       <DependentUpon>frmGroup_User.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmImport_Invoicecs.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmImport_Invoicecs.Designer.cs">
+      <DependentUpon>frmImport_Invoicecs.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmInvoice.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -162,6 +168,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmGroup_User.resx">
       <DependentUpon>frmGroup_User.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmImport_Invoicecs.resx">
+      <DependentUpon>frmImport_Invoicecs.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmInvoice.resx">
       <DependentUpon>frmInvoice.cs</DependentUpon>
