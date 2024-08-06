@@ -20,5 +20,22 @@ namespace BLL
         {
             return bllBookOrders.GetBookOrdersByOrderId(orderId);
         }
+        public List<Book_Order> GetBookOrdersByMonthAndYear(int year, int month)
+        {
+            return bllBookOrders.GetBookOrdersByMonthAndYear(year, month);
+        }
+        public List<(DateTime Date, int Count)> GetBookOrdersSummaryByDate(int year, int month)
+        {
+            var orders = bllBookOrders.GetBookOrdersByMonthAndYear(year, month);
+
+            return orders.GroupBy(bo => bo.updatedAt.Date).Select(
+                g => new
+               {
+                   Date = g.Key,
+                   Count = g.Sum(bo => bo.quantity.GetValueOrDefault())
+               })
+               .Select(x => (x.Date, x.Count)) // Convert to tuple
+               .ToList();
+        }
     }
 }

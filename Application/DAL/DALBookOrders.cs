@@ -20,5 +20,10 @@ namespace DAL
         {
             return dalcontext.Book_Orders.Where(bo => bo.orderId == orderId).ToList();
         }
+
+        public List<Book_Order> GetBookOrdersByMonthAndYear(int year, int month)
+        {
+            return dalcontext.Book_Orders.Where(bo => bo.updatedAt.Year == year && bo.updatedAt.Month == month) .ToList();
+        }
     }
 }

@@ -80,7 +80,6 @@
     <Compile Include="BLLInvoice.cs" />
     <Compile Include="BLLSuppliers.cs" />
     <Compile Include="BLLUser.cs" />
-    <Compile Include="DcentralizationClass .cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

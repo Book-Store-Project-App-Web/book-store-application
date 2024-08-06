@@ -257,7 +257,7 @@ namespace Main
 
         private void FrmImport_Invoicecs_Load(object sender, EventArgs e)
         {
-            LoadSuppliers();
+            //LoadSuppliers();
             LoadComboBoxSuppliers();
             LoadStaff();
         }
@@ -274,21 +274,21 @@ namespace Main
 
         }
 
-        public void LoadSuppliers()
-        {
-            dataGvSuppliers.DataSource = GUISuppeliers.ListSuppliers();
-            var unwantedColumns = new[] { "phone", "address", "createdAt", "updatedAt" };
-            foreach (var column in unwantedColumns)
-            {
-                if (dataGvSuppliers.Columns.Contains(column))
-                {
-                    dataGvSuppliers.Columns.Remove(column);
-                }
-            }
+        //public void LoadSuppliers()
+        //{
+        //    dataGvSuppliers.DataSource = GUISuppeliers.ListSuppliers();
+        //    var unwantedColumns = new[] { "phone", "address", "createdAt", "updatedAt" };
+        //    foreach (var column in unwantedColumns)
+        //    {
+        //        if (dataGvSuppliers.Columns.Contains(column))
+        //        {
+        //            dataGvSuppliers.Columns.Remove(column);
+        //        }
+        //    }
 
-            dataGvSuppliers.Columns["id"].HeaderText = "Mã NCC";
-            dataGvSuppliers.Columns["name"].HeaderText = "Tên NCC";
-        }
+        //    dataGvSuppliers.Columns["id"].HeaderText = "Mã NCC";
+        //    dataGvSuppliers.Columns["name"].HeaderText = "Tên NCC";
+        //}
 
         public void LoadComboBoxSuppliers()
         {
