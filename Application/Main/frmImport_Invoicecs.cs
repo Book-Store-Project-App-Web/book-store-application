@@ -293,7 +293,7 @@ namespace Main
         public void LoadComboBoxSuppliers()
         {
             cbBoxSupplier.DataSource = GUISuppeliers.ListSuppliers();
-            cbBoxSupplier.DisplayMember = "name";
+            cbBoxSupplier.DisplayMember = "id";
             cbBoxSupplier.ValueMember = "id";
         }
 

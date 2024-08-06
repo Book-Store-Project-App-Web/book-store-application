@@ -12,14 +12,13 @@ namespace Main
     {
         public static frmLogin loginForm = null;
         public static frmSystem SystemForm = null;
-        public static frmDecentralization DecentralizationForm = null;
         public static frmBooks formBooks = null;
         public static frmUser UserForm = null;
         public static frmCategorie CategorieForm = null;
         public static frmInvoice InvoiceForm = null;
         public static frmGroup_User GUForm = null;
         public static frmGroup_Screen GCForm = null;
-        public static frmStatistic StaticticalForm = null;
+        public static frmStatisticTop10 StaticticalTop10Form = null;
         public static frmImport_Invoicecs Import_InvoicecForm = null;
 
 
@@ -33,16 +32,15 @@ namespace Main
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             loginForm = new frmLogin();
-            SystemForm = new frmSystem();
+            SystemForm = new frmSystem(loginForm.LoggedInUserId);
             //BookFrom = new frmBook();
-            DecentralizationForm = new frmDecentralization();
             formBooks = new frmBooks();
             CategorieForm = new frmCategorie();
             UserForm = new frmUser();
             InvoiceForm = new frmInvoice();
             GUForm = new frmGroup_User();
             GCForm = new frmGroup_Screen();
-            StaticticalForm = new frmStatistic();
+            StaticticalTop10Form = new frmStatisticTop10();
             Import_InvoicecForm = new frmImport_Invoicecs(loginForm.LoggedInUserId);
             Application.Run(loginForm);
         }

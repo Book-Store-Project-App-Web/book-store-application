@@ -131,23 +131,17 @@
     <Compile Include="frmLogin.Designer.cs">
       <DependentUpon>frmLogin.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmStatistic.cs">
+    <Compile Include="frmStatisticTop10.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmStatistic.Designer.cs">
-      <DependentUpon>frmStatistic.cs</DependentUpon>
+    <Compile Include="frmStatisticTop10.Designer.cs">
+      <DependentUpon>frmStatisticTop10.cs</DependentUpon>
     </Compile>
     <Compile Include="frmSystem.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="frmSystem.Designer.cs">
       <DependentUpon>frmSystem.cs</DependentUpon>
-    </Compile>
-    <Compile Include="frmDecentralization.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="frmDecentralization.Designer.cs">
-      <DependentUpon>frmDecentralization.cs</DependentUpon>
     </Compile>
     <Compile Include="frmUser.cs">
       <SubType>Form</SubType>
@@ -181,14 +175,11 @@
     <EmbeddedResource Include="frmLogin.resx">
       <DependentUpon>frmLogin.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmStatistic.resx">
-      <DependentUpon>frmStatistic.cs</DependentUpon>
+    <EmbeddedResource Include="frmStatisticTop10.resx">
+      <DependentUpon>frmStatisticTop10.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmSystem.resx">
       <DependentUpon>frmSystem.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="frmDecentralization.resx">
-      <DependentUpon>frmDecentralization.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmUser.resx">
       <DependentUpon>frmUser.cs</DependentUpon>

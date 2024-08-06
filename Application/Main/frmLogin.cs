@@ -36,7 +36,7 @@ namespace Main
                     LoggedInUserId = loginResult.id;
                     MessageBox.Show("Đăng nhập thành công");
                     this.Hide();
-                    Program.SystemForm = new frmSystem();
+                    Program.SystemForm = new frmSystem(LoggedInUserId);
                     Program.Import_InvoicecForm = new frmImport_Invoicecs(LoggedInUserId);
                     Program.SystemForm.Show();
                 }
