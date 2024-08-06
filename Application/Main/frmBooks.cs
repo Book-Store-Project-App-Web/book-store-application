@@ -31,7 +31,14 @@ namespace Main
             this.btnUpdateBook.Click += BtnUpdateBook_Click;
             this.btnDeleteBook.Click += BtnDeleteBook_Click;
             this.dataGridViewBook.CellClick += DataGridViewBook_CellClick;
+            this.txtSearch.TextChanged += TxtSearch_TextChanged;
             errorProvider = new ErrorProvider();
+        }
+
+        private void TxtSearch_TextChanged(object sender, EventArgs e)
+        {
+            string searchTerm = txtSearch.Text.Trim();
+            LoadGridView(searchTerm);
         }
 
         private void BtnDeleteBook_Click(object sender, EventArgs e)
@@ -86,11 +93,16 @@ namespace Main
             }
         }
 
-        void LoadGridView()
+
+        void LoadGridView(string searchTerm = null)
         {
-            SetControlsEnabled(false);  
-            var books = bllBook.ListBooks();
-            dataGridViewBook.DataSource = books;
+            SetControlsEnabled(false);
+            var allBooks = bllBook.ListBooks();
+            var booksToDisplay = string.IsNullOrWhiteSpace(searchTerm)
+         ? allBooks
+         : allBooks.Where(b => b.name.IndexOf(searchTerm, StringComparison.OrdinalIgnoreCase) >= 0).ToList();
+
+            dataGridViewBook.DataSource = booksToDisplay;
             dataGridViewBook.Columns["Image"].Visible = false;
 
             if (dataGridViewBook.Columns["ImageColumn"] == null)

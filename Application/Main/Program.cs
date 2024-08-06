@@ -21,7 +21,8 @@ namespace Main
         public static frmStatisticTop10 StaticticalTop10Form = null;
         public static frmImport_Invoicecs Import_InvoicecForm = null;
         public static frmStatisticBook_Sales StatiscticBookSales = null;
-
+        public static frmRevenue RevenueForm = null;
+        public static frmExpenditure ExpenditureForm = null;
 
 
         /// <summary>
@@ -44,7 +45,9 @@ namespace Main
             StaticticalTop10Form = new frmStatisticTop10();
             Import_InvoicecForm = new frmImport_Invoicecs(loginForm.LoggedInUserId);
             StatiscticBookSales = new frmStatisticBook_Sales();
-            Application.Run(StatiscticBookSales);
+            RevenueForm = new frmRevenue();
+            ExpenditureForm = new frmExpenditure();
+            Application.Run(loginForm);
         }
     }
 }
