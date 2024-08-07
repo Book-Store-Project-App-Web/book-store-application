@@ -20,7 +20,6 @@ namespace Main
         {
             InitializeComponent();
             loggedInUserId = userId;
-            this.FormClosed += FrmSystem_FormClosed;
             this.Load += FrmSystem_Load;
             this.BookToolStripMenuItem.Click += BookToolStripMenuItem_Click;
             this.CategoriesToolStripMenuItem.Click += CategoriesToolStripMenuItem_Click;
@@ -59,11 +58,6 @@ namespace Main
                 Program.StatiscticBookSales = new frmStatisticBook_Sales();
             }
             Program.StatiscticBookSales.Show();
-        }
-
-        private void FrmSystem_FormClosed(object sender, FormClosedEventArgs e)
-        {
-            this.Close();
         }
 
         private void FrmSystem_Load(object sender, EventArgs e)

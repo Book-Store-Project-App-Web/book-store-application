@@ -18,41 +18,31 @@ namespace BLL
         }
         public User logInUser(string pMail, string pPass)
         {            
-            try
+            if (string.IsNullOrEmpty(pMail))
             {
-                if (string.IsNullOrEmpty(pMail))
-                {
-                    MessageBox.Show("Email không được trống!");
-                }
-
-                if (string.IsNullOrEmpty(pPass))
-                {
-                    MessageBox.Show("Mật khẩu không được trống!");
-                }
-                var user = dalUser.logInUser(pMail);
-                if (user == null)
-                {
-                    MessageBox.Show("Sai tài khoản!");
-                    return null;
-                }
-
-                bool isPasswordValid = BCrypt.Net.BCrypt.Verify(pPass, user.password);
-                if (isPasswordValid)
-                {
-                    return user;
-                }
-                else
-                {
-                    MessageBox.Show("Sai mật khẩu!");
-                    return null;
-                }
+                MessageBox.Show("Email không được trống!");
             }
-            catch (Exception ex)
+            if (string.IsNullOrEmpty(pPass))
             {
-                // Log exception
-                throw new Exception("Có lỗi xảy ra trong quá trình đăng nhập", ex);
+                MessageBox.Show("Mật khẩu không được trống!");
+            }
+            var user = dalUser.logInUser(pMail);
+            if (!string.IsNullOrEmpty(pMail) && !string.IsNullOrEmpty(pPass) && user == null)
+            {
+                MessageBox.Show("Tài khoản hoặc mật khẩu không chinh xác!");
+                return null;
             }
 
+            bool isPasswordValid = BCrypt.Net.BCrypt.Verify(pPass, user.password);
+            if (isPasswordValid)
+            {
+                return user;
+            }
+            else
+            {
+                MessageBox.Show("Sai mật khẩu!");
+                return null;
+            }
         }
         public List<UserDK> LoadUserDK()
         {

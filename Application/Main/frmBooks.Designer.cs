@@ -52,12 +52,12 @@ namespace Main
             this.txtName = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.txtSearch = new System.Windows.Forms.TextBox();
+            this.label10 = new System.Windows.Forms.Label();
             this.btnUpdateBook = new System.Windows.Forms.Button();
             this.btnDeleteBook = new System.Windows.Forms.Button();
             this.btnSave = new System.Windows.Forms.Button();
             this.btnAddBook = new System.Windows.Forms.Button();
-            this.txtSearch = new System.Windows.Forms.TextBox();
-            this.label10 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewBook)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.groupBox1.SuspendLayout();
@@ -69,7 +69,7 @@ namespace Main
             this.dataGridViewBook.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridViewBook.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewBook.Location = new System.Drawing.Point(13, 298);
-            this.dataGridViewBook.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dataGridViewBook.Margin = new System.Windows.Forms.Padding(4);
             this.dataGridViewBook.Name = "dataGridViewBook";
             this.dataGridViewBook.RowHeadersVisible = false;
             this.dataGridViewBook.RowHeadersWidth = 21;
@@ -81,7 +81,7 @@ namespace Main
             // 
             this.pictureBox1.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.pictureBox1.Location = new System.Drawing.Point(37, 49);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(183, 191);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -91,7 +91,7 @@ namespace Main
             // btnSelectImage
             // 
             this.btnSelectImage.Location = new System.Drawing.Point(73, 248);
-            this.btnSelectImage.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnSelectImage.Margin = new System.Windows.Forms.Padding(4);
             this.btnSelectImage.Name = "btnSelectImage";
             this.btnSelectImage.Size = new System.Drawing.Size(108, 40);
             this.btnSelectImage.TabIndex = 2;
@@ -308,8 +308,26 @@ namespace Main
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Chức năng";
             // 
+            // txtSearch
+            // 
+            this.txtSearch.Location = new System.Drawing.Point(92, 206);
+            this.txtSearch.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtSearch.Name = "txtSearch";
+            this.txtSearch.Size = new System.Drawing.Size(270, 22);
+            this.txtSearch.TabIndex = 31;
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(6, 209);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(64, 17);
+            this.label10.TabIndex = 30;
+            this.label10.Text = "Tìm kiếm";
+            // 
             // btnUpdateBook
             // 
+            this.btnUpdateBook.Enabled = false;
             this.btnUpdateBook.Location = new System.Drawing.Point(101, 116);
             this.btnUpdateBook.Margin = new System.Windows.Forms.Padding(4);
             this.btnUpdateBook.Name = "btnUpdateBook";
@@ -320,6 +338,7 @@ namespace Main
             // 
             // btnDeleteBook
             // 
+            this.btnDeleteBook.Enabled = false;
             this.btnDeleteBook.Location = new System.Drawing.Point(200, 60);
             this.btnDeleteBook.Margin = new System.Windows.Forms.Padding(4);
             this.btnDeleteBook.Name = "btnDeleteBook";
@@ -348,23 +367,6 @@ namespace Main
             this.btnAddBook.Text = "Thêm";
             this.btnAddBook.UseVisualStyleBackColor = true;
             // 
-            // txtSearch
-            // 
-            this.txtSearch.Location = new System.Drawing.Point(92, 206);
-            this.txtSearch.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.txtSearch.Name = "txtSearch";
-            this.txtSearch.Size = new System.Drawing.Size(270, 22);
-            this.txtSearch.TabIndex = 31;
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(6, 209);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(64, 17);
-            this.label10.TabIndex = 30;
-            this.label10.Text = "Tìm kiếm";
-            // 
             // frmBooks
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -375,9 +377,10 @@ namespace Main
             this.Controls.Add(this.btnSelectImage);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.dataGridViewBook);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "frmBooks";
-            this.Text = "frmBooks";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Quản lý sách";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewBook)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.groupBox1.ResumeLayout(false);
