@@ -164,7 +164,7 @@ namespace DAL
 
             string query = "SELECT groupId from Group_Users Where userId = '" + userId + "' ";
 
-            SqlDataAdapter adapter = new SqlDataAdapter(query, DAL.Properties.Settings.Default.Book_StoreConnectionString1);
+            SqlDataAdapter adapter = new SqlDataAdapter(query, DAL.Properties.Settings.Default.Book_StoreConnectionString);
             adapter.Fill(dataTable);
 
             for (int i = 0; i < dataTable.Rows.Count; i++)
@@ -180,7 +180,7 @@ namespace DAL
             DataTable dataTable = new DataTable();
             string query = "Select Screens.screenName,screenId,isRole,groupId from Group_Screens,Screens Where Group_Screens.screenId = Screens.id and groupId = '" + groupId + "' ";
 
-            SqlDataAdapter adapter = new SqlDataAdapter(query, DAL.Properties.Settings.Default.Book_StoreConnectionString1);
+            SqlDataAdapter adapter = new SqlDataAdapter(query, DAL.Properties.Settings.Default.Book_StoreConnectionString);
             adapter.Fill(dataTable);
 
             return dataTable;
