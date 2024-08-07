@@ -13,7 +13,7 @@
 ## Hệ thống quản lý cửa hàng sách
 
 <h5>Mô tả dự án: </h5>
-<p>Dự án "Quản lý Nhà sách" là một hệ thống phần mềm tích hợp để quản lý và vận hành các hoạt động của nhà sách, bao gồm quản lý kho sách, bán hàng, đặt hàng, quản lý khách hàng và nhà cung cấp, với các chức năng tìm kiếm và báo cáo.</p>
+<p>Dự án "Quản lý Nhà sách" là một hệ thống phần mềm tích hợp để quản lý và vận hành các hoạt động của nhà sách, bao gồm quản lý kho sách, bán hàng, đặt hàng, quản lý khách hàng và thể loại sách với các chức năng thêm, xóa, sửa và tìm kiếm.</p>
 <p>Dự án không chỉ bao gồm ứng dụng quản lý nội bộ mà còn tích hợp một website bán hàng trực tuyến. Website này cho phép khách hàng dễ dàng duyệt qua các danh mục sách phong phú, tìm kiếm sản phẩm, đọc đánh giá, và đặt mua sách trực tuyến. Với giao diện thân thiện và tích hợp thanh toán an toàn, khách hàng có thể thực hiện các giao dịch mua bán một cách tiện lợi.</p>
 
 ### Yêu cầu 
@@ -40,7 +40,7 @@
 |  4  |  Quản lý nhân viên   |   Vĩ  |
 |  5  |  Quản lý hóa đơn, chi tiết hóa đơn   |   Vĩ  |
 |  6  |  Quản lý thể loại sách   |   Vĩ  |
-|  7  |  Quản lý nhân viên   |   Vĩ  |
+|  7  |  Quản lý khách hàng   |   Vĩ  |
 |  8  |  Quản lý nhập hàng   |   Vĩ  |
 |  9  |  Thống kê doanh thu|   Vĩ  |
 |  10 |  Thống kê tồn kho|   Vĩ  |
@@ -51,6 +51,7 @@
 <p>Hiển thi thông tin sách:</p>
 <ul>
   <li>Hiển thị thông tin chi tiết của mỗi cuốn sách, tác giả, tên sách, gái tiền v.v.</li>
+  <li>Gợi ý thông tin các cuốn sách cho người dùng</li>
 </ul>
 <p>
   Giỏ hàng, Mua sách:
