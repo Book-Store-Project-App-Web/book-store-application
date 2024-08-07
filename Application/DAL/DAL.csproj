@@ -71,11 +71,5 @@
   <ItemGroup>
     <Service Include="{3259AA49-8AA1-44D3-9025-A0B520596A8C}" />
   </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\TripleDES_Classs\TripleDES_Classs.csproj">
-      <Project>{3760a93c-ee0a-4e9e-b4e8-ab1e6b8c1c40}</Project>
-      <Name>TripleDES_Classs</Name>
-    </ProjectReference>
-  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

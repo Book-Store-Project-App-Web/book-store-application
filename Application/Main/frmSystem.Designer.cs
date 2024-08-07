@@ -74,27 +74,27 @@
             this.AccountToolStripMenuItem,
             this.GroupUsersToolStripMenuItem});
             this.quảnLýNhânSựToolStripMenuItem.Name = "quảnLýNhânSựToolStripMenuItem";
-            this.quảnLýNhânSựToolStripMenuItem.Size = new System.Drawing.Size(138, 24);
+            this.quảnLýNhânSựToolStripMenuItem.Size = new System.Drawing.Size(136, 24);
             this.quảnLýNhânSựToolStripMenuItem.Text = "Quản lý tài khoản";
             // 
             // PhanQuyenAccountToolStripMenuItem
             // 
             this.PhanQuyenAccountToolStripMenuItem.Name = "PhanQuyenAccountToolStripMenuItem";
-            this.PhanQuyenAccountToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.PhanQuyenAccountToolStripMenuItem.Size = new System.Drawing.Size(206, 26);
             this.PhanQuyenAccountToolStripMenuItem.Tag = "MH1";
             this.PhanQuyenAccountToolStripMenuItem.Text = "Phân quyền";
             // 
             // AccountToolStripMenuItem
             // 
             this.AccountToolStripMenuItem.Name = "AccountToolStripMenuItem";
-            this.AccountToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.AccountToolStripMenuItem.Size = new System.Drawing.Size(206, 26);
             this.AccountToolStripMenuItem.Tag = "MH2";
             this.AccountToolStripMenuItem.Text = "Tài khoản";
             // 
             // GroupUsersToolStripMenuItem
             // 
             this.GroupUsersToolStripMenuItem.Name = "GroupUsersToolStripMenuItem";
-            this.GroupUsersToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.GroupUsersToolStripMenuItem.Size = new System.Drawing.Size(206, 26);
             this.GroupUsersToolStripMenuItem.Tag = "MH3";
             this.GroupUsersToolStripMenuItem.Text = "Nhóm người dùng";
             // 
@@ -104,20 +104,20 @@
             this.BookToolStripMenuItem,
             this.CategoriesToolStripMenuItem});
             this.quảnLýSảnPhẩmToolStripMenuItem.Name = "quảnLýSảnPhẩmToolStripMenuItem";
-            this.quảnLýSảnPhẩmToolStripMenuItem.Size = new System.Drawing.Size(141, 24);
+            this.quảnLýSảnPhẩmToolStripMenuItem.Size = new System.Drawing.Size(139, 24);
             this.quảnLýSảnPhẩmToolStripMenuItem.Text = "Quản lý sản phẩm";
             // 
             // BookToolStripMenuItem
             // 
             this.BookToolStripMenuItem.Name = "BookToolStripMenuItem";
-            this.BookToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.BookToolStripMenuItem.Size = new System.Drawing.Size(180, 26);
             this.BookToolStripMenuItem.Tag = "MH4";
             this.BookToolStripMenuItem.Text = "Sản phẩm";
             // 
             // CategoriesToolStripMenuItem
             // 
             this.CategoriesToolStripMenuItem.Name = "CategoriesToolStripMenuItem";
-            this.CategoriesToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.CategoriesToolStripMenuItem.Size = new System.Drawing.Size(180, 26);
             this.CategoriesToolStripMenuItem.Tag = "MH5";
             this.CategoriesToolStripMenuItem.Text = "Loại sản phẩm";
             // 
@@ -129,45 +129,45 @@
             this.Top10ToolStripMenuItem,
             this.StatisticBookSalesToolStripMenuItem});
             this.StatisticsToolStripMenuItem.Name = "StatisticsToolStripMenuItem";
-            this.StatisticsToolStripMenuItem.Size = new System.Drawing.Size(84, 24);
+            this.StatisticsToolStripMenuItem.Size = new System.Drawing.Size(82, 24);
             this.StatisticsToolStripMenuItem.Text = "Thống kê";
             // 
             // RevenueToolStripMenuItem
             // 
             this.RevenueToolStripMenuItem.Name = "RevenueToolStripMenuItem";
-            this.RevenueToolStripMenuItem.Size = new System.Drawing.Size(268, 26);
+            this.RevenueToolStripMenuItem.Size = new System.Drawing.Size(260, 26);
             this.RevenueToolStripMenuItem.Tag = "MH6";
             this.RevenueToolStripMenuItem.Text = "Doanh thu";
             // 
             // ExpenditurreToolStripMenuItem
             // 
             this.ExpenditurreToolStripMenuItem.Name = "ExpenditurreToolStripMenuItem";
-            this.ExpenditurreToolStripMenuItem.Size = new System.Drawing.Size(268, 26);
+            this.ExpenditurreToolStripMenuItem.Size = new System.Drawing.Size(260, 26);
             this.ExpenditurreToolStripMenuItem.Tag = "MH7";
             this.ExpenditurreToolStripMenuItem.Text = "Chi phí";
             // 
             // Top10ToolStripMenuItem
             // 
             this.Top10ToolStripMenuItem.Name = "Top10ToolStripMenuItem";
-            this.Top10ToolStripMenuItem.Size = new System.Drawing.Size(268, 26);
+            this.Top10ToolStripMenuItem.Size = new System.Drawing.Size(260, 26);
             this.Top10ToolStripMenuItem.Text = "Top 10 sản phẩm bán chạy";
             // 
             // StatisticBookSalesToolStripMenuItem
             // 
             this.StatisticBookSalesToolStripMenuItem.Name = "StatisticBookSalesToolStripMenuItem";
-            this.StatisticBookSalesToolStripMenuItem.Size = new System.Drawing.Size(268, 26);
+            this.StatisticBookSalesToolStripMenuItem.Size = new System.Drawing.Size(260, 26);
             this.StatisticBookSalesToolStripMenuItem.Text = "Số lượng sách bán";
             // 
             // InvoiceToolStripMenuItem
             // 
             this.InvoiceToolStripMenuItem.Name = "InvoiceToolStripMenuItem";
-            this.InvoiceToolStripMenuItem.Size = new System.Drawing.Size(132, 24);
+            this.InvoiceToolStripMenuItem.Size = new System.Drawing.Size(130, 24);
             this.InvoiceToolStripMenuItem.Text = "Quản lý hóa đơn";
             // 
             // ImportInvoiceToolStripMenuItem
             // 
             this.ImportInvoiceToolStripMenuItem.Name = "ImportInvoiceToolStripMenuItem";
-            this.ImportInvoiceToolStripMenuItem.Size = new System.Drawing.Size(147, 24);
+            this.ImportInvoiceToolStripMenuItem.Size = new System.Drawing.Size(145, 24);
             this.ImportInvoiceToolStripMenuItem.Text = "Quản lý nhập hàng";
             // 
             // label1

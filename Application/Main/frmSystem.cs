@@ -33,6 +33,26 @@ namespace Main
             this.GroupUsersToolStripMenuItem.Click += GroupUsersToolStripMenuItem_Click;
             this.Top10ToolStripMenuItem.Click += Top10ToolStripMenuItem_Click;
             this.StatisticBookSalesToolStripMenuItem.Click += StatisticBookSalesToolStripMenuItem_Click;
+            this.RevenueToolStripMenuItem.Click += RevenueToolStripMenuItem_Click;
+            this.ExpenditurreToolStripMenuItem.Click += ExpenditurreToolStripMenuItem_Click;
+        }
+
+        private void ExpenditurreToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (Program.ExpenditureForm == null || Program.ExpenditureForm.IsDisposed)
+            {
+                Program.ExpenditureForm = new frmExpenditure();
+            }
+            Program.ExpenditureForm.Show();
+        }
+
+        private void RevenueToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if(Program.RevenueForm == null || Program.RevenueForm.IsDisposed)
+            {
+                Program.RevenueForm = new frmRevenue();
+            }
+            Program.RevenueForm.Show();
         }
 
         private void PhanQuyenAccountToolStripMenuItem_Click(object sender, EventArgs e)
@@ -93,11 +113,10 @@ namespace Main
         {
             var result = MessageBox.Show("Bạn có chắc chắn muốn đóng form không?", "Xác nhận đóng form", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
 
-            // Kiểm tra kết quả của MessageBox
             if (result == DialogResult.Cancel)
             {
-                // Nếu người dùng nhấn Cancel, hủy sự kiện đóng form
                 e.Cancel = true;
+                this.Close();
             }
         }
 

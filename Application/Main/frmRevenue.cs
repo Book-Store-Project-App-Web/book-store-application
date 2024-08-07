@@ -93,8 +93,9 @@ namespace Main
             foreach (var data in summary)
             {
                 int yearValue = data.updatedAt.DateTime.Year;
+                int monthValue = data.updatedAt.DateTime.Month;
 
-                series.Points.AddXY(yearValue, (double)data.totalOrderPrice);
+                series.Points.AddXY(monthValue, (double)data.totalOrderPrice);
 
                 totalRevenue += (double)data.totalOrderPrice;
             }

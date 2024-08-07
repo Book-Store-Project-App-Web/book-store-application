@@ -436,6 +436,7 @@
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Name = "frmImport_Invoicecs";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Phiếu nhập";
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
