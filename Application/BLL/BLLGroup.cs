@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using DTO;
 using DAL;
 using System.Windows.Forms;
+using System.Data;
 
 namespace BLL
 {
@@ -49,6 +50,32 @@ namespace BLL
         public List<dynamic> LoadGroupScreen(int groupId)
         {
             return dalGr.LoadGroupScreen(groupId);
+        }
+        public List<Group_Screen_DK> ConvertToGroupScreenList(List<dynamic> dynamicList)
+        {
+            return dalGr.ConvertToGroupScreenList(dynamicList);
+        }
+        public void UpdateIsRole(int groupId, int screenId, bool role)
+        {
+            dalGr.UpdateIsRole(groupId, screenId, role);
+        }
+
+        public Group_Screen CheckIsRoleExist(int groupId, int screenId)
+        {
+            return dalGr.CheckIsRoleExist(groupId, screenId);
+        }
+        public void CreateRole(int groupId, int screenId, bool isRole)
+        {
+            dalGr.CreateRole(groupId, screenId, isRole);
+        }
+
+        public List<int> GetGroupIdByUserId(int userId)
+        {
+            return dalGr.GetGroupIdByUserId(userId);
+        }
+        public DataTable GetScreen(int groupId)
+        {
+            return dalGr.GetScreen(groupId);
         }
     }
 }

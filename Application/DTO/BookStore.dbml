@@ -194,4 +194,14 @@
       <Association Name="User_Import_Invoice" Member="User" ThisKey="userId" OtherKey="id" Type="User" IsForeignKey="true" />
     </Type>
   </Table>
+  <Table Name="" Member="Group_Screen_DKs">
+    <Type Name="Group_Screen_DK">
+      <Column Member="id" Type="System.Int32" CanBeNull="false" />
+      <Column Member="groupName" Type="System.String" CanBeNull="false" />
+      <Column Member="screenName" Type="System.String" CanBeNull="false" />
+      <Column Member="isRole" Type="System.Boolean" CanBeNull="false" />
+      <Column Member="groupId" Type="System.Int32" CanBeNull="false" />
+      <Column Member="screenId" Type="System.Int32" CanBeNull="false" />
+    </Type>
+  </Table>
 </Database>
