@@ -43,9 +43,15 @@ namespace Main
 
         private void BtnDeleteBook_Click(object sender, EventArgs e)
         {
+            if (dataGridViewBook.CurrentRow == null || dataGridViewBook.CurrentRow.Cells["id"].Value == null)
+            {
+                MessageBox.Show("Vui lòng chọn thông tin sách muốn xóa!");
+                return;
+            }
+
             string bookId = dataGridViewBook.CurrentRow.Cells["id"].Value.ToString();
             bool isDeleted = bllBook.DeleteBook(Convert.ToInt32(bookId));
-            if(isDeleted)
+            if (isDeleted)
             {
                 MessageBox.Show("Xóa sách thành công!");
                 LoadGridView();
@@ -141,6 +147,7 @@ namespace Main
         private void DataGridViewBook_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             btnDeleteBook.Enabled = true;
+            btnUpdateBook.Enabled = true;
             DataGridViewRow selectedRow = dataGridViewBook.CurrentRow;
             txtName.Text = selectedRow.Cells["name"].Value?.ToString();
             txtPrice.Text = selectedRow.Cells["price"].Value?.ToString();

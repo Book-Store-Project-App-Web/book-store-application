@@ -8,3 +8,4 @@ D:\HOC_KY_7\Phat_trien_ung_dung_thong_minh\GitHub\book-store-application\Applica
 D:\HOC_KY_7\Phat_trien_ung_dung_thong_minh\GitHub\book-store-application\Application\InheritControl\obj\Debug\InheritControl.csproj.CoreCompileInputs.cache
 D:\HOC_KY_7\Phat_trien_ung_dung_thong_minh\GitHub\book-store-application\Application\InheritControl\obj\Debug\InheritControl.dll
 D:\HOC_KY_7\Phat_trien_ung_dung_thong_minh\GitHub\book-store-application\Application\InheritControl\obj\Debug\InheritControl.pdb
+C:\Users\VI\OneDrive\Documents\GitHub\book-store-application\Application\InheritControl\obj\Debug\InheritControl.csprojAssemblyReference.cache

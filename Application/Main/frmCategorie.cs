@@ -35,24 +35,16 @@ namespace Main
 
         private void BtnNew_Click(object sender, EventArgs e)
         {
-            if (int.TryParse(txtIdCategory.Text, out int id))
-            {
-                var category = new Category
-                {
-                    id = id,
-                    name = txtNameCategory.Text,
-                    listCateId = (int)cbBoxListCategory.SelectedValue,
-                    updatedAt = DateTime.Now
-                };
-
-                bllcategory.UpdateCategory(category);
-                LoadCategories();
-                ClearFields();
-            }
+            ClearFields();
         }
 
         private void BtnEdit_Click(object sender, EventArgs e)
         {
+            if (!ValidateCategoryInput(out _))
+            {
+                MessageBox.Show("Vui lòng chọn thể loại muốn sửa thông tin", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
             if (int.TryParse(txtIdCategory.Text, out int id))
             {
                 var category = new Category
@@ -76,6 +68,11 @@ namespace Main
 
         private void BtnDelete_Click(object sender, EventArgs e)
         {
+            if (!ValidateCategoryInput(out _))
+            {
+                MessageBox.Show("Vui lòng chọn thể loại sách muốn xóa", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
             if (int.TryParse(txtIdCategory.Text, out int id))
             {
                 try
@@ -94,6 +91,11 @@ namespace Main
 
         private void BtnCreate_Click(object sender, EventArgs e)
         {
+            if (!ValidateCategoryInput(out _))
+            {
+                MessageBox.Show("Vui lòng nhập đầy đủ thông tin và chọn danh mục thể loại.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
             var category = new Category
             {
                 name = txtNameCategory.Text,
@@ -166,6 +168,16 @@ namespace Main
             txtNameCategory.Clear();
             cbBoxListCategory.SelectedIndex = -1;
         }
+        private bool ValidateCategoryInput(out int id)
+        {
+            id = 0;
 
+            if (string.IsNullOrWhiteSpace(txtNameCategory.Text) || cbBoxListCategory.SelectedValue == null)
+            {
+                return false;
+            }
+
+            return true;
+        }
     }
 }
