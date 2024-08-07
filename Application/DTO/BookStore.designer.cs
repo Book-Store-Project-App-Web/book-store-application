@@ -220,6 +220,14 @@ namespace DTO
 				return this.GetTable<Import_Invoice>();
 			}
 		}
+		
+		public System.Data.Linq.Table<Group_Screen_DK> Group_Screen_DKs
+		{
+			get
+			{
+				return this.GetTable<Group_Screen_DK>();
+			}
+		}
 	}
 	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="")]
@@ -4112,6 +4120,123 @@ namespace DTO
 		{
 			this.SendPropertyChanging();
 			entity.Import_Invoice = null;
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="")]
+	public partial class Group_Screen_DK
+	{
+		
+		private int _id;
+		
+		private string _groupName;
+		
+		private string _screenName;
+		
+		private bool _isRole;
+		
+		private int _groupId;
+		
+		private int _screenId;
+		
+		public Group_Screen_DK()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_id")]
+		public int id
+		{
+			get
+			{
+				return this._id;
+			}
+			set
+			{
+				if ((this._id != value))
+				{
+					this._id = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_groupName", CanBeNull=false)]
+		public string groupName
+		{
+			get
+			{
+				return this._groupName;
+			}
+			set
+			{
+				if ((this._groupName != value))
+				{
+					this._groupName = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_screenName", CanBeNull=false)]
+		public string screenName
+		{
+			get
+			{
+				return this._screenName;
+			}
+			set
+			{
+				if ((this._screenName != value))
+				{
+					this._screenName = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_isRole")]
+		public bool isRole
+		{
+			get
+			{
+				return this._isRole;
+			}
+			set
+			{
+				if ((this._isRole != value))
+				{
+					this._isRole = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_groupId")]
+		public int groupId
+		{
+			get
+			{
+				return this._groupId;
+			}
+			set
+			{
+				if ((this._groupId != value))
+				{
+					this._groupId = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_screenId")]
+		public int screenId
+		{
+			get
+			{
+				return this._screenId;
+			}
+			set
+			{
+				if ((this._screenId != value))
+				{
+					this._screenId = value;
+				}
+			}
 		}
 	}
 }

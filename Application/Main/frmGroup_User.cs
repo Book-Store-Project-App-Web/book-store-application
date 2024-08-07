@@ -33,7 +33,7 @@ namespace Main
                 ReLoad();
             }
         }
-       
+
         private void FrmGroup_User_Load(object sender, EventArgs e)
         {
             dataGridView1.DataSource = blluser.LoadUserDK();
@@ -48,7 +48,7 @@ namespace Main
         {
             int groupId = Convert.ToInt32(comboBox1.SelectedValue.ToString());
             int userId = Convert.ToInt32(dataGridView1.CurrentRow.Cells["id"].Value.ToString());
-            bool kq = bllGr.CheckExistGU(groupId,userId);
+            bool kq = bllGr.CheckExistGU(groupId, userId);
             if (kq == false)
             {
                 bllGr.CreateGU(groupId, userId);
@@ -62,7 +62,7 @@ namespace Main
         {
             int groupId = Convert.ToInt32(dataGridView2.CurrentRow.Cells["groupId"].Value.ToString());
             int userId = Convert.ToInt32(dataGridView2.CurrentRow.Cells["userId"].Value.ToString());
-            if(bllGr.DeleteGU(groupId, userId) != null)
+            if (bllGr.DeleteGU(groupId, userId) != null)
             {
                 MessageBox.Show("Xóa thành công");
                 ReLoad();
