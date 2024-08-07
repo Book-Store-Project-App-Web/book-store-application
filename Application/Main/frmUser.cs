@@ -165,7 +165,6 @@ namespace Main
             txtIdUser.Clear();
             txtPhone.Clear();
             txtEmail.Clear();
-            //txtPassword.Clear();
             cboBoxSex.SelectedIndex = -1;
         }
     }

@@ -11,12 +11,14 @@ using CloudinaryDotNet;
 using CloudinaryDotNet.Actions;
 using BLL;
 using DTO;
+using Utilities;
 
 namespace Main
 {
     public partial class frmBooks : Form
     {
         BLLBook bllBook = new BLLBook();
+        Library lb = new Library();
         private Cloudinary _cloudinary;
 
         private ErrorProvider errorProvider;
@@ -30,17 +32,38 @@ namespace Main
             this.btnSave.Click += BtnSave_Click;
             this.btnUpdateBook.Click += BtnUpdateBook_Click;
             this.btnDeleteBook.Click += BtnDeleteBook_Click;
-            this.dataGridViewBook.CellClick += DataGridViewBook_CellClick;
-            this.txtSearch.TextChanged += TxtSearch_TextChanged;
+            this.dataGridViewBook.CellClick += DataGridViewBook_CellClick; ;
+            this.btnSearch.Click += BtnSearch_Click;
             errorProvider = new ErrorProvider();
         }
 
-        private void TxtSearch_TextChanged(object sender, EventArgs e)
+        private void DataGridViewBook_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            string searchTerm = txtSearch.Text.Trim();
-            LoadGridView(searchTerm);
+
+            btnDeleteBook.Enabled = true;
+            btnUpdateBook.Enabled = true;
+            DataGridViewRow selectedRow = dataGridViewBook.CurrentRow;
+            txtName.Text = selectedRow.Cells["name"].Value?.ToString();
+            txtPrice.Text = selectedRow.Cells["price"].Value?.ToString();
+            txtPageNumber.Text = selectedRow.Cells["pageNumber"].Value?.ToString();
+            txtPublishingYear.Text = selectedRow.Cells["publishingYear"].Value?.ToString();
+            txtStock.Text = selectedRow.Cells["stock"].Value?.ToString();
+            txtAuthor.Text = selectedRow.Cells["author"].Value?.ToString();
+            txtDiscount.Text = selectedRow.Cells["discount"].Value?.ToString();
         }
 
+        private void BtnSearch_Click(object sender, EventArgs e)
+        {
+            string searchTerm = txtSearch.Text.Trim();
+            if(searchTerm != string.Empty)
+            {
+                LoadGridView(searchTerm);
+            }
+            else
+            {
+                LoadGridView();
+            }
+        }
         private void BtnDeleteBook_Click(object sender, EventArgs e)
         {
             if (dataGridViewBook.CurrentRow == null || dataGridViewBook.CurrentRow.Cells["id"].Value == null)
@@ -63,7 +86,7 @@ namespace Main
         }
         private void BtnUpdateBook_Click(object sender, EventArgs e)
         {
-            if (AreControlsValid())
+            if (lb.AreControlsValid(this, errorProvider, "txtName", "txtPrice", "txtPageNumber", "txtPublishingYear", "txtStock", "txtAuthor"))
             {
                 string bookId = dataGridViewBook.CurrentRow.Cells["id"].Value.ToString();
                 string name = txtName.Text;
@@ -99,16 +122,15 @@ namespace Main
             }
         }
 
-
         void LoadGridView(string searchTerm = null)
         {
             SetControlsEnabled(false);
-            var allBooks = bllBook.ListBooks();
-            var booksToDisplay = string.IsNullOrWhiteSpace(searchTerm)
-         ? allBooks
-         : allBooks.Where(b => b.name.IndexOf(searchTerm, StringComparison.OrdinalIgnoreCase) >= 0).ToList();
-
-            dataGridViewBook.DataSource = booksToDisplay;
+            var books = bllBook.ListBooks();
+            if (!string.IsNullOrEmpty(searchTerm))
+            {
+                books = bllBook.SearchBook(searchTerm);
+            }
+            dataGridViewBook.DataSource = books;
             dataGridViewBook.Columns["Image"].Visible = false;
 
             if (dataGridViewBook.Columns["ImageColumn"] == null)
@@ -134,33 +156,25 @@ namespace Main
             cboCate.DataSource = bllBook.ListCateBook();
             cboSupplier.DataSource = bllBook.ListSupBook();
         }
-        void ClearTextBox()
+        void ClearTextBox(Control parent)
         {
-            foreach (Control control in this.Controls)
+            foreach (Control control in parent.Controls)
             {
                 if (control is TextBox textBox)
                 {
                     textBox.Text = string.Empty;
                 }
+                else if (control.HasChildren)
+                {
+                    ClearTextBox(control);
+                }
             }
         }
-        private void DataGridViewBook_CellClick(object sender, DataGridViewCellEventArgs e)
-        {
-            btnDeleteBook.Enabled = true;
-            btnUpdateBook.Enabled = true;
-            DataGridViewRow selectedRow = dataGridViewBook.CurrentRow;
-            txtName.Text = selectedRow.Cells["name"].Value?.ToString();
-            txtPrice.Text = selectedRow.Cells["price"].Value?.ToString();
-            txtPageNumber.Text = selectedRow.Cells["pageNumber"].Value?.ToString();
-            txtPublishingYear.Text = selectedRow.Cells["publishingYear"].Value?.ToString();
-            txtStock.Text = selectedRow.Cells["stock"].Value?.ToString();
-            txtAuthor.Text = selectedRow.Cells["author"].Value?.ToString();
-            txtDiscount.Text = selectedRow.Cells["discount"].Value?.ToString();
-        }
+       
 
         private void BtnSave_Click(object sender, EventArgs e)
         {
-            if (AreControlsValid())
+            if (lb.AreControlsValid(this, errorProvider, "txtName", "txtPrice", "txtPageNumber", "txtPublishingYear", "txtStock", "txtAuthor"))
             {
                 string name = txtName.Text;
                 int supplierId = Convert.ToInt32(cboSupplier.SelectedValue);
@@ -208,7 +222,7 @@ namespace Main
                     {
                         MessageBox.Show("Thêm sách thành công");
                         LoadGridView();
-                        ClearTextBox();
+                        ClearTextBox(this);
                     }
                 } 
                 else
@@ -249,8 +263,8 @@ namespace Main
         {
             SetControlsEnabled(true);
             btnDeleteBook.Enabled = false;
-            btnUpdateBook.Enabled = true;
-            ClearTextBox();
+            btnUpdateBook.Enabled = false;
+            ClearTextBox(this);
         }
 
         private void BtnSelectImage_Click(object sender, EventArgs e)
@@ -267,29 +281,6 @@ namespace Main
                 pictureBox1.Image = Image.FromFile(filePath);
                 pictureBox1.Tag = filePath;
             }
-
-        }
-
-        private bool AreControlsValid()
-        {
-            bool isValid = true;
-            errorProvider.Clear();
-
-            string[] textBoxNames = { "txtName", "txtPrice", "txtPageNumber", "txtPublishingYear", "txtStock" };
-            foreach (string name in textBoxNames)
-            {
-                Control[] controls = this.Controls.Find(name, true);
-                if (controls.Length > 0 && controls[0] is TextBox textBox)
-                {
-                    if (string.IsNullOrWhiteSpace(textBox.Text))
-                    {
-                        errorProvider.SetError(textBox, $"Vui lòng nhập {name.Replace("txt", "")}.");
-                        isValid = false;
-                    }
-                }
-            }
-
-            return isValid;
         }
     }
 }

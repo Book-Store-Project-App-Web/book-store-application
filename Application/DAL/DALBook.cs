@@ -26,9 +26,9 @@ namespace DAL
             str = Regex.Replace(str, @"\s", "-"); // hyphens   
             return str;
         }
-        public List<BookDK> ListBooks()
+        public List<dynamic> ListBooks()
         {
-            return bt.Books.Join(bt.Suppliers, b => b.supplierId, s => s.id, (b, s) => new BookDK
+            return bt.Books.Join(bt.Suppliers, b => b.supplierId, s => s.id, (b, s) => new 
             {
                 image = b.image,
                 name = b.name,
@@ -42,8 +42,26 @@ namespace DAL
                 totalRating = b.totalRating,
                 ratingsAverage = b.ratingsAverage,
                 id = b.id
-            }).ToList();
+            }).ToList<dynamic>();
         }
+        //public List<BookDK> ListBooks()
+        //{
+        //    return bt.Books.Join(bt.Suppliers, b => b.supplierId, s => s.id, (b, s) => new BookDK
+        //    {
+        //        image = b.image,
+        //        name = b.name,
+        //        price = b.price,
+        //        discount = b.discount,
+        //        stock = b.stock,
+        //        author = b.author,
+        //        pageNumber = b.pageNumber,
+        //        publishingYear = b.publishingYear,
+        //        supplier = s.name,
+        //        totalRating = b.totalRating,
+        //        ratingsAverage = b.ratingsAverage,
+        //        id = b.id
+        //    }).ToList();
+        //}
 
         public Book CreatNewBook(Book book)
         {
@@ -132,5 +150,27 @@ namespace DAL
         {
             return bt.Books.FirstOrDefault(b => b.id == idBook);
         }
+        public List<dynamic> SearchBook(string searchItem)
+        {
+            return bt.Books.Where(x => x.name.Contains(searchItem))
+             .Join(bt.Suppliers, b => b.supplierId, s => s.id, (b, s) => new 
+            {
+                image = b.image,
+                name = b.name,
+                price = b.price,
+                discount = b.discount,
+                stock = b.stock,
+                author = b.author,
+                pageNumber = b.pageNumber,
+                publishingYear = b.publishingYear,
+                supplier = s.name,
+                totalRating = b.totalRating,
+                ratingsAverage = b.ratingsAverage,
+                id = b.id
+            })
+            .ToList<dynamic>();
+        }
+        
+
     }
 }
