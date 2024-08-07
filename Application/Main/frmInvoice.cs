@@ -133,6 +133,7 @@ namespace Main
             };
 
             bllInvoice.AddInvoice(invoice);
+            MessageBox.Show("Hóa đơn đã được thêm thành công.");
             RefreshInvoiceList();
             LoadInvoice();
         }
