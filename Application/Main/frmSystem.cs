@@ -15,21 +15,81 @@ namespace Main
     public partial class frmSystem : Form
     {
         private int loggedInUserId;
-        BLLUser GUIUser = new BLLUser();
+        BLLUser bllUser = new BLLUser();
+        BLLGroup bllGroup = new BLLGroup();
+        
         public frmSystem(int userId)
         {
             InitializeComponent();
             loggedInUserId = userId;
-            this.FormClosed += FrmSystem_FormClosed;
+            this.FormClosing += FrmSystem_FormClosing;
             this.Load += FrmSystem_Load;
             this.BookToolStripMenuItem.Click += BookToolStripMenuItem_Click;
             this.CategoriesToolStripMenuItem.Click += CategoriesToolStripMenuItem_Click;
             this.ImportInvoiceToolStripMenuItem.Click += ImportInvoiceToolStripMenuItem_Click;
             this.InvoiceToolStripMenuItem.Click += InvoiceToolStripMenuItem_Click;
             this.AccountToolStripMenuItem.Click += AccountToolStripMenuItem_Click;
-            this.DecentraliAccountToolStripMenuItem.Click += DecentraliAccountToolStripMenuItem_Click;
+            this.PhanQuyenAccountToolStripMenuItem.Click += DecentraliAccountToolStripMenuItem_Click;
+            this.GroupUsersToolStripMenuItem.Click += GroupUsersToolStripMenuItem_Click;
             this.Top10ToolStripMenuItem.Click += Top10ToolStripMenuItem_Click;
             this.StatisticBookSalesToolStripMenuItem.Click += StatisticBookSalesToolStripMenuItem_Click;
+        }
+
+        private void GroupUsersToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (Program.GUForm == null || Program.GUForm.IsDisposed)
+            {
+                Program.GUForm = new frmGroup_User();
+            }
+            Program.GUForm.Show();
+        }
+
+        private bool CheckAllMenuChildVisible(ToolStripItemCollection mnuItems)
+        {
+            foreach (ToolStripItem menuItem in mnuItems)
+            {
+                if (menuItem is ToolStripMenuItem && menuItem.Enabled)
+                {
+                    return true;
+                }
+                else if (menuItem is ToolStripSeparator)
+                {
+                    continue;
+                }
+            }
+            return false;
+        }
+        private void FindMenuPhanQuyen(ToolStripItemCollection mnuItems, string pScreenName, bool pEnable)
+        {
+
+            foreach (ToolStripItem menu in mnuItems)
+            {
+                if (menu is ToolStripMenuItem &&
+                ((ToolStripMenuItem)(menu)).DropDownItems.Count > 0)
+                {
+                    FindMenuPhanQuyen(((ToolStripMenuItem)(menu)).DropDownItems,
+                    pScreenName, pEnable);
+                    menu.Enabled =
+                    CheckAllMenuChildVisible(((ToolStripMenuItem)(menu)).DropDownItems);
+                    menu.Visible = menu.Enabled;
+                }
+                else if (string.Equals(pScreenName, menu.Tag))
+                {
+                    menu.Enabled = pEnable;
+                    menu.Visible = pEnable;
+                }
+            }
+        }
+        private void FrmSystem_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            var result = MessageBox.Show("Bạn có chắc chắn muốn đóng form không?", "Xác nhận đóng form", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
+
+            // Kiểm tra kết quả của MessageBox
+            if (result == DialogResult.Cancel)
+            {
+                // Nếu người dùng nhấn Cancel, hủy sự kiện đóng form
+                e.Cancel = true;
+            }
         }
 
         private void StatisticBookSalesToolStripMenuItem_Click(object sender, EventArgs e)
@@ -41,18 +101,25 @@ namespace Main
             Program.StatiscticBookSales.Show();
         }
 
-        private void FrmSystem_FormClosed(object sender, FormClosedEventArgs e)
-        {
-            this.Close();
-        }
+       
 
         private void FrmSystem_Load(object sender, EventArgs e)
         {
+            List<int> nhomND = bllGroup.GetGroupIdByUserId(loggedInUserId);
+            foreach (int item in nhomND)
+            {
+                DataTable dsManHinh = bllGroup.GetScreen(item);
+                foreach (DataRow mh in dsManHinh.Rows)
+                {
+                    FindMenuPhanQuyen(this.menuStrip2.Items, mh[0].ToString(), Convert.ToBoolean(mh[2].ToString()));
+                }
+            }
+
             LoadStaff();
         }
         public void LoadStaff()
         {
-            var loggedInUser = GUIUser.GetUserById(loggedInUserId);
+            var loggedInUser = bllUser.GetUserById(loggedInUserId);
             if (loggedInUser != null)
             {
                 lbFullname.Text = $"{loggedInUser.firstName} {loggedInUser.lastName}";

@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?><Database Name="Book_Store" Class="BookStoreDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
-  <Connection Mode="AppSettings" ConnectionString="Data Source=LAPTOP-3JB6IQD2;Initial Catalog=Book_Store;Persist Security Info=True;User ID=sa" SettingsObjectName="DTO.Properties.Settings" SettingsPropertyName="Book_StoreConnectionString" Provider="System.Data.SqlClient" />
+  <Connection Mode="AppSettings" ConnectionString="Data Source=DESKTOP-8I1VIDD\SQLEXPRESS;Initial Catalog=book_store;Persist Security Info=True;User ID=sa" SettingsObjectName="DTO.Properties.Settings" SettingsPropertyName="Book_StoreConnectionString" Provider="System.Data.SqlClient" />
   <Table Name="" Member="BookDKs">
     <Type Name="BookDK">
       <Column Name="image" Type="System.String" CanBeNull="false" />
@@ -192,6 +192,16 @@
       <Column Name="updatedAt" Type="System.DateTimeOffset" DbType="DateTimeOffset NOT NULL" CanBeNull="false" />
       <Association Name="Import_Invoice_Book_ImportInvoice" Member="Book_ImportInvoices" ThisKey="id" OtherKey="importInvoiceId" Type="Book_ImportInvoice" />
       <Association Name="User_Import_Invoice" Member="User" ThisKey="userId" OtherKey="id" Type="User" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="" Member="Group_Screen_DKs">
+    <Type Name="Group_Screen_DK">
+      <Column Name="id" Type="System.Int32" CanBeNull="false" />
+      <Column Name="groupName" Type="System.String" CanBeNull="false" />
+      <Column Name="screenName" Type="System.String" CanBeNull="false" />
+      <Column Name="isRole" Type="System.Boolean" CanBeNull="false" />
+      <Column Member="groupId" Type="System.Int32" CanBeNull="false" />
+      <Column Member="screenId" Type="System.Int32" CanBeNull="false" />
     </Type>
   </Table>
 </Database>

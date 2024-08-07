@@ -28,9 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea4 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend4 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series4 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.cbo_Year = new System.Windows.Forms.ComboBox();
             this.cbo_Month = new System.Windows.Forms.ComboBox();
             this.btnStatistic = new System.Windows.Forms.Button();
@@ -80,16 +80,16 @@
             // 
             // chartSellNumber
             // 
-            chartArea4.Name = "ChartArea1";
-            this.chartSellNumber.ChartAreas.Add(chartArea4);
-            legend4.Name = "Legend1";
-            this.chartSellNumber.Legends.Add(legend4);
+            chartArea1.Name = "ChartArea1";
+            this.chartSellNumber.ChartAreas.Add(chartArea1);
+            legend1.Name = "Legend1";
+            this.chartSellNumber.Legends.Add(legend1);
             this.chartSellNumber.Location = new System.Drawing.Point(12, 12);
             this.chartSellNumber.Name = "chartSellNumber";
-            series4.ChartArea = "ChartArea1";
-            series4.Legend = "Legend1";
-            series4.Name = "Series1";
-            this.chartSellNumber.Series.Add(series4);
+            series1.ChartArea = "ChartArea1";
+            series1.Legend = "Legend1";
+            series1.Name = "Series1";
+            this.chartSellNumber.Series.Add(series1);
             this.chartSellNumber.Size = new System.Drawing.Size(441, 263);
             this.chartSellNumber.TabIndex = 12;
             this.chartSellNumber.Text = "chart1";
@@ -125,6 +125,7 @@
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Location = new System.Drawing.Point(12, 281);
             this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.RowTemplate.Height = 24;
             this.dataGridView1.Size = new System.Drawing.Size(755, 300);
             this.dataGridView1.TabIndex = 20;
@@ -145,7 +146,7 @@
             this.Controls.Add(this.chartSellNumber);
             this.Name = "frmStatisticBook_Sales";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Thống kế sách bán";
+            this.Text = "Form Thống Kê Sách Bán";
             ((System.ComponentModel.ISupportInitialize)(this.chartSellNumber)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);

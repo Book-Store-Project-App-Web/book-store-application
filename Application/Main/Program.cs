@@ -44,7 +44,7 @@ namespace Main
             StaticticalTop10Form = new frmStatisticTop10();
             Import_InvoicecForm = new frmImport_Invoicecs(loginForm.LoggedInUserId);
             StatiscticBookSales = new frmStatisticBook_Sales();
-            Application.Run(StatiscticBookSales);
+            Application.Run(loginForm);
         }
     }
 }

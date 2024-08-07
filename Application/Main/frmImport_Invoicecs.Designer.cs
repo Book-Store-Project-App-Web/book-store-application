@@ -323,6 +323,7 @@
             this.totalPrice});
             this.dataGvBook_Import.Location = new System.Drawing.Point(9, 187);
             this.dataGvBook_Import.Name = "dataGvBook_Import";
+            this.dataGvBook_Import.RowHeadersWidth = 51;
             this.dataGvBook_Import.RowTemplate.Height = 24;
             this.dataGvBook_Import.Size = new System.Drawing.Size(727, 203);
             this.dataGvBook_Import.TabIndex = 31;
@@ -330,26 +331,31 @@
             // idBook
             // 
             this.idBook.HeaderText = "Mã sách";
+            this.idBook.MinimumWidth = 6;
             this.idBook.Name = "idBook";
             // 
             // nameBook
             // 
             this.nameBook.HeaderText = "Tên sách";
+            this.nameBook.MinimumWidth = 6;
             this.nameBook.Name = "nameBook";
             // 
             // quantity
             // 
             this.quantity.HeaderText = "Số lượng";
+            this.quantity.MinimumWidth = 6;
             this.quantity.Name = "quantity";
             // 
             // unitPrice
             // 
             this.unitPrice.HeaderText = "Đơn giá";
+            this.unitPrice.MinimumWidth = 6;
             this.unitPrice.Name = "unitPrice";
             // 
             // totalPrice
             // 
             this.totalPrice.HeaderText = "Tổng tiền";
+            this.totalPrice.MinimumWidth = 6;
             this.totalPrice.Name = "totalPrice";
             // 
             // cbBoxIdBook
@@ -436,7 +442,8 @@
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Name = "frmImport_Invoicecs";
-            this.Text = "Phiếu nhập";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Form Phiếu Nhập";
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
