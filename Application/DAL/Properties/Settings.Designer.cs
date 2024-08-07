@@ -12,7 +12,7 @@ namespace DAL.Properties {
     
     
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Editors.SettingsDesigner.SettingsSingleFileGenerator", "16.10.0.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Editors.SettingsDesigner.SettingsSingleFileGenerator", "15.9.0.0")]
     internal sealed partial class Settings : global::System.Configuration.ApplicationSettingsBase {
         
         private static Settings defaultInstance = ((Settings)(global::System.Configuration.ApplicationSettingsBase.Synchronized(new Settings())));
@@ -44,6 +44,19 @@ namespace DAL.Properties {
             }
             set {
                 this["Book_StoreConnectionString3"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=LAPTOP-3JB6IQD2;Initial Catalog=Book_Store;Persist Security Info=True" +
+            ";User ID=sa;Password=sa123")]
+        public string Book_StoreConnectionString1 {
+            get {
+                return ((string)(this["Book_StoreConnectionString1"]));
+            }
+            set {
+                this["Book_StoreConnectionString1"] = value;
             }
         }
     }

@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?><Database Name="Book_Store" Class="BookStoreDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
-  <Connection Mode="AppSettings" ConnectionString="Data Source=LAPTOP-3JB6IQD2;Initial Catalog=Book_Store;Persist Security Info=True;User ID=sa" SettingsObjectName="DTO.Properties.Settings" SettingsPropertyName="Book_StoreConnectionString" Provider="System.Data.SqlClient" />
+  <Connection Mode="AppSettings" ConnectionString="Data Source=LAPTOP-3JB6IQD2;Initial Catalog=Book_Store;Persist Security Info=True;User ID=sa" SettingsObjectName="DTO.Properties.Settings" SettingsPropertyName="Book_StoreConnectionString1" Provider="System.Data.SqlClient" />
   <Table Name="" Member="BookDKs">
     <Type Name="BookDK">
       <Column Name="image" Type="System.String" CanBeNull="false" />
@@ -46,15 +46,6 @@
       <Column Name="updatedAt" Type="System.DateTimeOffset" DbType="DateTimeOffset NOT NULL" CanBeNull="false" />
       <Association Name="Category_Book" Member="Books" ThisKey="id" OtherKey="categoryId" Type="Book" />
       <Association Name="List_Cate_Category" Member="List_Cate" ThisKey="listCateId" OtherKey="id" Type="List_Cate" IsForeignKey="true" />
-    </Type>
-  </Table>
-  <Table Name="dbo.List_Cate" Member="List_Cates">
-    <Type Name="List_Cate">
-      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="name" Type="System.String" DbType="NVarChar(255) NOT NULL" CanBeNull="false" />
-      <Column Name="createdAt" Type="System.DateTimeOffset" DbType="DateTimeOffset NOT NULL" CanBeNull="false" />
-      <Column Name="updatedAt" Type="System.DateTimeOffset" DbType="DateTimeOffset NOT NULL" CanBeNull="false" />
-      <Association Name="List_Cate_Category" Member="Categories" ThisKey="id" OtherKey="listCateId" Type="Category" />
     </Type>
   </Table>
   <Table Name="dbo.Books" Member="Books">
@@ -196,12 +187,21 @@
   </Table>
   <Table Name="" Member="Group_Screen_DKs">
     <Type Name="Group_Screen_DK">
-      <Column Member="id" Type="System.Int32" CanBeNull="false" />
-      <Column Member="groupName" Type="System.String" CanBeNull="false" />
-      <Column Member="screenName" Type="System.String" CanBeNull="false" />
-      <Column Member="isRole" Type="System.Boolean" CanBeNull="false" />
-      <Column Member="groupId" Type="System.Int32" CanBeNull="false" />
-      <Column Member="screenId" Type="System.Int32" CanBeNull="false" />
+      <Column Name="id" Type="System.Int32" CanBeNull="false" />
+      <Column Name="groupName" Type="System.String" CanBeNull="false" />
+      <Column Name="screenName" Type="System.String" CanBeNull="false" />
+      <Column Name="isRole" Type="System.Boolean" CanBeNull="false" />
+      <Column Name="groupId" Type="System.Int32" CanBeNull="false" />
+      <Column Name="screenId" Type="System.Int32" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.List_Cate" Member="List_Cates">
+    <Type Name="List_Cate">
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="name" Type="System.String" DbType="NVarChar(255) NOT NULL" CanBeNull="false" />
+      <Column Name="createdAt" Type="System.DateTimeOffset" DbType="DateTimeOffset NOT NULL" CanBeNull="false" />
+      <Column Name="updatedAt" Type="System.DateTimeOffset" DbType="DateTimeOffset NOT NULL" CanBeNull="false" />
+      <Association Name="List_Cate_Category" Member="Categories" ThisKey="id" OtherKey="listCateId" Type="Category" />
     </Type>
   </Table>
 </Database>

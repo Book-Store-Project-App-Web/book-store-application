@@ -13,5 +13,8 @@
     <Setting Name="Book_StoreConnectionString3" Type="System.String" Scope="User">
       <Value Profile="(Default)">Data Source=DESKTOP-8I1VIDD\SQLEXPRESS;Initial Catalog=book_store;Persist Security Info=True;User ID=sa;Password=123</Value>
     </Setting>
+    <Setting Name="Book_StoreConnectionString1" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Data Source=LAPTOP-3JB6IQD2;Initial Catalog=Book_Store;Persist Security Info=True;User ID=sa;Password=sa123</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

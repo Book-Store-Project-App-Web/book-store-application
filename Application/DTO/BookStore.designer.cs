@@ -36,9 +36,6 @@ namespace DTO
     partial void InsertCategory(Category instance);
     partial void UpdateCategory(Category instance);
     partial void DeleteCategory(Category instance);
-    partial void InsertList_Cate(List_Cate instance);
-    partial void UpdateList_Cate(List_Cate instance);
-    partial void DeleteList_Cate(List_Cate instance);
     partial void InsertBook(Book instance);
     partial void UpdateBook(Book instance);
     partial void DeleteBook(Book instance);
@@ -69,10 +66,13 @@ namespace DTO
     partial void InsertImport_Invoice(Import_Invoice instance);
     partial void UpdateImport_Invoice(Import_Invoice instance);
     partial void DeleteImport_Invoice(Import_Invoice instance);
+    partial void InsertList_Cate(List_Cate instance);
+    partial void UpdateList_Cate(List_Cate instance);
+    partial void DeleteList_Cate(List_Cate instance);
     #endregion
 		
 		public BookStoreDataContext() : 
-				base(global::DTO.Properties.Settings.Default.Book_StoreConnectionString, mappingSource)
+				base(global::DTO.Properties.Settings.Default.Book_StoreConnectionString1, mappingSource)
 		{
 			OnCreated();
 		}
@@ -130,14 +130,6 @@ namespace DTO
 			get
 			{
 				return this.GetTable<Category>();
-			}
-		}
-		
-		public System.Data.Linq.Table<List_Cate> List_Cates
-		{
-			get
-			{
-				return this.GetTable<List_Cate>();
 			}
 		}
 		
@@ -226,6 +218,14 @@ namespace DTO
 			get
 			{
 				return this.GetTable<Group_Screen_DK>();
+			}
+		}
+		
+		public System.Data.Linq.Table<List_Cate> List_Cates
+		{
+			get
+			{
+				return this.GetTable<List_Cate>();
 			}
 		}
 	}
@@ -1006,168 +1006,6 @@ namespace DTO
 		{
 			this.SendPropertyChanging();
 			entity.Category = null;
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.List_Cate")]
-	public partial class List_Cate : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private int _id;
-		
-		private string _name;
-		
-		private System.DateTimeOffset _createdAt;
-		
-		private System.DateTimeOffset _updatedAt;
-		
-		private EntitySet<Category> _Categories;
-		
-    #region Extensibility Method Definitions
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnidChanging(int value);
-    partial void OnidChanged();
-    partial void OnnameChanging(string value);
-    partial void OnnameChanged();
-    partial void OncreatedAtChanging(System.DateTimeOffset value);
-    partial void OncreatedAtChanged();
-    partial void OnupdatedAtChanging(System.DateTimeOffset value);
-    partial void OnupdatedAtChanged();
-    #endregion
-		
-		public List_Cate()
-		{
-			this._Categories = new EntitySet<Category>(new Action<Category>(this.attach_Categories), new Action<Category>(this.detach_Categories));
-			OnCreated();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_id", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
-		public int id
-		{
-			get
-			{
-				return this._id;
-			}
-			set
-			{
-				if ((this._id != value))
-				{
-					this.OnidChanging(value);
-					this.SendPropertyChanging();
-					this._id = value;
-					this.SendPropertyChanged("id");
-					this.OnidChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_name", DbType="NVarChar(255) NOT NULL", CanBeNull=false)]
-		public string name
-		{
-			get
-			{
-				return this._name;
-			}
-			set
-			{
-				if ((this._name != value))
-				{
-					this.OnnameChanging(value);
-					this.SendPropertyChanging();
-					this._name = value;
-					this.SendPropertyChanged("name");
-					this.OnnameChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_createdAt", DbType="DateTimeOffset NOT NULL")]
-		public System.DateTimeOffset createdAt
-		{
-			get
-			{
-				return this._createdAt;
-			}
-			set
-			{
-				if ((this._createdAt != value))
-				{
-					this.OncreatedAtChanging(value);
-					this.SendPropertyChanging();
-					this._createdAt = value;
-					this.SendPropertyChanged("createdAt");
-					this.OncreatedAtChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_updatedAt", DbType="DateTimeOffset NOT NULL")]
-		public System.DateTimeOffset updatedAt
-		{
-			get
-			{
-				return this._updatedAt;
-			}
-			set
-			{
-				if ((this._updatedAt != value))
-				{
-					this.OnupdatedAtChanging(value);
-					this.SendPropertyChanging();
-					this._updatedAt = value;
-					this.SendPropertyChanged("updatedAt");
-					this.OnupdatedAtChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="List_Cate_Category", Storage="_Categories", ThisKey="id", OtherKey="listCateId")]
-		public EntitySet<Category> Categories
-		{
-			get
-			{
-				return this._Categories;
-			}
-			set
-			{
-				this._Categories.Assign(value);
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-		
-		private void attach_Categories(Category entity)
-		{
-			this.SendPropertyChanging();
-			entity.List_Cate = this;
-		}
-		
-		private void detach_Categories(Category entity)
-		{
-			this.SendPropertyChanging();
-			entity.List_Cate = null;
 		}
 	}
 	
@@ -4237,6 +4075,168 @@ namespace DTO
 					this._screenId = value;
 				}
 			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.List_Cate")]
+	public partial class List_Cate : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _id;
+		
+		private string _name;
+		
+		private System.DateTimeOffset _createdAt;
+		
+		private System.DateTimeOffset _updatedAt;
+		
+		private EntitySet<Category> _Categories;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnidChanging(int value);
+    partial void OnidChanged();
+    partial void OnnameChanging(string value);
+    partial void OnnameChanged();
+    partial void OncreatedAtChanging(System.DateTimeOffset value);
+    partial void OncreatedAtChanged();
+    partial void OnupdatedAtChanging(System.DateTimeOffset value);
+    partial void OnupdatedAtChanged();
+    #endregion
+		
+		public List_Cate()
+		{
+			this._Categories = new EntitySet<Category>(new Action<Category>(this.attach_Categories), new Action<Category>(this.detach_Categories));
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_id", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int id
+		{
+			get
+			{
+				return this._id;
+			}
+			set
+			{
+				if ((this._id != value))
+				{
+					this.OnidChanging(value);
+					this.SendPropertyChanging();
+					this._id = value;
+					this.SendPropertyChanged("id");
+					this.OnidChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_name", DbType="NVarChar(255) NOT NULL", CanBeNull=false)]
+		public string name
+		{
+			get
+			{
+				return this._name;
+			}
+			set
+			{
+				if ((this._name != value))
+				{
+					this.OnnameChanging(value);
+					this.SendPropertyChanging();
+					this._name = value;
+					this.SendPropertyChanged("name");
+					this.OnnameChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_createdAt", DbType="DateTimeOffset NOT NULL")]
+		public System.DateTimeOffset createdAt
+		{
+			get
+			{
+				return this._createdAt;
+			}
+			set
+			{
+				if ((this._createdAt != value))
+				{
+					this.OncreatedAtChanging(value);
+					this.SendPropertyChanging();
+					this._createdAt = value;
+					this.SendPropertyChanged("createdAt");
+					this.OncreatedAtChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_updatedAt", DbType="DateTimeOffset NOT NULL")]
+		public System.DateTimeOffset updatedAt
+		{
+			get
+			{
+				return this._updatedAt;
+			}
+			set
+			{
+				if ((this._updatedAt != value))
+				{
+					this.OnupdatedAtChanging(value);
+					this.SendPropertyChanging();
+					this._updatedAt = value;
+					this.SendPropertyChanged("updatedAt");
+					this.OnupdatedAtChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="List_Cate_Category", Storage="_Categories", ThisKey="id", OtherKey="listCateId")]
+		public EntitySet<Category> Categories
+		{
+			get
+			{
+				return this._Categories;
+			}
+			set
+			{
+				this._Categories.Assign(value);
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+		
+		private void attach_Categories(Category entity)
+		{
+			this.SendPropertyChanging();
+			entity.List_Cate = this;
+		}
+		
+		private void detach_Categories(Category entity)
+		{
+			this.SendPropertyChanging();
+			entity.List_Cate = null;
 		}
 	}
 }
