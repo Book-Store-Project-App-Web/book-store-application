@@ -132,6 +132,10 @@ namespace Main
 
         private void BookToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            if (Program.formBooks == null || Program.formBooks.IsDisposed)
+            {
+                Program.formBooks = new frmBooks();
+            }
             Program.formBooks.Show();
         }
         protected override void OnFormClosing(FormClosingEventArgs e)
