@@ -17,7 +17,7 @@ namespace BLL
 
         public BLLBook() { }
 
-        public List<BookDK> ListBooks()
+        public List<dynamic> ListBooks()
         {
             return dalBook.ListBooks();
         }
@@ -96,6 +96,10 @@ namespace BLL
         public Book GetBookById(int idBook)
         {
             return dalBook.GetBookById(idBook);
+        }
+        public List<dynamic> SearchBook(string searchItem)
+        {
+            return dalBook.SearchBook(searchItem);
         }
     }
 }
