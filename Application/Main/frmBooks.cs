@@ -113,10 +113,14 @@ namespace Main
             var books = bllBook.ListBooks();
             if (!string.IsNullOrEmpty(searchTerm))
             {
+               
                 books = bllBook.SearchBook(searchTerm);
             }
             dataGridViewBook.DataSource = books;
-            dataGridViewBook.Columns["Image"].Visible = false;
+            if(dataGridViewBook.Columns["Image"] != null)
+            {
+                dataGridViewBook.Columns["Image"].Visible = false;
+            }
 
             if (dataGridViewBook.Columns["ImageColumn"] == null)
             {

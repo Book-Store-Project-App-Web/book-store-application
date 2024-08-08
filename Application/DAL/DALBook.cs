@@ -138,7 +138,7 @@ namespace DAL
             return bt.Books.Where(x => x.name.Contains(searchItem))
              .Join(bt.Suppliers, b => b.supplierId, s => s.id, (b, s) => new
              {
-                 image = b.image,
+                 //image = b.image,
                  name = b.name,
                  price = b.price,
                  discount = b.discount,
