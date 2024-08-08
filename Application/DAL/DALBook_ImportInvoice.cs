@@ -21,5 +21,15 @@ namespace DAL
             dtContext.Book_ImportInvoices.InsertOnSubmit(bookImportInvoice);
             dtContext.SubmitChanges();
         }
+        public void UpdateImport_Book(Book book)
+        {
+            var existingBook = dtContext.Books.SingleOrDefault(b => b.id == book.id);
+            if (existingBook != null)
+            {
+                existingBook.stock = book.stock;
+                existingBook.price = book.price;
+                dtContext.SubmitChanges();
+            }
+        }
     }
 }
