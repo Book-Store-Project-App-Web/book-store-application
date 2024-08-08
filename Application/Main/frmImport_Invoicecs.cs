@@ -65,37 +65,44 @@ namespace Main
         {
             Import_Invoice importInvoice = new Import_Invoice
             {
-                userId = int.Parse(txtIdUser.Text),
+                userId = loggedInUserId,
                 supplier = txtNameSupplier.Text,
                 totalInvoice = UpdateTotalPriceAll(),
                 createdAt = DateTime.Now
             };
 
-            // Lưu ImportInvoice vào cơ sở dữ liệu và lấy ID của nó
             int importInvoiceId = GUIImport_Invoice.AddImportInvoice(importInvoice);
-            // Lưu từng dòng từ DataGridView vào bảng Book_ImportInvoices
+
             foreach (DataGridViewRow row in dataGvBook_Import.Rows)
             {
                 if (row.Cells["idBook"].Value != null && row.Cells["quantity"].Value != null && row.Cells["unitPrice"].Value != null)
                 {
+                    int bookId = int.Parse(row.Cells["idBook"].Value.ToString());
+                    int quantity = int.Parse(row.Cells["quantity"].Value.ToString());
+                    double unitPrice = double.Parse(row.Cells["unitPrice"].Value.ToString());
+
                     Book_ImportInvoice bookImportInvoice = new Book_ImportInvoice
                     {
                         importInvoiceId = importInvoiceId,
-                        bookId = int.Parse(row.Cells["idBook"].Value.ToString()),
-                        quantity = int.Parse(row.Cells["quantity"].Value.ToString()),
-                        unitPrice = double.Parse(row.Cells["unitPrice"].Value.ToString()),
+                        bookId = bookId,
+                        quantity = quantity,
+                        unitPrice = unitPrice,
                         createdAt = DateTime.Now
                     };
 
-                    // Lưu Book_ImportInvoice vào cơ sở dữ liệu
                     GUIBook_ImportInvoice.AddBook_ImportInvoice(bookImportInvoice);
+
+                    Book book = GUIBooks.GetBookById(bookId);
+                    if (book != null)
+                    {
+                        book.stock += quantity;
+                        GUIBook_ImportInvoice.UpdateImport_Book(book);
+                    }
                 }
             }
             MessageBox.Show("Lưu thành công");
-            // Xóa dữ liệu trên DataGridView
             dataGvBook_Import.Rows.Clear();
 
-            // Xóa các TextBox thông tin sách
             txtNameBook.Clear();
             txtQuantity.Clear();
             txtUnitPriceBook.Clear();
@@ -103,7 +110,6 @@ namespace Main
             txtNameSupplier.Clear();
             txtAddressSupplier.Clear();
             txtPhoneSupplier.Clear();
-
         }
 
         private void BtnEdit_Click(object sender, EventArgs e)

@@ -21,5 +21,9 @@ namespace BLL
         {
             bllBook_ImportInvoice.AddBook_ImportInvoice(bookImportInvoice);
         }
+        public void UpdateImport_Book(Book book)
+        {
+            bllBook_ImportInvoice.UpdateImport_Book(book);
+        }
     }
 }
