@@ -20,7 +20,6 @@
 <p> Thuật toán trên Website: Collaborative Filtering (User - User)  </p>
 <p>Framework: NodeJS, ReactJS</p>
 <p>Ngôn ngữ: Javascript</p>
-<p>Nghiệp vụ</p>
 
 | STT | Nghiệp vụ | Phân công  |
 |----------------|--------------------|--------------------|
@@ -29,7 +28,7 @@
 |  3  |  Quản lý thông tin giỏ hàng [Thêm sách vào giỏ hàng, cập nhật số lượng sách trong giỏ] |  Đạt  |
 |  4  |  Quản lý thông tin đặt hàng [ thanh toán các sản phẩm trong giỏ hàng, xem lịch sử các đơn hàng đã đặt] |  Đạt  |
 
-<p>Application --- .NET LinQ</p>
+<p>Application: Winforms .NET ,LinQ</p>
 <p>Ngôn ngữ: C# </p>
 
 | STT | Nghiệp vụ | Phân công  |
