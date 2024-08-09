@@ -72,7 +72,7 @@ namespace DTO
     #endregion
 		
 		public BookStoreDataContext() : 
-				base(global::DTO.Properties.Settings.Default.Book_StoreConnectionString1, mappingSource)
+				base(global::DTO.Properties.Settings.Default.Book_StoreConnectionString, mappingSource)
 		{
 			OnCreated();
 		}
