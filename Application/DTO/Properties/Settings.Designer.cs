@@ -28,42 +28,9 @@ namespace DTO.Properties {
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
         [global::System.Configuration.DefaultSettingValueAttribute("Data Source=DESKTOP-8I1VIDD\\SQLEXPRESS;Initial Catalog=book_store;Persist Securit" +
             "y Info=True;User ID=sa;Password=123")]
-        public string Book_StoreConnectionString4 {
-            get {
-                return ((string)(this["Book_StoreConnectionString4"]));
-            }
-        }
-        
-        [global::System.Configuration.ApplicationScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
-        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=DESKTOP-8I1VIDD\\SQLEXPRESS;Initial Catalog=book_store;Persist Securit" +
-            "y Info=True;User ID=sa;Password=123")]
-        public string Book_StoreConnectionString5 {
-            get {
-                return ((string)(this["Book_StoreConnectionString5"]));
-            }
-        }
-        
-        [global::System.Configuration.ApplicationScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
-        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=DESKTOP-8I1VIDD\\SQLEXPRESS;Initial Catalog=book_store;Persist Securit" +
-            "y Info=True;User ID=sa;Password=123")]
         public string Book_StoreConnectionString {
             get {
                 return ((string)(this["Book_StoreConnectionString"]));
-            }
-        }
-        
-        [global::System.Configuration.ApplicationScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
-        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=DESKTOP-8I1VIDD\\SQLEXPRESS;Initial Catalog=book_store;Persist Securit" +
-            "y Info=True;User ID=sa;Password=123")]
-        public string Book_StoreConnectionString1 {
-            get {
-                return ((string)(this["Book_StoreConnectionString1"]));
             }
         }
     }

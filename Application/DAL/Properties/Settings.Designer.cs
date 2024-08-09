@@ -33,31 +33,5 @@ namespace DAL.Properties {
                 return ((string)(this["Book_StoreConnectionString"]));
             }
         }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=DESKTOP-8I1VIDD\\SQLEXPRESS;Initial Catalog=book_store;Persist Securit" +
-            "y Info=True;User ID=sa;Password=123")]
-        public string Book_StoreConnectionString3 {
-            get {
-                return ((string)(this["Book_StoreConnectionString3"]));
-            }
-            set {
-                this["Book_StoreConnectionString3"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=DESKTOP-8I1VIDD\\SQLEXPRESS;Initial Catalog=book_store;Persist Securit" +
-            "y Info=True;User ID=sa;Password=123")]
-        public string Book_StoreConnectionString1 {
-            get {
-                return ((string)(this["Book_StoreConnectionString1"]));
-            }
-            set {
-                this["Book_StoreConnectionString1"] = value;
-            }
-        }
     }
 }
